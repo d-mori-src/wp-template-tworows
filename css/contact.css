@@ -1,0 +1,213 @@
+.contact {
+  margin: 80px auto 0;
+}
+
+.contact .intro {
+  margin: 0 0 24px 0;
+}
+
+.contact .intro p {
+  text-align: justify;
+  font-size: 13px;
+  line-height: 1.8;
+  letter-spacing: 0.5px;
+}
+
+.contact .intro p span {
+  display: block;
+  font-size: 11px;
+  color: #707070;
+  margin: 12px 0 0 0;
+}
+
+.contact .contents form dl dt {
+  font-size: 12px;
+  font-weight: bold;
+  margin: 0 0 12px 0;
+}
+
+.contact .contents form dl dt span {
+  font-size: 10px;
+  font-weight: 300;
+  color: #fff;
+  margin: 0 0 0 12px;
+  padding: 1px 5px 2px;
+  background: #BA5042;
+}
+
+.contact .contents form dl dd .input {
+  font-size: 14px;
+  width: 100%;
+  padding: 20px;
+  border: 1px solid #E6E6E6;
+  background: #F8F8F8;
+  outline: none;
+}
+
+.contact .contents form dl dd textarea {
+  height: 400px;
+  resize: vertical;
+}
+
+.contact .contents form .requiredForm {
+  margin: 0 0 24px 0;
+}
+
+.contact .contents form .anyForm {
+  margin: 0 0 40px 0;
+  padding: 32px 20px;
+  border: 1px solid #EBEBEB;
+  border-radius: 6px;
+}
+
+.contact .contents form .anyForm dl {
+  margin: 0 0 12px 0;
+  padding: 0 0 12px 0;
+  border-bottom: 1px solid #EBEBEB;
+}
+
+.contact .contents form .anyForm dl dt span {
+  background: #707070;
+}
+
+.contact .contents form .anyForm .lastForm {
+  margin: 0 0 24px 0;
+  padding: 0;
+  border-bottom: none;
+}
+
+.contact .contents form .anyForm p {
+  font-size: 12px;
+}
+
+.contact .contents form .privacyCheck {
+  width: 76%;
+  margin: 0 auto 32px;
+}
+
+.contact .contents form .privacyCheck label {
+  font-size: 13px;
+  letter-spacing: 0;
+  position: relative;
+  cursor: pointer;
+  padding: 0 0 0 30px;
+}
+
+.contact .contents form .privacyCheck label a {
+  color: #C1AC8F;
+  text-decoration: underline;
+}
+
+.contact .contents form .privacyCheck label::before,
+.contact .contents form .privacyCheck label::after {
+  content: "";
+  display: block;
+  position: absolute;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  top: 50%;
+}
+
+.contact .contents form .privacyCheck label::before {
+  background: #F8F8F8;
+  border: 1px solid #E6E6E6;
+  width: 20px;
+  height: 20px;
+}
+
+.contact .contents form .privacyCheck label::after {
+  background: #C1AC8F;
+  opacity: 0;
+  width: 18px;
+  height: 18px;
+  left: 2px;
+}
+
+.contact .contents form .privacyCheck input:checked + label::after {
+  opacity: 1;
+}
+
+.contact .contents form .privacyCheck .visuallyHidden {
+  position: absolute;
+  white-space: nowrap;
+  border: 0;
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(50%);
+          clip-path: inset(50%);
+  overflow: hidden;
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+}
+
+.contact .contents form .submit {
+  display: block;
+  font-size: 11px;
+  color: #474645;
+  width: 216px;
+  margin: 0 auto;
+  padding: 18px 0;
+  border: 1px solid #474645;
+  background: none;
+}
+
+@media screen and (min-width: 1024px) {
+  .contact .intro {
+    margin: 0 0 40px 0;
+  }
+  .contact .contents form dl dt {
+    font-size: 14px;
+    margin: 0 0 18px 0;
+  }
+  .contact .contents form dl dt span {
+    margin: 0 0 0 24px;
+  }
+  .contact .contents form dl dd .input {
+    padding: 16px;
+    border: 1px solid #E6E6E6;
+  }
+  .contact .contents form dl dd textarea {
+    height: 260px;
+  }
+  .contact .contents form .requiredForm {
+    margin: 0 0 40px 0;
+  }
+  .contact .contents form .anyForm {
+    padding: 42px 40px;
+    border-radius: 12px;
+  }
+  .contact .contents form .anyForm .first {
+    padding: 0 0 12px 0;
+  }
+  .contact .contents form .anyForm dl {
+    margin: 0 0 20px 0;
+    padding: 0 0 20px 0;
+  }
+  .contact .contents form .anyForm .lastForm {
+    margin: 0 0 24px 0;
+    padding: 0;
+    border-bottom: none;
+  }
+  .contact .contents form .anyForm p {
+    font-size: 12px;
+  }
+  .contact .contents form .privacyCheck {
+    width: 60%;
+    margin: 0 auto 56px;
+  }
+  .contact .contents form .privacyCheck label {
+    font-size: 14px;
+  }
+  .contact .contents form .submit {
+    font-size: 14px;
+    padding: 16px 0;
+  }
+}
+
+@media screen and (min-width: 1120px) {
+  .contact {
+    margin: 120px auto;
+  }
+}
+/*# sourceMappingURL=contact.css.map */

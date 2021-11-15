@@ -1,0 +1,180 @@
+.news {
+    .newsItems {
+        .newsItem {
+            margin: 0 0 20px 0;
+            padding: 0 0 20px 0;
+            border-bottom: 1px solid #EBEBEB;
+            .titleWrapper {
+                .title {
+                    display: block;
+                    text-align: justify;
+                    font-size: 16px;
+                    font-weight: 500;
+                    line-height: 1.5;
+                    margin: 0 0 4px 0;
+                }
+                .event_tag { color: #99BB05; }
+                .gourmets_tag { color: #EE9E30; }
+                .shop_tag { color: #2974ED; }
+                .sweets_tag { color: #22C9DE; }
+                .news_tag { color: #25AEBE; }
+                .family_tag { color: #E66616; }
+                .lunch_tag { color: #F4D217; }
+                .weekend_tag { color: #AB76CC; }
+                .features_tag { color: #BB7777; }
+                .lead {
+                    display: block;
+                    text-align: justify;
+                    font-size: 12px;
+                    line-height: 1.7;
+                    margin: 0 0 16px 0;
+                }
+            }
+            .newsItemImage {
+                width: 100%;
+                height: 190px;
+                object-fit: cover;
+                margin: 0 0 16px 0;
+                border-radius: 8px;
+            }
+            .newsItemText {    
+                .pcTitleWrapper {
+                    display: none
+                }          
+                .newsItemUnder {
+                    display: flex;
+                    justify-content: space-between;
+                    .left-newsItemUnder {
+                        p {
+                            font-size: 10px;
+                            &::before {
+                                content: "●";
+                                margin: 0 4px 0 0;
+                            }
+                        }
+                        .event_tag::before { color: #99BB05; }
+                        .gourmets_tag::before { color: #EE9E30; }
+                        .shop_tag::before { color: #2974ED; }
+                        .sweets_tag::before { color: #22C9DE; }
+                        .news_tag::before { color: #25AEBE; }
+                        .family_tag::before { color: #E66616; }
+                        .lunch_tag::before { color: #F4D217; }
+                        .weekend_tag::before { color: #AB76CC; }
+                        .features_tag::before { color: #BB7777; }
+                    }
+                    .right-newsItemUnder {
+                        .timestamp {
+                            font-size: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (min-width:768px) {
+    .news {
+        .newsItems {
+            .newsItem {
+                display: flex;
+                margin: 0 0 32px 0;
+                padding: 0 0 32px 0;
+                .titleWrapper {
+                    display: none;
+                }
+                .newsItemImageWrapper {
+                    width: 100%;
+                    height: 180px;
+                    margin: 0 32px 0 0;
+                    .newsItemImage {
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 8px;
+                    }
+                }
+                .newsItemText {    
+                    width: 100%;
+                    .pcTitleWrapper {
+                        display: block;
+                        .title {
+                            display: block;
+                            text-align: justify;
+                            font-size: 16px;
+                            font-weight: 500;
+                            line-height: 1.5;
+                            margin: 0 0 8px 0;
+                        }
+                        .event_tag { color: #99BB05; }
+                        .gourmets_tag { color: #EE9E30; }
+                        .shop_tag { color: #2974ED; }
+                        .sweets_tag { color: #22C9DE; }
+                        .news_tag { color: #25AEBE; }
+                        .family_tag { color: #E66616; }
+                        .lunch_tag { color: #F4D217; }
+                        .weekend_tag { color: #AB76CC; }
+                        .features_tag { color: #BB7777; }
+                        .lead {
+                            display: block;
+                            text-align: justify;
+                            font-size: 12px;
+                            line-height: 1.7;
+                            margin: 0 0 24px 0;
+                        }
+                    }          
+                    .newsItemUnder {
+                        display: flex;
+                        justify-content: space-between;
+                        .left-newsItemUnder {
+                            p {
+                                font-size: 10px;
+                                &::before {
+                                    content: "●";
+                                    margin: 0 4px 0 0;
+                                }
+                            }
+                            .event_tag::before { color: #99BB05; }
+                            .gourmets_tag::before { color: #EE9E30; }
+                            .shop_tag::before { color: #2974ED; }
+                            .sweets_tag::before { color: #22C9DE; }
+                            .news_tag::before { color: #25AEBE; }
+                            .family_tag::before { color: #E66616; }
+                            .lunch_tag::before { color: #F4D217; }
+                            .weekend_tag::before { color: #AB76CC; }
+                            .features_tag::before { color: #BB7777; }
+                        }
+                        .right-newsItemUnder {
+                            .timestamp {
+                                font-size: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (min-width:1024px) {
+
+}
+@media screen and (min-width:1120px) {
+    .news {
+        .newsItems {
+            .newsItem {
+                .newsItemImageWrapper {
+                    margin: 0 40px 0 0;
+                }
+                .newsItemText {    
+                    .pcTitleWrapper {
+                        .title {
+                            font-size: 18px;
+                            margin: 0 0 16px 0;
+                        }
+                        .lead {
+                            font-size: 14px;
+                        }
+                    }          
+                }
+            }
+        }
+    }
+}

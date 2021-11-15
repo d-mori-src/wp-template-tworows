@@ -1,0 +1,69 @@
+.slide-set {
+    .slide {
+        display: none;
+    }
+    .active {
+        display: block;
+        width: 100%;
+        margin: 0 auto;
+        img {
+            width: 100%;
+        }
+        .allow-set {
+            position: relative;
+            .button {
+                text-align: center;
+                font-size: 14px;
+                font-weight: bold;
+                color: #19A56F;
+                width: 64px;
+                padding: 4px 8px;
+                border: 1px solid #19A56F;
+                border-radius: 30px;
+            }
+            .prev {
+                position: absolute;
+                top: 0;
+                left: 0;
+                span {
+                    font-size: 12px;
+                    position: absolute;
+                    left: 6px;
+                }
+            }
+            .now {
+                color: #fff;
+                background: #19A56F;
+                position: absolute;
+                top: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                -webkit-transform: translateX(-50%);
+                -ms-transform: translateX(-50%);
+            }
+            .next {
+                position: absolute;
+                top: 0;
+                right: 0;
+                span {
+                    font-size: 12px;
+                    position: absolute;
+                    right: 6px;
+                }
+            }
+        }
+        .calender {
+            margin: 44px 0 64px 0;
+        }
+        .dammy {
+            opacity: .2;
+        }
+    }
+    @media screen and (min-width:768px) {
+        width: 46%;
+    }
+    @media screen and (min-width:1080px) {
+    }
+    @media screen and (min-width:1366px) {
+    }
+}

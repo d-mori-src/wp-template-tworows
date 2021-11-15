@@ -1,0 +1,108 @@
+.newShop {
+    .shopItems {
+        padding: 0 0 0 20px;
+        display: flex;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        -ms-overflow-style: none;    /* IE, Edge 対応 */
+        scrollbar-width: none;       /* Firefox 対応 */
+        &::-webkit-scrollbar {  /* Chrome, Safari 対応 */
+            display:none;
+        }
+        .shopItem {
+            display: block;
+            min-width: 40%;
+            margin: 0 16px 0 0;
+            padding: 0;
+            .shopItemImage {
+                width: 100%;
+                height: 84px;
+                object-fit: cover;
+                margin: 0 0 12px 0;
+            }
+            .shopItemText {
+                width: 100%;
+                .title {
+                    display: block;
+                    text-align: justify;
+                    font-size: 12px;
+                    line-height: 1.7;
+                    margin: 0 0 12px 0;
+                }
+                .shopItemUnder {
+                    display: flex;
+                    justify-content: space-between;
+                    .left-shopItemUnder {
+                        p {
+                            font-size: 10px;
+                        }
+                    }
+                    .right-shopItemUnder {
+                        .timestamp {
+                            font-size: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @media screen and (min-width:768px) {
+        width: 640px;
+        margin: 0 auto;
+        padding: 0;
+        .shopItems {
+            padding: 0;
+            .shopItem {
+                min-width: 30%;
+                margin: 0 32px 0 0;
+                padding: 0;
+                .shopItemImage {
+                    height: 120px;
+                }
+            }
+        }
+    }
+    @media screen and (min-width:1024px) {
+        width: 100%;
+        .shopItems {
+            display: block;
+            .shopItem {
+                display: flex;
+                justify-content: space-between;
+                margin: 0 0 8px 0;
+                padding: 0 0 8px 0;
+                border-bottom: 1px solid #EBEBEB;
+                .shopItemImage {
+                    width: 50px;
+                    height: 50px;
+                    object-fit: cover;
+                    margin: 0;
+                }
+                .shopItemText {
+                    width: 70%;
+                    .title {
+                        display: block;
+                        text-align: justify;
+                        font-size: 12px;
+                        line-height: 1.7;
+                        margin: 0;
+                    }
+                    .shopItemUnder {
+                        display: flex;
+                        justify-content: space-between;
+                        .left-shopItemUnder {
+                            p {
+                                font-size: 10px;
+                            }
+                        }
+                        .right-shopItemUnder {
+                            .timestamp {
+                                font-size: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

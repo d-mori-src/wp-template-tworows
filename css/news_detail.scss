@@ -1,0 +1,58 @@
+.newsDetail {
+    margin: 80px auto 0;
+    .innerNewsDetail {
+        text-align: justify;
+        padding: 0;
+        h1 {
+            font-size: 18px;
+            font-weight: 500;
+            color: #99BB05;
+            line-height: 1.4;
+            margin: 0 0 16px 0;
+        }
+        .event_tag { color: #99BB05; }
+        .gourmets_tag { color: #EE9E30; }
+        .shop_tag { color: #2974ED; }
+        .sweets_tag { color: #22C9DE; }
+        .news_tag { color: #25AEBE; }
+        .family_tag { color: #E66616; }
+        .lunch_tag { color: #F4D217; }
+        .weekend_tag { color: #AB76CC; }
+        .features_tag { color: #BB7777; }
+        .lead {
+            font-size: 12px;
+            line-height: 1.7;
+            margin: 0 0 16px 0;
+        }
+        .imageEdge {
+            margin: 0 0 16px 0;
+            border: 1px solid #eee;
+            background: #fff;
+            .newsItemImage {
+                width: 100%;
+                padding: 8px;
+            }
+        }
+        .lead {
+            font-size: 12px;
+            line-height: 1.7;
+            margin: 0 0 16px 0;
+        }
+        .timestamp {
+            font-size: 10px;
+            margin: 0 0 16px 0;
+        }
+    }
+    @media screen and (min-width:768px) {
+        .innerNewsDetail {
+            width: 100%;
+            margin: 0 auto;
+            padding: 0;
+        }
+    }
+    @media screen and (min-width:1024px) {
+    }
+    @media screen and (min-width:1120px) {
+        margin: 120px auto;
+    }
+}

@@ -1,0 +1,78 @@
+.slide-set .slide {
+  display: none;
+}
+
+.slide-set .active {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.slide-set .active img {
+  width: 100%;
+}
+
+.slide-set .active .allow-set {
+  position: relative;
+}
+
+.slide-set .active .allow-set .button {
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  color: #19A56F;
+  width: 64px;
+  padding: 4px 8px;
+  border: 1px solid #19A56F;
+  border-radius: 30px;
+}
+
+.slide-set .active .allow-set .prev {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.slide-set .active .allow-set .prev span {
+  font-size: 12px;
+  position: absolute;
+  left: 6px;
+}
+
+.slide-set .active .allow-set .now {
+  color: #fff;
+  background: #19A56F;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+}
+
+.slide-set .active .allow-set .next {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.slide-set .active .allow-set .next span {
+  font-size: 12px;
+  position: absolute;
+  right: 6px;
+}
+
+.slide-set .active .calender {
+  margin: 44px 0 64px 0;
+}
+
+.slide-set .active .dammy {
+  opacity: .2;
+}
+
+@media screen and (min-width: 768px) {
+  .slide-set {
+    width: 46%;
+  }
+}
+/*# sourceMappingURL=slide_orijinal.css.map */

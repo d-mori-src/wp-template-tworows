@@ -1,0 +1,156 @@
+.mail_magazine {
+    margin: 80px auto 0;
+    .intro {
+        margin: 0 0 16px 0;
+        .titleImage {
+            width: 100%;
+            height: auto;
+            margin: 0 0 16px 0;
+        }
+        p {
+            text-align: justify;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+    }
+    .contents {
+        p {
+            text-align: justify;
+            font-size: 13px;
+            line-height: 1.8;
+            margin: 0 0 16px 0;
+        }
+        ul {
+            margin: 0 0 16px 0;
+            li {
+                display: flex;
+                font-size: 12px;
+                line-height: 1.8;
+                letter-spacing: 0.5px;
+                span {
+                    margin: 0 4px 0 0;
+                }
+            }
+        }
+        ul.frame {
+            margin: 0;
+            padding: 10px 14px 14px;
+            background: #fff;
+        }
+        ul.bigTitle {
+            margin: 0 0 24px 0;
+            li {
+                span {
+                    width: 12%;
+                }
+                .address {
+                    width: 88%;
+                }
+            }
+        }
+        .register {
+            margin: 0 0 24px 0;
+            padding: 20px;
+            border-radius: 6px;
+            background: #EBEBEB;
+            h3 {
+                font-size: 16px;
+                font-weight: 500;
+                margin: 0 0 16px 0;
+            }
+            h4 {
+                font-size: 11px;
+                font-weight: 500;
+                margin: 0 0 8px 0;
+            }
+            form {
+                margin: 0 0 24px 0;
+                .formSet {
+                    .formTitle {
+                        font-size: 12px;
+                        font-weight: bold;
+                        margin: 0 0 8px 0;
+                    }
+                    .formItem {
+                        .input {
+                            font-size: 12px;
+                            line-height: 1.4;
+                            width: 80%;
+                            padding: 14px;
+                            border: none;
+                            border-radius: 4px 0 0 4px;
+                            background: #fff;
+                            outline: none;
+                        }
+                        .mailbtn {
+                            font-size: 12px;
+                            line-height: 1.4;
+                            color: #fff;
+                            width: 20%;
+                            padding: 14px;
+                            border: none;
+                            border-radius: 0 4px 4px 0;
+                            background: #333;
+                        }
+                    }
+                }
+            }
+            .nomargin {
+                margin: 0;
+            }
+        }
+    }
+    @media screen and (min-width:1024px) {
+        .intro {
+            margin: 0 0 32px 0;
+        }
+        .contents {
+            ul {
+                margin: 0 0 32px 0;
+            }
+            ul.frame {
+                padding: 20px;
+            }
+            ul.bigTitle {
+                margin: 0 0 40px 0;
+            }
+            .register {
+                margin: 0 0 40px 0;
+                padding: 32px;
+                border-radius: 12px;
+                h3 {
+                    font-size: 18px;
+                    margin: 0 0 22px 0;
+                }
+                h4 {
+                    font-size: 14px;
+                    margin: 0 0 10px 0;
+                }
+                form {
+                    margin: 0 0 40px 0;
+                    .formSet {
+                        .formTitle {
+                            font-size: 14px;
+                            margin: 0 0 10px 0;
+                        }
+                        .formItem {
+                            .input {
+                                font-size: 16px;
+                                padding: 16px 16px 16px 20px;
+                                border-radius: 8px 0 0 8px;
+                            }
+                            .mailbtn {
+                                font-size: 16px;
+                                padding: 16px;
+                                border-radius: 0 8px 8px 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @media screen and (min-width:1120px) {
+        margin: 120px auto;
+    }
+}

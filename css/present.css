@@ -1,0 +1,85 @@
+.present {
+  margin: 80px auto 0;
+}
+
+.present .presentContents .headTitle .presentIcon {
+  height: 16px;
+  position: relative;
+}
+
+.present .presentContents .presentItems .presentItem {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 0 0 20px 0;
+  padding: 0 0 14px 0;
+  border-bottom: 1px solid #EBEBEB;
+}
+
+.present .presentContents .presentItems .presentItem:last-child {
+  margin: 0;
+  border-bottom: none;
+}
+
+.present .presentContents .presentItems .presentItem .leftPresent {
+  display: block;
+  width: 30%;
+}
+
+.present .presentContents .presentItems .presentItem .leftPresent .number {
+  text-align: center;
+  font-size: 12px;
+  color: #fff;
+  padding: 4px;
+  width: 100%;
+  background: #BB7777;
+}
+
+.present .presentContents .presentItems .presentItem .leftPresent .presentImage {
+  width: 100%;
+  height: 68px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.present .presentContents .presentItems .presentItem .rightPresent {
+  display: block;
+  text-align: justify;
+  width: 64%;
+  font-size: 12px;
+  line-height: 1.7;
+  position: relative;
+  bottom: 4px;
+}
+
+.present .presentContents .presentItems .presentItem .rightPresent span {
+  display: block;
+  color: #BB7777;
+  margin: 14px 0 0 0;
+}
+
+@media screen and (min-width: 1024px) {
+  .present .presentContents .presentItems .presentItem {
+    margin: 0 0 24px 0;
+    padding: 0 0 18px 0;
+  }
+  .present .presentContents .presentItems .presentItem .leftPresent {
+    width: 132px;
+  }
+  .present .presentContents .presentItems .presentItem .leftPresent .number {
+    font-size: 14px;
+  }
+  .present .presentContents .presentItems .presentItem .rightPresent span {
+    margin: 20px 0 0 0;
+  }
+}
+
+@media screen and (min-width: 1120px) {
+  .present {
+    margin: 120px auto;
+  }
+}
+/*# sourceMappingURL=present.css.map */

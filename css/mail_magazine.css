@@ -1,0 +1,168 @@
+.mail_magazine {
+  margin: 80px auto 0;
+}
+
+.mail_magazine .intro {
+  margin: 0 0 16px 0;
+}
+
+.mail_magazine .intro .titleImage {
+  width: 100%;
+  height: auto;
+  margin: 0 0 16px 0;
+}
+
+.mail_magazine .intro p {
+  text-align: justify;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.mail_magazine .contents p {
+  text-align: justify;
+  font-size: 13px;
+  line-height: 1.8;
+  margin: 0 0 16px 0;
+}
+
+.mail_magazine .contents ul {
+  margin: 0 0 16px 0;
+}
+
+.mail_magazine .contents ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 12px;
+  line-height: 1.8;
+  letter-spacing: 0.5px;
+}
+
+.mail_magazine .contents ul li span {
+  margin: 0 4px 0 0;
+}
+
+.mail_magazine .contents ul.frame {
+  margin: 0;
+  padding: 10px 14px 14px;
+  background: #fff;
+}
+
+.mail_magazine .contents ul.bigTitle {
+  margin: 0 0 24px 0;
+}
+
+.mail_magazine .contents ul.bigTitle li span {
+  width: 12%;
+}
+
+.mail_magazine .contents ul.bigTitle li .address {
+  width: 88%;
+}
+
+.mail_magazine .contents .register {
+  margin: 0 0 24px 0;
+  padding: 20px;
+  border-radius: 6px;
+  background: #EBEBEB;
+}
+
+.mail_magazine .contents .register h3 {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0 0 16px 0;
+}
+
+.mail_magazine .contents .register h4 {
+  font-size: 11px;
+  font-weight: 500;
+  margin: 0 0 8px 0;
+}
+
+.mail_magazine .contents .register form {
+  margin: 0 0 24px 0;
+}
+
+.mail_magazine .contents .register form .formSet .formTitle {
+  font-size: 12px;
+  font-weight: bold;
+  margin: 0 0 8px 0;
+}
+
+.mail_magazine .contents .register form .formSet .formItem .input {
+  font-size: 12px;
+  line-height: 1.4;
+  width: 80%;
+  padding: 14px;
+  border: none;
+  border-radius: 4px 0 0 4px;
+  background: #fff;
+  outline: none;
+}
+
+.mail_magazine .contents .register form .formSet .formItem .mailbtn {
+  font-size: 12px;
+  line-height: 1.4;
+  color: #fff;
+  width: 20%;
+  padding: 14px;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  background: #333;
+}
+
+.mail_magazine .contents .register .nomargin {
+  margin: 0;
+}
+
+@media screen and (min-width: 1024px) {
+  .mail_magazine .intro {
+    margin: 0 0 32px 0;
+  }
+  .mail_magazine .contents ul {
+    margin: 0 0 32px 0;
+  }
+  .mail_magazine .contents ul.frame {
+    padding: 20px;
+  }
+  .mail_magazine .contents ul.bigTitle {
+    margin: 0 0 40px 0;
+  }
+  .mail_magazine .contents .register {
+    margin: 0 0 40px 0;
+    padding: 32px;
+    border-radius: 12px;
+  }
+  .mail_magazine .contents .register h3 {
+    font-size: 18px;
+    margin: 0 0 22px 0;
+  }
+  .mail_magazine .contents .register h4 {
+    font-size: 14px;
+    margin: 0 0 10px 0;
+  }
+  .mail_magazine .contents .register form {
+    margin: 0 0 40px 0;
+  }
+  .mail_magazine .contents .register form .formSet .formTitle {
+    font-size: 14px;
+    margin: 0 0 10px 0;
+  }
+  .mail_magazine .contents .register form .formSet .formItem .input {
+    font-size: 16px;
+    padding: 16px 16px 16px 20px;
+    border-radius: 8px 0 0 8px;
+  }
+  .mail_magazine .contents .register form .formSet .formItem .mailbtn {
+    font-size: 16px;
+    padding: 16px;
+    border-radius: 0 8px 8px 0;
+  }
+}
+
+@media screen and (min-width: 1120px) {
+  .mail_magazine {
+    margin: 120px auto;
+  }
+}
+/*# sourceMappingURL=mail_magazine.css.map */

@@ -1,0 +1,16 @@
+.bottomSlidein {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: translateY(50px);
+          transform: translateY(50px);
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+.bottomSlidein.is-show {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: translateY(0px);
+          transform: translateY(0px);
+}
+/*# sourceMappingURL=bottomSlidein.css.map */

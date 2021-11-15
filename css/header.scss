@@ -1,0 +1,89 @@
+header{
+    background: #FDFDFD;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.06));
+    padding: 12px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    .innerHeader {
+        display: flex;
+        justify-content: space-between;
+        .logo {
+            width: auto;
+            height: 32px;
+        }
+        ul.pc-navi {
+            display: none;
+        }
+        ul.icon {
+            display: flex;
+            li {
+                text-align: center;
+                margin: 0 0 0 16px;
+                a {
+                    img {
+                        height: 18px;
+                    }
+                    span {
+                        display: block;
+                        font-size: 10px;
+                        letter-spacing: 0;
+                        margin: 2px 0 0 0;
+                    }
+                }
+            }
+        }
+    }
+    @media screen and (min-width:768px) {
+        .innerHeader {
+            width: 640px;
+            margin: 0 auto;
+            ul.pc-navi {
+                text-align: center;
+                display: flex;
+                align-items: center;
+                position: relative;
+                top: 2px;
+                li {
+                    margin: 0 10px;
+                    a {
+                        font-size: 12px;
+                        letter-spacing: 0;
+                        span {
+                            display: block;
+                            font-family: 'Josefin Sans', sans-serif;
+                            font-size: 10px;
+                        }
+                        .eventLink { color: #99BB05; }
+                        .groumetLink { color: #EE9E30; }
+                        .newsLink { color: #25AEBE; }
+                        .featureLink { color: #BB7777; }
+                    }
+                }
+            }
+            ul.icon {
+                right: 0;
+            }
+        }
+    }
+    @media screen and (min-width:1024px) {
+        .innerHeader {
+            width: 880px;
+            ul.pc-navi {
+                li {
+                    margin: 0 16px;
+                    a {
+                        font-size: 13px;
+                    }
+                }
+            }
+        }
+    }
+    @media screen and (min-width:1120px) {
+        .innerHeader {
+            width: 960px;
+        }
+    }
+}

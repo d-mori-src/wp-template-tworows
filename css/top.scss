@@ -1,0 +1,9 @@
+.hero {
+    margin: 56px auto 24px;
+    @media screen and (min-width:1024px) {
+        margin: 56px auto 48px;
+    }
+}
+.top {
+    margin: 20px auto 0;
+}
