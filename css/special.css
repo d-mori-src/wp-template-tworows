@@ -16,7 +16,7 @@
 @media screen and (min-width: 768px) {
   .special {
     width: 640px;
-    margin: 0 auto;
+    margin: 0 auto 24px;
   }
   .special .specialItems {
     padding: 0;

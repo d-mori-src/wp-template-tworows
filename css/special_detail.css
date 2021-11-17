@@ -1,5 +1,5 @@
 .specialDetail {
-  margin: 56px auto;
+  margin: 84px auto;
   padding: 0;
 }
 
@@ -70,9 +70,6 @@
 }
 
 @media screen and (min-width: 768px) {
-  .specialDetail {
-    margin: 80px auto;
-  }
   .specialDetail .specialMainImage {
     width: 100%;
     height: auto;
@@ -91,7 +88,7 @@
   }
 }
 
-@media screen and (min-width: 1120px) {
+@media screen and (min-width: 1024px) {
   .specialDetail {
     margin: 120px auto;
   }

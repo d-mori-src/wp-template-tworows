@@ -1,5 +1,5 @@
 .institution {
-  margin: 80px auto 0;
+  margin: 100px auto 0;
 }
 
 .institution .intro .headTitle .institutionIcon {
@@ -40,6 +40,9 @@
 }
 
 @media screen and (min-width: 1024px) {
+  .institution {
+    margin: 120px auto;
+  }
   .institution .intro .headTitle .institutionIcon {
     font-size: 18px;
   }
@@ -48,12 +51,6 @@
   }
   .institution .contents ul li a {
     font-size: 16px;
-  }
-}
-
-@media screen and (min-width: 1120px) {
-  .institution {
-    margin: 120px auto;
   }
 }
 /*# sourceMappingURL=institution.css.map */

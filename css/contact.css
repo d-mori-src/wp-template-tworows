@@ -1,5 +1,5 @@
 .contact {
-  margin: 80px auto 0;
+  margin: 100px auto 0;
 }
 
 .contact .intro {
@@ -40,7 +40,7 @@
   width: 100%;
   padding: 20px;
   border: 1px solid #E6E6E6;
-  background: #F8F8F8;
+  background: #fff;
   outline: none;
 }
 
@@ -81,7 +81,7 @@
 }
 
 .contact .contents form .privacyCheck {
-  width: 76%;
+  width: 72%;
   margin: 0 auto 32px;
 }
 
@@ -109,7 +109,7 @@
 }
 
 .contact .contents form .privacyCheck label::before {
-  background: #F8F8F8;
+  background: #fff;
   border: 1px solid #E6E6E6;
   width: 20px;
   height: 20px;
@@ -152,7 +152,16 @@
   background: none;
 }
 
+@media screen and (min-width: 768px) {
+  .contact .contents form .privacyCheck {
+    width: 40%;
+  }
+}
+
 @media screen and (min-width: 1024px) {
+  .contact {
+    margin: 120px auto;
+  }
   .contact .intro {
     margin: 0 0 40px 0;
   }
@@ -193,7 +202,7 @@
     font-size: 12px;
   }
   .contact .contents form .privacyCheck {
-    width: 60%;
+    width: 42%;
     margin: 0 auto 56px;
   }
   .contact .contents form .privacyCheck label {
@@ -206,8 +215,8 @@
 }
 
 @media screen and (min-width: 1120px) {
-  .contact {
-    margin: 120px auto;
+  .contact .contents form .privacyCheck {
+    width: 40%;
   }
 }
 /*# sourceMappingURL=contact.css.map */

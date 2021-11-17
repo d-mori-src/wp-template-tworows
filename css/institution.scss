@@ -1,5 +1,5 @@
 .institution {
-    margin: 80px auto 0;
+    margin: 100px auto 0;
     .intro {
         .headTitle {
             .institutionIcon {
@@ -39,6 +39,7 @@
         }
     }
     @media screen and (min-width:1024px) {
+        margin: 120px auto;
         .intro {
             .headTitle {
                 .institutionIcon {
@@ -56,8 +57,5 @@
                 }
             }
         }
-    }
-    @media screen and (min-width:1120px) {
-        margin: 120px auto;
     }
 }

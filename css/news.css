@@ -14,42 +14,6 @@
   margin: 0 0 4px 0;
 }
 
-.news .newsItems .newsItem .titleWrapper .event_tag {
-  color: #99BB05;
-}
-
-.news .newsItems .newsItem .titleWrapper .gourmets_tag {
-  color: #EE9E30;
-}
-
-.news .newsItems .newsItem .titleWrapper .shop_tag {
-  color: #2974ED;
-}
-
-.news .newsItems .newsItem .titleWrapper .sweets_tag {
-  color: #22C9DE;
-}
-
-.news .newsItems .newsItem .titleWrapper .news_tag {
-  color: #25AEBE;
-}
-
-.news .newsItems .newsItem .titleWrapper .family_tag {
-  color: #E66616;
-}
-
-.news .newsItems .newsItem .titleWrapper .lunch_tag {
-  color: #F4D217;
-}
-
-.news .newsItems .newsItem .titleWrapper .weekend_tag {
-  color: #AB76CC;
-}
-
-.news .newsItems .newsItem .titleWrapper .features_tag {
-  color: #BB7777;
-}
-
 .news .newsItems .newsItem .titleWrapper .lead {
   display: block;
   text-align: justify;
@@ -164,33 +128,6 @@
     line-height: 1.5;
     margin: 0 0 8px 0;
   }
-  .news .newsItems .newsItem .newsItemText .pcTitleWrapper .event_tag {
-    color: #99BB05;
-  }
-  .news .newsItems .newsItem .newsItemText .pcTitleWrapper .gourmets_tag {
-    color: #EE9E30;
-  }
-  .news .newsItems .newsItem .newsItemText .pcTitleWrapper .shop_tag {
-    color: #2974ED;
-  }
-  .news .newsItems .newsItem .newsItemText .pcTitleWrapper .sweets_tag {
-    color: #22C9DE;
-  }
-  .news .newsItems .newsItem .newsItemText .pcTitleWrapper .news_tag {
-    color: #25AEBE;
-  }
-  .news .newsItems .newsItem .newsItemText .pcTitleWrapper .family_tag {
-    color: #E66616;
-  }
-  .news .newsItems .newsItem .newsItemText .pcTitleWrapper .lunch_tag {
-    color: #F4D217;
-  }
-  .news .newsItems .newsItem .newsItemText .pcTitleWrapper .weekend_tag {
-    color: #AB76CC;
-  }
-  .news .newsItems .newsItem .newsItemText .pcTitleWrapper .features_tag {
-    color: #BB7777;
-  }
   .news .newsItems .newsItem .newsItemText .pcTitleWrapper .lead {
     display: block;
     text-align: justify;
@@ -250,11 +187,10 @@
     margin: 0 40px 0 0;
   }
   .news .newsItems .newsItem .newsItemText .pcTitleWrapper .title {
-    font-size: 18px;
     margin: 0 0 16px 0;
   }
   .news .newsItems .newsItem .newsItemText .pcTitleWrapper .lead {
-    font-size: 14px;
+    font-size: 13px;
   }
 }
 /*# sourceMappingURL=news.css.map */

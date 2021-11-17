@@ -248,7 +248,7 @@ input {
 body {
   overflow-x: hidden;
   color: #474645;
-  background: #FDFDFD;
+  background: #fffcfc;
 }
 
 body .sp-tab-contents {
@@ -297,7 +297,7 @@ body main aside.sidebar {
     width: 24%;
     position: -webkit-sticky;
     position: sticky;
-    top: 80px;
+    top: 120px;
     height: 100vh;
   }
 }
@@ -307,7 +307,7 @@ body main aside.sidebar {
     width: 960px;
   }
   body main article {
-    width: 667px;
+    width: 640px;
   }
   body main aside.sidebar {
     width: 240px;

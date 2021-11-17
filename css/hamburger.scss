@@ -8,7 +8,7 @@
     transition: .5s;
     z-index: 100;
     .innerNav {
-        padding: 80px 0;
+        padding: 100px 0;
         .topNavLink {
             display: block;
             font-size: 14px;
@@ -105,7 +105,7 @@
         .innerNav {
             width: 640px;
             margin: 0 auto;
-            padding: 80px 0;
+            padding: 100px 0;
             .topNavLink {
                 font-size: 14px;
                 margin: 0 0 20px 0;
@@ -146,18 +146,16 @@
     @media screen and (min-width:1024px) {
         .innerNav {
             width: 880px;
-            padding: 100px 0;
+            padding: 120px 0;
             .topNavLink {
                 font-size: 24px;
                 margin: 0 0 32px 0;
                 padding: 0 0 32px;
-                border-bottom: 2px solid #E6D5D9;
             }
             .navLink {
                 justify-content: flex-start;
                 margin: 0;
                 padding: 0 0 30px;
-                border-bottom: 2px solid #E6D5D9;
                 li {
                     width: 28%;
                     margin: 0 0 20px 0;
@@ -174,7 +172,6 @@
             .pcFlex {
                 display: flex;
                 padding: 0;
-                border-bottom: 2px solid #E6D5D9;
                 .tagLinkWrapper {
                     width: 60%;
                     padding: 40px 0 24px;
@@ -258,13 +255,13 @@
     border-radius: 4px;
 }
 #line1 {
-    top: 0;
+    top: 3px;
 }
 #line2 {
-    top: 6.4px;
+    top: 12.5px;
 }
 #line3 {
-    bottom: 17px;
+    bottom: 19px;
 }
 .in {
     transform: translateY(100%);
@@ -275,12 +272,12 @@
 }
 .line_1 {
     transform: rotate(-45deg);
-    top: 8px !important;
+    top: 12px !important;
 }
 .line_2 {
     opacity: 0;
 }
 .line_3 {
     transform: rotate(45deg);
-    bottom: -4px !important;
+    bottom: -8px !important;
 }

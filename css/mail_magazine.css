@@ -1,5 +1,5 @@
 .mail_magazine {
-  margin: 80px auto 0;
+  margin: 100px auto 0;
 }
 
 .mail_magazine .intro {
@@ -116,6 +116,9 @@
 }
 
 @media screen and (min-width: 1024px) {
+  .mail_magazine {
+    margin: 120px auto;
+  }
   .mail_magazine .intro {
     margin: 0 0 32px 0;
   }
@@ -157,12 +160,6 @@
     font-size: 16px;
     padding: 16px;
     border-radius: 0 8px 8px 0;
-  }
-}
-
-@media screen and (min-width: 1120px) {
-  .mail_magazine {
-    margin: 120px auto;
   }
 }
 /*# sourceMappingURL=mail_magazine.css.map */

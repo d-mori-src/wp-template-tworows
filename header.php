@@ -74,7 +74,7 @@
                         <li><a href="<?=$site_url;?>/"><span class="featureLink">FEATURES</span>特集記事</a></li>
                     </ul>
 
-                    <?php get_search_form(); ?>
+                    <?php // get_search_form(); ?>
 
                     <ul class="icon">
                         <li>

@@ -1,5 +1,5 @@
 .contact {
-    margin: 80px auto 0;
+    margin: 100px auto 0;
     .intro {
         margin: 0 0 24px 0;
         p {
@@ -37,7 +37,7 @@
                         width: 100%;
                         padding: 20px;
                         border: 1px solid #E6E6E6;
-                        background: #F8F8F8;
+                        background: #fff;
                         outline: none;
                     }
                     textarea {
@@ -74,7 +74,7 @@
                 }
             }
             .privacyCheck {
-                width: 76%;
+                width: 72%;
                 margin: 0 auto 32px;
                 label {
                     font-size: 13px;
@@ -96,7 +96,7 @@
                     top: 50%;
                 }
                 label::before {
-                    background: #F8F8F8;
+                    background: #fff;
                     border: 1px solid #E6E6E6;
                     width: 20px;
                     height: 20px;
@@ -136,7 +136,17 @@
             }
         }
     }
+    @media screen and (min-width:768px) {
+        .contents {
+            form {
+                .privacyCheck {
+                    width: 40%;
+                }
+            }
+        }
+    }
     @media screen and (min-width:1024px) {
+        margin: 120px auto;
         .intro {
             margin: 0 0 40px 0;
         }
@@ -183,7 +193,7 @@
                     }
                 }
                 .privacyCheck {
-                    width: 60%;
+                    width: 42%;
                     margin: 0 auto 56px;
                     label {
                         font-size: 14px;
@@ -197,6 +207,12 @@
         }
     }
     @media screen and (min-width:1120px) {
-        margin: 120px auto;
+        .contents {
+            form {
+                .privacyCheck {
+                    width: 40%;
+                }
+            }
+        }
     }
 }

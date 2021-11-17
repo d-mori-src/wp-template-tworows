@@ -1,8 +1,6 @@
 header {
-  background: #FDFDFD;
-  -webkit-filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.06));
-          filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.06));
-  padding: 12px;
+  background: #fffcfc;
+  padding: 20px;
   position: fixed;
   top: 0;
   left: 0;
@@ -21,7 +19,7 @@ header .innerHeader {
 
 header .innerHeader .logo {
   width: auto;
-  height: 32px;
+  height: 44px;
 }
 
 header .innerHeader ul.pc-navi {
@@ -40,7 +38,7 @@ header .innerHeader ul.icon li {
 }
 
 header .innerHeader ul.icon li a img {
-  height: 18px;
+  height: 30px;
 }
 
 header .innerHeader ul.icon li a span {
@@ -55,6 +53,15 @@ header .innerHeader ul.icon li a span {
     width: 640px;
     margin: 0 auto;
   }
+  header .innerHeader ul.icon {
+    right: 0;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  header .innerHeader {
+    width: 880px;
+  }
   header .innerHeader ul.pc-navi {
     text-align: center;
     display: -webkit-box;
@@ -63,20 +70,21 @@ header .innerHeader ul.icon li a span {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    position: relative;
-    top: 2px;
   }
   header .innerHeader ul.pc-navi li {
-    margin: 0 10px;
+    margin: 0 16px;
   }
   header .innerHeader ul.pc-navi li a {
-    font-size: 12px;
+    font-size: 16px;
+    font-weight: 500;
     letter-spacing: 0;
   }
   header .innerHeader ul.pc-navi li a span {
     display: block;
     font-family: 'Josefin Sans', sans-serif;
-    font-size: 10px;
+    font-size: 12px;
+    font-weight: 400;
+    margin: 0 0 4px 0;
   }
   header .innerHeader ul.pc-navi li a .eventLink {
     color: #99BB05;
@@ -89,21 +97,6 @@ header .innerHeader ul.icon li a span {
   }
   header .innerHeader ul.pc-navi li a .featureLink {
     color: #BB7777;
-  }
-  header .innerHeader ul.icon {
-    right: 0;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  header .innerHeader {
-    width: 880px;
-  }
-  header .innerHeader ul.pc-navi li {
-    margin: 0 16px;
-  }
-  header .innerHeader ul.pc-navi li a {
-    font-size: 13px;
   }
 }
 

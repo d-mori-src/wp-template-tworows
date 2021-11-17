@@ -12,8 +12,8 @@
         <h3 class="headTitle"><img src="<?=$uri?>/img/common/check.svg" alt=""><?php the_search_query(); ?> の検索結果</h3>
         <section class="news">
             <div class="newsItems">
-                <?php if ($wp_query->have_posts()): ?>
-                    <?php while ($wp_query->have_posts()): $wp_query->the_post(); ?>
+                <?php if (have_posts()): ?>
+                    <?php while (have_posts()): the_post(); ?>
                         <?php $cat = get_the_category(); $cat = $cat[0]; ?>
                         <div class="newsItem">
                             <div class="titleWrapper">
@@ -25,10 +25,18 @@
                                 </a>
                             </div>
 
-                            <a href="<?php the_permalink(); ?>">
+                            <a href="<?php the_permalink(); ?>" class="newsItemImageWrapper">
                                 <img src="<?php the_field('image'); ?>" class="newsItemImage" />
                             </a>
                             <div class="newsItemText">
+                                <div class="pcTitleWrapper">
+                                    <a href="<?php the_permalink(); ?>" class="title <?=$cat->category_nicename; ?>">
+                                        <?=mb_substr(get_field('title_copy'),0,30); ?>
+                                    </a>
+                                    <a href="<?php the_permalink(); ?>" class="lead">
+                                        <?=mb_substr(get_field('sentence1'),0,62); ?> ...
+                                    </a>
+                                </div>
                                 <div class="newsItemUnder">
                                     <div class="left-newsItemUnder">
                                         <p class="<?=$cat->category_nicename; ?>"><?php the_category(' '); ?></p>

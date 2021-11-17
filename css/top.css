@@ -1,10 +1,27 @@
 .hero {
-  margin: 56px auto 24px;
+  height: 220px;
+  background: #eee;
+  width: calc(100% - 40px);
+  margin: 84px auto 24px;
+}
+
+@media screen and (min-width: 768px) {
+  .hero {
+    width: 640px;
+  }
 }
 
 @media screen and (min-width: 1024px) {
   .hero {
-    margin: 56px auto 48px;
+    width: 880px;
+    height: 280px;
+    margin: 84px auto 48px;
+  }
+}
+
+@media screen and (min-width: 1120px) {
+  .hero {
+    width: 960px;
   }
 }
 

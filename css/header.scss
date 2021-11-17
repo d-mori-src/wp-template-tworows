@@ -1,7 +1,7 @@
 header{
-    background: #FDFDFD;
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.06));
-    padding: 12px;
+    background: #fffcfc;
+    // filter: drop-shadow(0 2px 4px rgba(0,0,0,0.06));
+    padding: 20px;
     position: fixed;
     top: 0;
     left: 0;
@@ -12,7 +12,7 @@ header{
         justify-content: space-between;
         .logo {
             width: auto;
-            height: 32px;
+            height: 44px;
         }
         ul.pc-navi {
             display: none;
@@ -24,7 +24,7 @@ header{
                 margin: 0 0 0 16px;
                 a {
                     img {
-                        height: 18px;
+                        height: 30px;
                     }
                     span {
                         display: block;
@@ -40,29 +40,6 @@ header{
         .innerHeader {
             width: 640px;
             margin: 0 auto;
-            ul.pc-navi {
-                text-align: center;
-                display: flex;
-                align-items: center;
-                position: relative;
-                top: 2px;
-                li {
-                    margin: 0 10px;
-                    a {
-                        font-size: 12px;
-                        letter-spacing: 0;
-                        span {
-                            display: block;
-                            font-family: 'Josefin Sans', sans-serif;
-                            font-size: 10px;
-                        }
-                        .eventLink { color: #99BB05; }
-                        .groumetLink { color: #EE9E30; }
-                        .newsLink { color: #25AEBE; }
-                        .featureLink { color: #BB7777; }
-                    }
-                }
-            }
             ul.icon {
                 right: 0;
             }
@@ -72,10 +49,26 @@ header{
         .innerHeader {
             width: 880px;
             ul.pc-navi {
+                text-align: center;
+                display: flex;
+                align-items: center;
                 li {
                     margin: 0 16px;
                     a {
-                        font-size: 13px;
+                        font-size: 16px;
+                        font-weight: 500;
+                        letter-spacing: 0;
+                        span {
+                            display: block;
+                            font-family: 'Josefin Sans', sans-serif;
+                            font-size: 12px;
+                            font-weight: 400;
+                            margin: 0 0 4px 0;
+                        }
+                        .eventLink { color: #99BB05; }
+                        .groumetLink { color: #EE9E30; }
+                        .newsLink { color: #25AEBE; }
+                        .featureLink { color: #BB7777; }
                     }
                 }
             }

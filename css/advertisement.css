@@ -1,5 +1,5 @@
 .advertisement {
-  margin: 80px auto 0;
+  margin: 100px auto 0;
 }
 
 .advertisement .intro {
@@ -148,6 +148,9 @@
 }
 
 @media screen and (min-width: 1024px) {
+  .advertisement {
+    margin: 120px auto;
+  }
   .advertisement .intro h4 {
     font-size: 18px;
   }
@@ -165,12 +168,6 @@
   .advertisement .contactWrapper .contactLink .form a:hover {
     color: #fff;
     background: #676767;
-  }
-}
-
-@media screen and (min-width: 1120px) {
-  .advertisement {
-    margin: 120px auto;
   }
 }
 /*# sourceMappingURL=advertisement.css.map */

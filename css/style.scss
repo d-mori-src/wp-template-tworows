@@ -180,7 +180,7 @@ input {
 body {
     overflow-x: hidden;
     color: #474645;
-    background: #FDFDFD;
+    background: #fffcfc;
     .sp-tab-contents {
         display: block;
     }
@@ -218,7 +218,7 @@ body {
                 display: block;
                 width: 24%;
                 position: sticky;
-                top: 80px;
+                top: 120px;
                 height: 100vh;
             }
         }
@@ -227,7 +227,7 @@ body {
         main {
             width: 960px;
             article {
-                width: 667px;
+                width: 640px;
             }
             aside.sidebar {
                 width: 240px;
