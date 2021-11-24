@@ -81,14 +81,14 @@
                     <dl class="lastForm">
                         <dt>番地以下</dt>
                         <dd>
-                            <input type="text" class="input" name="" />
+                            <input type="text" class="input" name="" placeholder="建物名・部屋番号もご入力ください" />
                         </dd>
                     </dl>
                 </div>
 
                 <div class="privacyCheck">
                     <input type="checkbox" id="agreebtn" class="visuallyHidden" name="agree" value="agree" />
-                    <label for="agreebtn"><a href="">プライバシーポリシー</a>に同意する</label>
+                    <label for="agreebtn"><a href="https://www.src-japan.net/privacy/src_management/" target="_blank" rel="noopener noreferrer">プライバシーポリシー</a>に同意する</label>
                 </div>
                 <input type="submit" class="submit" value="確認" />
             </form>
