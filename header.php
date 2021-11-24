@@ -41,6 +41,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- 住所自動入力プラグイン -->
+    <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
 
     <!-- 各ページcss -->
     <link rel="stylesheet" href="<?= $uri ?>/css/top.css">
@@ -54,6 +57,7 @@
     <link rel="stylesheet" href="<?= $uri ?>/css/special_detail.css">
     <link rel="stylesheet" href="<?= $uri ?>/css/advertisement.css">
     <link rel="stylesheet" href="<?= $uri ?>/css/present.css">
+    <link rel="stylesheet" href="<?= $uri ?>/css/present_detail.css">
     <link rel="stylesheet" href="<?= $uri ?>/css/institution.css">
     <link rel="stylesheet" href="<?= $uri ?>/css/mail_magazine.css">
     <link rel="stylesheet" href="<?= $uri ?>/css/contact.css">

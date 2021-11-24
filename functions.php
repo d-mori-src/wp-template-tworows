@@ -44,6 +44,17 @@ function create_post_type() {
             'supports' => array('title','editor'),
         )
     );
+    register_post_type( 'present', // 投稿タイプ名の定義
+        array(
+            'labels' => array(
+            'name' => __( 'プレゼント' ), // 表示する投稿タイプ名
+            'singular_name' => __( 'プレゼント' )
+            ),
+            'public' => true,
+            'menu_position' => 5,
+            'supports' => array('title','editor'),
+        )
+    );
 
     // カスタム分類（タクソノミー）
     // register_post_type( 'products', /* カスタム投稿タイプスラッグ */
@@ -108,6 +119,10 @@ function post_has_archive( $args, $post_type ) {
 	if ( 'post' == $post_type ) {
 		$args['rewrite'] = true;
 		$args['has_archive'] = 'news'; //任意のスラッグ名
+	}
+    if ( 'present' == $post_type ) {
+		$args['rewrite'] = true;
+		$args['has_archive'] = 'present'; //任意のスラッグ名
 	}
 	return $args;
 }

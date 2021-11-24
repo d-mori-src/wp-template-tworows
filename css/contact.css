@@ -20,6 +20,12 @@
   margin: 12px 0 0 0;
 }
 
+.contact .contents form dl {
+  margin: 0 0 12px 0;
+  padding: 0 0 12px 0;
+  border-bottom: 1px solid #EBEBEB;
+}
+
 .contact .contents form dl dt {
   font-size: 12px;
   font-weight: bold;
@@ -44,9 +50,96 @@
   outline: none;
 }
 
+.contact .contents form dl dd .inputs {
+  margin: 0 0 10px 0;
+}
+
 .contact .contents form dl dd textarea {
   height: 400px;
   resize: vertical;
+}
+
+.contact .contents form dl dd .good {
+  border: 2px solid #F48000 !important;
+}
+
+.contact .contents form dl dd .bad {
+  border: 2px solid #1C6FE0 !important;
+}
+
+.contact .contents form dl dd p {
+  font-size: 12px;
+  letter-spacing: 0;
+  margin: 0 0 10px 0;
+}
+
+.contact .contents form dl dd a {
+  font-size: 12px;
+  letter-spacing: 0;
+}
+
+.contact .contents form dl dd .radio {
+  display: inline-block;
+}
+
+.contact .contents form dl dd .radio label {
+  font-size: 13px;
+  letter-spacing: 0;
+  position: relative;
+  cursor: pointer;
+  padding: 0 0 0 30px;
+}
+
+.contact .contents form dl dd .radio label a {
+  color: #C1AC8F;
+  text-decoration: underline;
+}
+
+.contact .contents form dl dd .radio .nextLabel {
+  padding: 0 0 0 60px;
+}
+
+.contact .contents form dl dd .radio label::before,
+.contact .contents form dl dd .radio label::after {
+  content: "";
+  display: block;
+  position: absolute;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  top: 50%;
+}
+
+.contact .contents form dl dd .radio label::before {
+  background: #fff;
+  border: 1px solid #E6E6E6;
+  width: 20px;
+  height: 20px;
+}
+
+.contact .contents form dl dd .radio label::after {
+  background: #C1AC8F;
+  opacity: 0;
+  width: 18px;
+  height: 18px;
+  left: -1.5px;
+}
+
+.contact .contents form dl dd .radio .nextLabel::before {
+  left: 30px;
+}
+
+.contact .contents form dl dd .radio .nextLabel::after {
+  left: 32px;
+}
+
+.contact .contents form dl dd .radio input:checked + label::after {
+  opacity: 1;
+}
+
+.contact .contents form .lastForm {
+  margin: 0 0 40px 0;
+  padding: 0;
+  border-bottom: none;
 }
 
 .contact .contents form .requiredForm {
@@ -68,6 +161,10 @@
 
 .contact .contents form .anyForm dl dt span {
   background: #707070;
+}
+
+.contact .contents form .anyForm dl dt .require {
+  background: #BA5042;
 }
 
 .contact .contents form .anyForm .lastForm {
@@ -164,6 +261,10 @@
   }
   .contact .intro {
     margin: 0 0 40px 0;
+  }
+  .contact .contents form dl {
+    margin: 0 0 20px 0;
+    padding: 0 0 20px 0;
   }
   .contact .contents form dl dt {
     font-size: 14px;

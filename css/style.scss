@@ -26,6 +26,26 @@ input {
     -webkit-appearance: none;
     border-radius: 0;
 }
+.btn {
+    display: block;
+    text-align: center;
+    font-size: 11px;
+    color: #474645;
+    width: 216px;
+    margin: 0 auto;
+    padding: 18px 0;
+    border: 1px solid #474645;
+    background: none;
+    transition: .5s;
+    &:hover {
+        color: #fff;
+        background: #474645;
+    }
+    @media screen and (min-width:1024px) {
+        font-size: 14px;
+        padding: 16px 0;
+    }
+}
 
 // 見出しタイトル
 .headTitle {
@@ -180,7 +200,8 @@ input {
 body {
     overflow-x: hidden;
     color: #474645;
-    background: #fffcfc;
+    // background: #fffcfc; // 現行サイトバック色
+    background: #fff;
     .sp-tab-contents {
         display: block;
     }

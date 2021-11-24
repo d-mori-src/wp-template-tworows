@@ -14,7 +14,7 @@
 <?php get_header(); ?>
 
 <section class="hero">
-    こちらはダミーで入れています。ファーストビューが入ります。
+    <!-- ファーストビュー -->
 </section>
 
 <!-- <section class="sp-tab-contents">

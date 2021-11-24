@@ -1,0 +1,165 @@
+.present_detail {
+    margin: 100px auto 0;
+    .presentContents {
+        .headTitle {
+            .presentIcon {
+                height: 16px;
+                position: relative;
+            }
+        }
+        h1 {
+            font-size: 16px;
+            line-height: 1.5;
+            font-weight: 500;
+            margin: 0 0 12px 0;
+        }
+        .presentFlexWrappwer {
+            margin: 0 0 32px 0;
+            .leftWrappwer {
+                .winning {
+                    display: flex;
+                    font-size: 11px;
+                    color: #BB7777;
+                    margin: 0 0 10px 0;
+                    p {
+                        margin: 0 4px 0 0;
+                        padding: 6px 8px;
+                        border: 1px solid #BB7777;
+                        border-radius: 4px;
+                    }
+                }
+                .lead {
+                    text-align: justify;
+                    font-size: 12px;
+                    line-height: 1.7;
+                    margin: 0 0 16px 0;
+                }
+            }
+            .RightWrappwer {
+                display: flex;
+                justify-content: space-between;
+                .presentImage {
+                    width: 100%;
+                    height: auto;
+                    object-fit: cover;
+                }
+                .harf {
+                    width: 50%;
+                }
+            }
+        }
+        .howto {
+            margin: 0 0 32px 0;
+            ul {
+                padding: 16px 0;
+                border-top: 1px solid #EBEBEB;
+                border-bottom: 1px solid #EBEBEB;
+                li {
+                    font-size: 12px;
+                    line-height: 1.7;
+                    a {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+        .deadline {
+            margin: 0 0 32px 0;
+            padding: 32px;
+            background: #FDF2F2;
+            h4 {
+                text-align: justify;
+                font-size: 14px;
+                line-height: 1.5;
+                font-weight: 500;
+                color: #BA5042;
+                margin: 0 0 12px 0;
+            }
+            p {
+                text-align: justify;
+                font-size: 12px;
+                line-height: 1.7;
+            }
+        }
+    }
+    @media screen and (min-width:768px) {
+        .presentContents {
+            .presentFlexWrappwer {
+                display: flex;
+                justify-content: space-between;
+                .leftWrappwer {
+                    width: 60%;
+                    .lead {
+                        margin: 0;
+                    }
+                }
+                .RightWrappwer {
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    width: 34%;
+                    .harf {
+                        width: 100%;
+                    }
+                }
+            }
+            .howto {
+                margin: 0 0 32px 0;
+                ul {
+                    text-align: center;
+                }
+            }
+        }
+    }
+    @media screen and (min-width:1024px) {
+        margin: 120px auto;
+        .presentContents {
+            h1 {
+                margin: 0 0 20px 0;
+            }
+            .presentFlexWrappwer {
+                margin: 0 0 40px 0;
+                .leftWrappwer {
+                    width: 370px;
+                    .winning {
+                        font-size: 12px;
+                        margin: 0 0 20px 0;
+                        p {
+                            margin: 0 8px 0 0;
+                            padding: 8px 12px;
+                        }
+                    }
+                    .lead {
+                        margin: 0;
+                    }
+                }
+                .RightWrappwer {
+                    width: 200px;
+                }
+            }
+            .howto {
+                margin: 0 0 40px 0;
+            }
+            .deadline {
+                margin: 0 0 40px 0;
+                padding: 40px;
+                h4 {
+                    font-size: 16px;
+                    line-height: 1.5;
+                    margin: 0 0 24px 0;
+                }
+            }
+        }
+    }
+    @media screen and (min-width:1120px) {
+        .presentContents {
+             .presentFlexWrappwer {
+                .leftWrappwer {
+                    width: 400px;
+                }
+                .RightWrappwer {
+                    width: 200px;
+                }
+            }
+        }
+    }
+}

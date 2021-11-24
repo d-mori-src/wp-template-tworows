@@ -70,6 +70,32 @@ input {
   border-radius: 0;
 }
 
+.btn {
+  display: block;
+  text-align: center;
+  font-size: 11px;
+  color: #474645;
+  width: 216px;
+  margin: 0 auto;
+  padding: 18px 0;
+  border: 1px solid #474645;
+  background: none;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.btn:hover {
+  color: #fff;
+  background: #474645;
+}
+
+@media screen and (min-width: 1024px) {
+  .btn {
+    font-size: 14px;
+    padding: 16px 0;
+  }
+}
+
 .headTitle {
   font-size: 14px;
   font-weight: 400;
@@ -248,7 +274,7 @@ input {
 body {
   overflow-x: hidden;
   color: #474645;
-  background: #fffcfc;
+  background: #fff;
 }
 
 body .sp-tab-contents {

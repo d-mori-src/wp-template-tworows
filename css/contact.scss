@@ -18,6 +18,9 @@
     .contents {
         form {
             dl {
+                margin: 0 0 12px 0;
+                padding: 0 0 12px 0;
+                border-bottom: 1px solid #EBEBEB;
                 dt {
                     font-size: 12px;
                     font-weight: bold;
@@ -40,11 +43,81 @@
                         background: #fff;
                         outline: none;
                     }
+                    .inputs {
+                        margin: 0 0 10px 0;
+                    }
                     textarea {
                         height: 400px;
                         resize: vertical;
                     }
+                    .good {
+                        border: 2px solid #F48000 !important;
+                    }
+                    .bad {
+                        border: 2px solid #1C6FE0 !important;
+                    }
+                    p {
+                        font-size: 12px;
+                        letter-spacing: 0;
+                        margin: 0 0 10px 0;
+                    }
+                    a {
+                        font-size: 12px;
+                        letter-spacing: 0;
+                    }
+                    .radio {
+                        display: inline-block;
+                        label {
+                            font-size: 13px;
+                            letter-spacing: 0;
+                            position: relative;
+                            cursor: pointer;
+                            padding: 0 0 0 30px;
+                            a {
+                                color: #C1AC8F;
+                                text-decoration: underline;
+                            }
+                        }
+                        .nextLabel {
+                            padding: 0 0 0 60px;
+                        }
+                        label::before,
+                        label::after {
+                            content: "";
+                            display: block; 
+                            position: absolute;
+                            transform: translateY(-50%);
+                            top: 50%;
+                        }
+                        label::before {
+                            background: #fff;
+                            border: 1px solid #E6E6E6;
+                            width: 20px;
+                            height: 20px;
+                        }
+                        label::after {
+                            background: #C1AC8F;
+                            opacity: 0;
+                            width: 18px;
+                            height: 18px;
+                            left: -1.5px;
+                        }
+                        .nextLabel::before {
+                            left: 30px;
+                        }
+                        .nextLabel::after {
+                            left: 32px;
+                        }
+                        input:checked + label::after {
+                            opacity: 1;
+                        }
+                    }
                 }
+            }
+            .lastForm {
+                margin: 0 0 40px 0;
+                padding: 0;
+                border-bottom: none;
             }
             .requiredForm {
                 margin: 0 0 24px 0;
@@ -61,6 +134,9 @@
                     dt {
                         span {
                             background: #707070;
+                        }
+                        .require {
+                            background: #BA5042;
                         }
                     }
                 }
@@ -153,6 +229,8 @@
         .contents {
             form {
                 dl {
+                    margin: 0 0 20px 0;
+                    padding: 0 0 20px 0;
                     dt {
                         font-size: 14px;
                         margin: 0 0 18px 0;
