@@ -6,7 +6,6 @@
 <?php get_header(); ?>
 
 <main class="contact">
-    <?php include('inc/left_sidebar.php'); ?>
     <article>
         <section class="intro">
             <h3 class="headTitle"><img src="<?=$uri?>/img/contact/contact.svg" class="contactIcon" alt="">Kiss PRESS ご意見・ご要望フォーム</h3>

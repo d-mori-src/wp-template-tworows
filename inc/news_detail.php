@@ -8,6 +8,9 @@
             </div>
             <p class="lead"><?php the_field('sentence1'); ?></p>
             <p class="timestamp">掲載日: <?php the_time(get_option('date_format')); ?></p>
+            <?php if (get_the_content()): ?>
+                <?php the_content();?>
+            <?php endif; ?>
         <?php endwhile; ?>
     <?php else: ?>
         <p>まだ投稿がありません。</p>

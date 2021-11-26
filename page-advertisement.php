@@ -6,7 +6,6 @@
 <?php get_header(); ?>
 
 <main class="advertisement">
-    <?php include('inc/left_sidebar.php'); ?>
     <article>
         <section class="intro">
             <h3 class="headTitle"><img src="<?=$uri?>/img/common/check.svg" alt="">広告掲載のご案内</h3>

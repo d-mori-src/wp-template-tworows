@@ -10,7 +10,6 @@
 <?php get_header(); ?>
 
 <main class="contact">
-    <?php include('inc/left_sidebar.php'); ?>
     <article>
         <section class="intro">
             <h3 class="headTitle"><img src="<?=$uri?>/img/contact/contact.svg" class="contactIcon" alt="">プレゼント応募フォーム</h3>
@@ -21,7 +20,7 @@
         </section>
 
         <section class="contents">
-            <form action="" method="POST">
+            <form action="" method="POST" class="h-adr">
                 <input type="hidden" class="input" name="id" value="<?=$id;?>" />
 
                 <div class="requiredForm">
@@ -67,15 +66,17 @@
                     <dl>
                         <dt>郵便番号<span>※住所自動入力</span></dt>
                         <dd>
-                            <input type="text" class="input inputs" name="zip01" onKeyUp="AjaxZip3.zip2addr(this,'','pref01','addr01');" placeholder="例）6508589 ※半角で入力して下さい。 ※ハイフン不要" />
+                            <input type="hidden" class="p-country-name" value="Japan">
+                            <input type="text" class="input inputs p-postal-code" size="8" maxlength="8" placeholder="例）6508589 ※半角で入力して下さい。 ※ハイフン不要" />
                             <a href="https://www.post.japanpost.jp/zipcode/" target="_blank" rel="noopener noreferrer">郵便番号を調べる</a>
                         </dd>
                     </dl>
                     <dl>
                         <dt>住所</dt>
                         <dd>
-                            <input type="text" class="input inputs" name="pref01" />
-                            <input type="text" class="input" name="addr01" />
+                            <input type="text" class="input inputs p-region" />
+                            <input type="text" class="input inputs p-locality" />
+                            <input type="text" class="input p-street-address p-extended-address" />
                         </dd>
                     </dl>
                     <dl class="lastForm">

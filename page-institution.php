@@ -6,7 +6,6 @@
 <?php get_header(); ?>
 
 <main class="institution">
-    <?php include('inc/left_sidebar.php'); ?>
     <article>
         <section class="intro">
             <h3 class="headTitle"><img src="<?=$uri?>/img/common/building.svg" class="institutionIcon" alt="">施設紹介</h3>

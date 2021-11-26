@@ -12,7 +12,6 @@
 <?php get_header(); ?>
 
 <main class="present">
-    <?php include('inc/left_sidebar.php'); ?>
     <article>
         <section class="presentContents">
             <h3 class="headTitle"><img src="<?=$uri?>/img/common/precent.svg" class="presentIcon" alt="">プレゼント</h3>

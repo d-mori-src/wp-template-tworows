@@ -1,3 +1,4 @@
+// 特集サイドバー
 .special {
     .specialItems {
         padding: 0 20px;
@@ -5,7 +6,7 @@
             margin: 0 0 6px 0;
             .specialItemEyecatch {
                 width: 100%;
-                height: 100%;
+                height: 80px;
                 object-fit: cover;
             }
         }
@@ -19,5 +20,69 @@
     }
     @media screen and (min-width:1024px) {
         width: 100%;
+    }
+}
+
+// 特集一覧
+.features {
+    margin: 100px auto 0;
+    .featuresInterview {
+        .featuresItems {
+            margin: 0 0 24px 0;
+            .featuresItem {
+                display: flex;
+                justify-content: space-between;
+                margin: 0 0 16px 0;
+                padding: 0 0 16px 0;
+                border-bottom: 1px solid #EBEBEB;
+                a {
+                    display: block;
+                    width: 44%;
+                    .featuresItemImage {
+                        width: 100%;
+                        height: 80px;
+                        object-fit: cover;
+                    }
+                }
+                .title {
+                    text-align: justify;
+                    font-size: 14px;
+                    width: 50%;
+                }
+                &:last-child {
+                    margin: 0;
+                    padding: 0;
+                    border-bottom: none;
+                }
+            }
+        }
+        // .interviewItems {
+
+        // }
+    }
+    @media screen and (min-width:768px) {
+        .featuresInterview {
+            display: flex;
+            justify-content: space-between;
+            .featuresItems {
+                width: 48%;
+                margin: 0;
+                // .featuresItem {
+                //     a {
+                //         width: 44%;
+                //     }
+                //     .title {
+                //         font-size: 14px;
+                //         width: 50%;
+                //     }
+                // }
+            }
+            .interviewItems {
+                width: 48%;
+            }
+        }
+    }
+    @media screen and (min-width:1024px) {
+        margin: 120px auto 0;
     }
 }

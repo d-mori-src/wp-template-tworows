@@ -9,5 +9,5 @@
 
 <aside class="sidebar">
   <?php include('inc/new_shop.php'); ?>
-  <?php include('inc/special.php'); ?>
+  <?php include('inc/features.php'); ?>
 </aside>

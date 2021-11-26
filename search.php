@@ -6,8 +6,6 @@
 <?php get_header(); ?>
 
 <main class="top search">
-    <?php include('inc/left_sidebar.php'); ?>
-
     <article>
         <h3 class="headTitle"><img src="<?=$uri?>/img/common/check.svg" alt=""><?php the_search_query(); ?> の検索結果</h3>
         <section class="news">

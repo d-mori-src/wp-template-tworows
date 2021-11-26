@@ -96,6 +96,11 @@ input {
   }
 }
 
+.wp-block-image img {
+  max-width: 100%;
+  height: auto;
+}
+
 .headTitle {
   font-size: 14px;
   font-weight: 400;

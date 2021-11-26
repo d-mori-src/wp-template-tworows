@@ -33,11 +33,22 @@ function create_post_type() {
             'menu_position' => 5,
         )
     );
-    register_post_type( 'special', // 投稿タイプ名の定義
+    register_post_type( 'features', // 投稿タイプ名の定義
         array(
             'labels' => array(
             'name' => __( '特集記事' ), // 表示する投稿タイプ名
             'singular_name' => __( '特集記事' )
+            ),
+            'public' => true,
+            'menu_position' => 5,
+            'supports' => array('title','editor'),
+        )
+    );
+    register_post_type( 'interview', // 投稿タイプ名の定義
+        array(
+            'labels' => array(
+            'name' => __( 'インタビュー' ), // 表示する投稿タイプ名
+            'singular_name' => __( 'インタビュー' )
             ),
             'public' => true,
             'menu_position' => 5,
@@ -56,7 +67,7 @@ function create_post_type() {
         )
     );
 
-    // カスタム分類（タクソノミー）
+    // 例　カスタム分類（タクソノミー）
     // register_post_type( 'products', /* カスタム投稿タイプスラッグ */
     //     array(
     //         'labels' => array( /* 表示させる文字 */
@@ -116,10 +127,6 @@ add_filter( 'next_posts_link_attributes', 'add_next_posts_link_class' );
 
 /* 投稿アーカイブページの作成 */
 function post_has_archive( $args, $post_type ) {
-	if ( 'post' == $post_type ) {
-		$args['rewrite'] = true;
-		$args['has_archive'] = 'news'; //任意のスラッグ名
-	}
     if ( 'present' == $post_type ) {
 		$args['rewrite'] = true;
 		$args['has_archive'] = 'present'; //任意のスラッグ名

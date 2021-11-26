@@ -6,7 +6,6 @@
 <?php get_header(); ?>
 
 <main class="mail_magazine">
-    <?php include('inc/left_sidebar.php'); ?>
     <article>
         <section class="intro">
             <img src="<?=$uri?>/img/mail_magazine/merumaga.jpg" class="titleImage" alt="兵庫五国のおでかけ情報をメールでお届け">
