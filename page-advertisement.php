@@ -63,7 +63,7 @@
                     <p>広告掲載のお問い合わせ窓口(Kiss FM KOBE内)<br />電話受付／平日10:00～18:00</p>
                 </div>
                 <div class="form">
-                    <a href="">お問い合わせはこちら</a>
+                    <a href="<?=$site_url;?>/contact">お問い合わせはこちら</a>
                 </div>
             </div>
         </section>
