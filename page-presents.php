@@ -3,7 +3,7 @@
     $site_url = site_url();
 
     $args_present = [
-        'post_type' => 'present', // カスタム投稿名
+        'post_type' => 'presents', // カスタム投稿名
         'posts_per_page' => -1, // 表示する数
     ];
     $wp_query_present = new WP_Query($args_present);

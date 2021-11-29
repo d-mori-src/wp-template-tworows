@@ -55,7 +55,7 @@ function create_post_type() {
             'supports' => array('title','editor'),
         )
     );
-    register_post_type( 'present', // 投稿タイプ名の定義
+    register_post_type( 'presents', // 投稿タイプ名の定義
         array(
             'labels' => array(
             'name' => __( 'プレゼント' ), // 表示する投稿タイプ名
@@ -127,9 +127,9 @@ add_filter( 'next_posts_link_attributes', 'add_next_posts_link_class' );
 
 /* 投稿アーカイブページの作成 */
 // function post_has_archive( $args, $post_type ) {
-//     if ( 'present' == $post_type ) {
+//     if ( 'presents' == $post_type ) {
 // 		$args['rewrite'] = true;
-// 		$args['has_archive'] = 'present'; //任意のスラッグ名
+// 		$args['has_archive'] = 'presents'; //任意のスラッグ名
 // 	}
 // 	return $args;
 // }
