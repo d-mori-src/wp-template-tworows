@@ -137,7 +137,7 @@ add_filter( 'next_posts_link_attributes', 'add_next_posts_link_class' );
 
 // 投稿ページのパーマリンクをカスタマイズ
 function add_article_post_permalink( $permalink ) {
-    $permalink = '/news' . $permalink;
+    $permalink = '/articles' . $permalink;
     return $permalink;
 }
 add_filter( 'pre_post_link', 'add_article_post_permalink' );
@@ -145,7 +145,7 @@ add_filter( 'pre_post_link', 'add_article_post_permalink' );
 function add_article_post_rewrite_rules( $post_rewrite ) {
     $return_rule = array();
     foreach ( $post_rewrite as $regex => $rewrite ) {
-        $return_rule['news/' . $regex] = $rewrite;
+        $return_rule['articles/' . $regex] = $rewrite;
     }
     return $return_rule;
 }
