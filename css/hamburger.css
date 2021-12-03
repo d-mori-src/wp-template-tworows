@@ -277,16 +277,22 @@
   -webkit-transition: 1s;
   transition: 1s;
   z-index: 1002;
-  margin: 0 0 0 24px;
+  margin: 0 0 0 16px;
 }
 
 #hamburger .innerHamburger::after {
   content: "メニュー";
   position: absolute;
   left: -7px;
-  bottom: 0;
+  bottom: 1px;
   font-size: 10px;
   width: 48px;
+}
+
+@media screen and (min-width: 1024px) {
+  #hamburger {
+    margin: 0 0 0 24px;
+  }
 }
 
 .inner_line {
@@ -306,7 +312,7 @@
 }
 
 #line2 {
-  top: 12.5px;
+  top: 10px;
 }
 
 #line3 {

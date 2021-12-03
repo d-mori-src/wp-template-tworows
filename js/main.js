@@ -1,3 +1,5 @@
+// ふわっと出るエフェクト
+// エフェクトかけたいDOMのclassにbottomSlideinをつける
 const showElementAnimation = () => {
     const element = document.getElementsByClassName('bottomSlidein');
     if (!element) return;
@@ -31,40 +33,115 @@ document.getElementById('hamburger').addEventListener('click' , function () {
     hamburger();
 });
 
+// 検証用
+// リファラーURL取得
+const refUrl = document.referrer;
+
+// セッションストレージ保存
+const data = refUrl;
+const dataStr = JSON.stringify(data);
+sessionStorage.setItem('ref', dataStr);
+const refItem = sessionStorage.getItem('ref');
+const refObj = JSON.parse(refItem);
+console.log(refObj);
+
+// 指定したページにブラウザバック
+
 $(function(){
-    $(window).on('load',function(){
-        $('#splate').delay(200).animate(
-            {'opacity': 1},{duration: 500}
-        );
-        $('#pclate').delay(200).animate(
-            {'opacity': 1},{duration: 1500}
-        );
+    // Kiss PRESS広告プラン モーダルウィンドウ
+    $('.js-modal-open').each(function(){
+        $(this).on('click',function(){
+            const target = $(this).data('target');
+            const modal = document.getElementById(target);
+            $(modal).fadeIn();
+            return false;
+        });
     });
+    $('.js-modal-close').on('click',function(){
+        $('.js-modal').fadeOut();
+        return false;
+    });
+
+    // header 検索アコーディオンメニュー
+    $('#acMenu .searchBtn a').on('click', function() {
+        $(this).next().slideToggle();
+    });
+
+    // 検証用
+    // 履歴
+    // window.onpopstate = function(event) {
+    //     console.log('location: ' + document.location + ', state: ' + JSON.stringify(event.state));
+    // };
+    // history.pushState(null, null, '?p=1');
+    // history.pushState(null, null, '?p=2');
+    // history.back();
+    // history.back();
+
+    // 無限スクロール(SEO対策なしの実装)
+    // let documentHeight = $(document).height();
+	// let windowsHeight = $(window).height();
+	// let url = 'http://kisspresslocal.local/wp-content/themes/kisspress_tworows/ajax-item.php';
+	// let postNumNow = 5;
+	// let postNumAdd = 5;
+	// let flag = false;
+	// $(window).on('scroll', function() {
+	// 	let scrollPosition = windowsHeight + $(window).scrollTop();
+	// 	if (scrollPosition >= documentHeight) {
+	// 		if (!flag) {
+	// 			flag = true;
+	// 			$.ajax({
+	// 				type: 'POST',
+	// 				url: url,
+	// 				data: {
+	// 					post_num_now: postNumNow,
+	// 					post_num_add: postNumAdd
+	// 				},
+	// 				success: function(response) {
+	// 					$('.topNewsItems').append(response);
+	// 					documentHeight = $(document).height();
+	// 					postNumNow += postNumAdd;
+	// 					flag = false;
+	// 				}
+	// 			});
+	// 		}
+	// 	}
+	// });
+
+
+    // 以下、別案件で使用したもの（保留）
+    // $(window).on('load',function(){
+    //     $('#splate').delay(200).animate(
+    //         {'opacity': 1},{duration: 500}
+    //     );
+    //     $('#pclate').delay(200).animate(
+    //         {'opacity': 1},{duration: 1500}
+    //     );
+    // });
 
     // オリジナルスライドショー
-    function toggleChangeBtn() {
-        let slideIndex = $('.slide').index($('.active'));
-        $('.button').show();
-        if(slideIndex == 0) {
-            $('.prev').hide();
-        } else if (slideIndex == $('.slide').length - 1) {
-            $('.next').hide();
-        }
-    }
-    toggleChangeBtn();
+    // function toggleChangeBtn() {
+    //     let slideIndex = $('.slide').index($('.active'));
+    //     $('.button').show();
+    //     if(slideIndex == 0) {
+    //         $('.prev').hide();
+    //     } else if (slideIndex == $('.slide').length - 1) {
+    //         $('.next').hide();
+    //     }
+    // }
+    // toggleChangeBtn();
 
-    $('.next').on('click', function() {
-        let $displaySlide = $('.active');
-        $displaySlide.removeClass('active');
-        $displaySlide.next().addClass('active');
-        toggleChangeBtn();
-    });
-    $('.prev').on('click', function() {
-        let $displaySlide = $('.active');
-        $displaySlide.removeClass('active');
-        $displaySlide.prev().addClass('active');
-        toggleChangeBtn();
-    });
+    // $('.next').on('click', function() {
+    //     let $displaySlide = $('.active');
+    //     $displaySlide.removeClass('active');
+    //     $displaySlide.next().addClass('active');
+    //     toggleChangeBtn();
+    // });
+    // $('.prev').on('click', function() {
+    //     let $displaySlide = $('.active');
+    //     $displaySlide.removeClass('active');
+    //     $displaySlide.prev().addClass('active');
+    //     toggleChangeBtn();
+    // });
 
     // フィルター
     // $('#filter a').click(function() {
@@ -90,46 +167,33 @@ $(function(){
 	// 	return false;
 	// });
 
-    $(window).on('scroll', function () {
-        var doch = $(document).innerHeight(); //ページ全体の高さ
-        var winh = $(window).innerHeight(); //ウィンドウの高さ
-        var bottom = doch - winh; //ページ全体の高さ - ウィンドウの高さ = ページの最下部位置
-        if (bottom * 0.9 <= $(window).scrollTop()) {
-            $('.courceIcon').css('display','none');
-        }
-        if (bottom * 0.9 >= $(window).scrollTop()) {
-                $('.courceIcon').css('display','block');
-        }
-    });
+    // 最下部に来た時アイコンを消す処理
+    // $(window).on('scroll', function () {
+    //     var doch = $(document).innerHeight(); //ページ全体の高さ
+    //     var winh = $(window).innerHeight(); //ウィンドウの高さ
+    //     var bottom = doch - winh; //ページ全体の高さ - ウィンドウの高さ = ページの最下部位置
+    //     if (bottom * 0.9 <= $(window).scrollTop()) {
+    //         $('.courceIcon').css('display','none');
+    //     }
+    //     if (bottom * 0.9 >= $(window).scrollTop()) {
+    //             $('.courceIcon').css('display','block');
+    //     }
+    // });
 
     // プライバシーポリシーに同意するを押したらsubmitボタンを機能させる（disabled属性取る）
-    $('#agreebtn').change(function() {
-        const result = $('button').prop('disabled');  
-        if(result) {
-            $('button').prop('disabled', false);
-        }
-        else {
-            $('button').prop('disabled', true);
-        }
-    });
+    // $('#agreebtn').change(function() {
+    //     const result = $('button').prop('disabled');  
+    //     if(result) {
+    //         $('button').prop('disabled', false);
+    //     }
+    //     else {
+    //         $('button').prop('disabled', true);
+    //     }
+    // });
 
     // sitemap more btn
-    $('.sitemapMore').on('click', function() {
-        $(this).toggleClass('on-click');
-        $('.sitemapHide').slideToggle(200);
-    });
-
-    // modal
-    $('.js-modal-open').each(function(){
-        $(this).on('click',function(){
-            const target = $(this).data('target');
-            const modal = document.getElementById(target);
-            $(modal).fadeIn();
-            return false;
-        });
-    });
-    $('.js-modal-close').on('click',function(){
-        $('.js-modal').fadeOut();
-        return false;
-    });
+    // $('.sitemapMore').on('click', function() {
+    //     $(this).toggleClass('on-click');
+    //     $('.sitemapHide').slideToggle(200);
+    // });
 });

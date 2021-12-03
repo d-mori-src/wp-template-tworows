@@ -4,46 +4,40 @@
         margin: 120px auto 0;
     }
 }
-.pc-searchForm {
-    display: none;
-    @media screen and (min-width:1024px) {
-        display: block;
+.searchForm {
+    display: block;
+    button {
+        margin: 0;
+        padding: 4px 0 4px 16px;
+        border-top: 1px solid #EBEBEB;
+        border-right: none;
+        border-bottom: 1px solid #EBEBEB;
+        border-left: 1px solid #EBEBEB;
+        border-radius: 30px 0 0 30px;
+        background: #fff;
+        outline: none;
+        img {
+            width: 16px;
+        }
+    }
+    .searchInput {
+        margin: 0;
+        padding: 4px 8px;
+        width: 64%;
+        border-top: 1px solid #EBEBEB;
+        border-right: 1px solid #EBEBEB;
+        border-bottom: 1px solid #EBEBEB;
+        border-left: none;
+        border-radius: 0 30px 30px 0;
+        background: #fff;
+        outline: none;
         position: relative;
-        top: 4px;
-        button {
-            margin: 0;
-            padding: 4px 0 4px 16px;
-            border-top: 1px solid #EBEBEB;
-            border-right: none;
-            border-bottom: 1px solid #EBEBEB;
-            border-left: 1px solid #EBEBEB;
-            border-radius: 30px 0 0 30px;
-            background: none;
-            outline: none;
-            img {
-                position: relative;
-                top: 1px;
-            }
-        }
-        .searchInput {
-            margin: 0;
-            padding: 4px 8px;
-            width: 180px;
-            border-top: 1px solid #EBEBEB;
-            border-right: 1px solid #EBEBEB;
-            border-bottom: 1px solid #EBEBEB;
-            border-left: none;
-            border-radius: 0 30px 30px 0;
-            background: none;
-            outline: none;
-            position: relative;
-            right: 4px;
-        }
-        ::placeholder {
-            color: #ccc;
-            font-size: 12px;
-            position: relative;
-            bottom: 2px;
-        }
+        right: 5px;
+    }
+    ::placeholder {
+        color: #ccc;
+        font-size: 12px;
+        position: relative;
+        bottom: 2px;
     }
 }

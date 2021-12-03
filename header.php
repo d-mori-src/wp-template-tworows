@@ -1,7 +1,7 @@
 <?php
     $uri = get_theme_file_uri(); // ルートpath
     global $post;
-    $slug = $post->post_name;
+    $slug = $post->post_name; // スラッグ
     $site_url = site_url(); // サイトURL
     $server_uri = $_SERVER['REQUEST_URI'];
     $server_uri_trimed = substr($server_uri, 0, strcspn($server_uri,'?')); 
@@ -76,10 +76,8 @@
                         <li><a href="<?=$site_url;?>/search/ニュース"><span class="newsLink">NEWS</span>ニュース</a></li>
                         <li><a href="<?=$site_url;?>/features"><span class="featureLink">FEATURES</span>特集記事</a></li>
                     </ul>
-
-                    <?php // get_search_form(); ?>
-
-                    <ul class="icon">
+                    
+                    <ul id="acMenu" class="icon">
                         <li>
                             <a href="<?=$site_url;?>/">
                                 <img src="<?=$uri?>/img/header/nice.svg" alt="お気に入り">
@@ -91,6 +89,15 @@
                                 <img src="<?=$uri?>/img/header/roulette.svg" alt="おでかけ">
                                 <span>おでかけ</span>
                             </a>
+                        </li>
+                        <li class="searchBtn">
+                            <a href="javascript:void(0)">
+                                <img src="<?=$uri?>/img/header/search_black.svg" alt="検索">
+                                <span>検索</span>
+                            </a>
+                            <div class="searchContents">
+                                <?php get_search_form(); ?>
+                            </div>
                         </li>
                         <div id="hamburger">
                             <div class="innerHamburger">
@@ -114,18 +121,19 @@
                 <section class="innerNav">
                     <a href="<?=$site_url;?>" class="topNavLink">トップページ</a>
                     <ul class="navLink">
-                        <li><a href=""><img src="<?=$uri?>/img/hamburger/ivent.svg" alt="イベント">イベント</a></li>
-                        <li><a href=""><img src="<?=$uri?>/img/hamburger/gourmet.svg" alt="グルメ">グルメ</a></li>
-                        <li><a href=""><img src="<?=$uri?>/img/hamburger/sweets.svg" alt="スイーツ">スイーツ</a></li>
-                        <li><a href=""><img src="<?=$uri?>/img/hamburger/family.svg" alt="ファミリー">ファミリー</a></li>
-                        <li><a href=""><img src="<?=$uri?>/img/hamburger/weekend.svg" alt="今週末">今週末</a></li>
-                        <li><a href=""><img src="<?=$uri?>/img/hamburger/present.svg" alt="プレゼント応募">プレゼント応募</a></li>
+                        <li><a href="<?=$site_url;?>/search/イベント"><img src="<?=$uri?>/img/hamburger/ivent.svg" alt="イベント">イベント</a></li>
+                        <li><a href="<?=$site_url;?>/search/グルメ"><img src="<?=$uri?>/img/hamburger/gourmet.svg" alt="グルメ">グルメ</a></li>
+                        <li><a href="<?=$site_url;?>/search/スイーツ"><img src="<?=$uri?>/img/hamburger/sweets.svg" alt="スイーツ">スイーツ</a></li>
+                        <li><a href="<?=$site_url;?>/search/ファミリー"><img src="<?=$uri?>/img/hamburger/family.svg" alt="ファミリー">ファミリー</a></li>
+                        <li><a href="<?=$site_url;?>/search/今週末"><img src="<?=$uri?>/img/hamburger/weekend.svg" alt="今週末">今週末</a></li>
+                        <li><a href="<?=$site_url;?>/presents"><img src="<?=$uri?>/img/hamburger/present.svg" alt="プレゼント応募">プレゼント応募</a></li>
                     </ul>
                     
                     <div class="pcFlex">
                         <div class="tagLinkWrapper">
                             <h4>話題のタグ</h4>
                             <ul class="tagLink">
+                                <!-- 動的表示部分 -->
                                 <li><a href=""><span>#</span>秋</a></li>
                                 <li><a href=""><span>#</span>紅葉狩り</a></li>
                                 <li><a href=""><span>#</span>体験レポ</a></li>
@@ -135,25 +143,25 @@
                             </ul>
                         </div>
                         <ul class="pcAnotherLink">
-                            <li><a href="">メルマガ登録・解除</a></li>
-                            <li><a href="">施設一覧</a></li>
-                            <li><a href="">情報提供</a></li>
-                            <li><a href="">ご意見・ご要望</a></li>
-                            <li><a href="">広告掲載のご案内</a></li>
+                            <li><a href="<?=$site_url;?>/mail_magazine">メルマガ登録・解除</a></li>
+                            <li><a href="<?=$site_url;?>/facilities">施設一覧</a></li>
+                            <li><a href="<?=$site_url;?>/contribute">情報提供</a></li>
+                            <li><a href="<?=$site_url;?>/questionnaire">ご意見・ご要望</a></li>
+                            <li><a href="<?=$site_url;?>/advertisement">広告掲載のご案内</a></li>
                         </ul>
                     </div>
                     <ul class="snsLink">
-                        <li><a href=""><img src="<?=$uri?>/img/common/fb.svg" alt="Facebook"></a></li>
-                        <li><a href=""><img src="<?=$uri?>/img/common/tw.svg" alt="Twitter"></a></li>
-                        <li><a href=""><img src="<?=$uri?>/img/common/insta.svg" alt="INSTAGRAM"></a></li>
-                        <li><a href=""><img src="<?=$uri?>/img/common/line.svg" alt="LINE"></a></li>
+                        <li><a href="https://www.facebook.com/KissWEBjp/" target="_blank" rel="noopener noreferrer"><img src="<?=$uri?>/img/common/fb.svg" alt="Facebook"></a></li>
+                        <li><a href="https://twitter.com/KissPRESS" target="_blank" rel="noopener noreferrer"><img src="<?=$uri?>/img/common/tw.svg" alt="Twitter"></a></li>
+                        <li><a href="https://www.instagram.com/kisspress/" target="_blank" rel="noopener noreferrer"><img src="<?=$uri?>/img/common/insta.svg" alt="INSTAGRAM"></a></li>
+                        <li><a href="https://line.me/R/ti/p/@oa-kisspress?from=page" target="_blank" rel="noopener noreferrer"><img src="<?=$uri?>/img/common/line.svg" alt="LINE"></a></li>
                     </ul>
                     <ul class="spAnotherLink">
-                        <li><a href="">メルマガ登録・解除</a></li>
-                        <li><a href="">施設一覧</a></li>
-                        <li><a href="">情報提供</a></li>
-                        <li><a href="">ご意見・ご要望</a></li>
-                        <li><a href="">広告掲載のご案内</a></li>
+                        <li><a href="<?=$site_url;?>/mail_magazine">メルマガ登録・解除</a></li>
+                        <li><a href="<?=$site_url;?>/facilities">施設一覧</a></li>
+                        <li><a href="<?=$site_url;?>/contribute">情報提供</a></li>
+                        <li><a href="<?=$site_url;?>/questionnaire">ご意見・ご要望</a></li>
+                        <li><a href="<?=$site_url;?>/advertisement">広告掲載のご案内</a></li>
                     </ul>
                 </section>
                 

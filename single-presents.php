@@ -11,12 +11,17 @@
             <h3 class="headTitle"><img src="<?=$uri?>/img/common/precent.svg" class="presentIcon" alt="">プレゼント</h3>
             <?php if (have_posts()): ?>
                 <?php while (have_posts()): the_post(); ?>
+                    <?php 
+                        $application_deadline = get_field('application_deadline');
+                        $application_deadline2 = date('Y年n月j日', strtotime($application_deadline));
+                    ?>  
+
                     <h1><?php the_field('title_copy'); ?></h1>
                     <div class="presentFlexWrappwer">
                         <div class="leftWrappwer">
                             <div class="winning">
                                 <p><?php the_field('people'); ?>名様</p>
-                                <p><?php the_field('application_deadline'); ?>まで</p>
+                                <p><?=$application_deadline2; ?>まで</p>
                             </div>
                             <p class="lead"><?php the_field('sentence1'); ?></p>
                         </div>
@@ -41,7 +46,7 @@
                     <div class="deadline">
                         <h4>こちらのプレゼントに応募する際は、アンケート欄にKiss PRESSへのご意見・ご感想などをご記入下さい。</h4>
                         <p>
-                            応募締め切り：<?php the_field('application_deadline'); ?><br />
+                            応募締め切り：<?=$application_deadline2; ?><br />
                             ※当選者は、商品の発送をもって発表とかえさせていただきます。<br />
                             ※ご応募頂いた住所・氏名・電話番号等の個人情報は､プレゼント発送以外には使用致しません。
                         </p>

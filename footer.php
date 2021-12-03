@@ -10,7 +10,7 @@
                 <div class="innerFooter">
                     <ul class="pc-footerNavi">
                         <li><a href="<?=$site_url;?>/facilities">施設検索</a></li>
-                        <li><a href="<?=$site_url;?>/presents">プレゼント</a></li>
+                        <li><a href="<?=$site_url;?>/presents">プレゼント応募</a></li>
                         <li><a href="<?=$site_url;?>/questionnaire">ご意見・ご要望</a></li>
                         <li><a href="<?=$site_url;?>/contribute">情報提供</a></li>
                         <li><a href="<?=$site_url;?>/mail_magazine">メルマガ登録・解除</a></li>

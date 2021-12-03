@@ -29,7 +29,7 @@
     <article>
         <h3 class="headTitle"><img src="<?=$uri?>/img/common/check.svg" alt="">新着情報</h3>
         <section class="news">
-            <div class="newsItems">
+            <div class="newsItems topNewsItems">
                 <?php if ($wp_query->have_posts()): ?>
                     <?php while ($wp_query->have_posts()): $wp_query->the_post(); ?>
                         <?php $cat = get_the_category(); $cat = $cat[0]; ?>
@@ -71,7 +71,9 @@
                 <?php endif; ?>
             </div>
 
-            <div class="pagenation">
+            <?php get_template_part( 'infinite-scroll' ); ?>
+
+            <!-- <div class="pagenation">
                 <?php previous_posts_link(''); ?>
                 <?php
                     if ($wp_query->max_num_pages > 1) {
@@ -89,7 +91,8 @@
                     }
                 ?>
                 <?php next_posts_link(''); ?>
-            </div>
+            </div> -->
+
         </section>
     </article> 
     <?php get_sidebar(); ?>

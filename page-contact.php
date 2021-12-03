@@ -12,7 +12,7 @@
         </section>
 
         <section class="contents">
-            <form action="" method="POST" class="h-adr">
+            <form action="" method="POST">
                 <div class="anyForm">
                     <dl class="first">
                         <dt>ご連絡先<span class="require">必須</span></dt>
