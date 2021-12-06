@@ -26,5 +26,8 @@
     <script type="text/javascript" src="<?= $uri ?>/js/slick.min.js"></script>
     <script src="<?= $uri ?>/js/thumb_slide.js"></script>
     <script src="<?= $uri ?>/js/main.js"></script>
+    <?php if ($server_uri === '/'): ?>
+        <script src="<?= $uri ?>/js/infinite_scroll.js"></script>
+    <?php endif; ?>
     </body>
 </html>

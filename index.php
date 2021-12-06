@@ -28,7 +28,16 @@
 <main class="top">
     <article>
         <h3 class="headTitle"><img src="<?=$uri?>/img/common/check.svg" alt="">新着情報</h3>
-        <section class="news">
+ 
+        <div class="wrap"></div>
+        <style>
+            .wrap {
+                overflow-y: scroll;
+            }
+        </style>
+
+        <!-- WPの定番の表示 -->
+        <!-- <section class="news">
             <div class="newsItems topNewsItems">
                 <?php if ($wp_query->have_posts()): ?>
                     <?php while ($wp_query->have_posts()): $wp_query->the_post(); ?>
@@ -71,9 +80,12 @@
                 <?php endif; ?>
             </div>
 
+            <input type="hidden" class="article_page">
+            <input type="hidden" id="history_count" value="1">
+
             <?php get_template_part( 'infinite-scroll' ); ?>
 
-            <!-- <div class="pagenation">
+            <div class="pagenation">
                 <?php previous_posts_link(''); ?>
                 <?php
                     if ($wp_query->max_num_pages > 1) {
@@ -91,10 +103,9 @@
                     }
                 ?>
                 <?php next_posts_link(''); ?>
-            </div> -->
-
-        </section>
-    </article> 
+            </div>
+        </section> -->
+    </article>
     <?php get_sidebar(); ?>
 </main>
 
