@@ -28,13 +28,8 @@
 <main class="top">
     <article>
         <h3 class="headTitle"><img src="<?=$uri?>/img/common/check.svg" alt="">新着情報</h3>
- 
+
         <div class="wrap"></div>
-        <style>
-            .wrap {
-                overflow-y: scroll;
-            }
-        </style>
 
         <!-- WPの定番の表示 -->
         <!-- <section class="news">
@@ -80,9 +75,6 @@
                 <?php endif; ?>
             </div>
 
-            <input type="hidden" class="article_page">
-            <input type="hidden" id="history_count" value="1">
-
             <?php get_template_part( 'infinite-scroll' ); ?>
 
             <div class="pagenation">
@@ -105,6 +97,7 @@
                 <?php next_posts_link(''); ?>
             </div>
         </section> -->
+        
     </article>
     <?php get_sidebar(); ?>
 </main>

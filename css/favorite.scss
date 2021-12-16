@@ -1,0 +1,6 @@
+.favorite {
+    margin: 100px auto 0;
+    @media screen and (min-width:1024px) {
+        margin: 120px auto;
+    }
+}

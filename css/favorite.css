@@ -1,0 +1,10 @@
+.favorite {
+  margin: 100px auto 0;
+}
+
+@media screen and (min-width: 1024px) {
+  .favorite {
+    margin: 120px auto;
+  }
+}
+/*# sourceMappingURL=favorite.css.map */

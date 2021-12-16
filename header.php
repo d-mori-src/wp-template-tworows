@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <title>Kiss PRESS(キッスプレス) | 兵庫五国を楽しもう</title>
+    <title>[WP]Kiss PRESS(キッスプレス) | 兵庫五国を楽しもう</title>
     <meta name="description" content="KissPRESSは兵庫五国の地域情報サイトです。兵庫五国のおでかけ情報やイベント・スポット情報が盛りだくさん">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -31,9 +31,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
-    <!-- 住所自動入力プラグイン -->
-    <script src="https://yubinbango.github.io/yubinbango/yubinbango.js" charset="UTF-8"></script>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 
     <!-- 各種css -->
     <link rel="stylesheet" href="<?= get_stylesheet_uri(); ?>">
@@ -60,7 +58,8 @@
     <link rel="stylesheet" href="<?= $uri ?>/css/institution.css">
     <link rel="stylesheet" href="<?= $uri ?>/css/mail_magazine.css">
     <link rel="stylesheet" href="<?= $uri ?>/css/contact.css">
-
+    <link rel="stylesheet" href="<?= $uri ?>/css/favorite.css">
+    <link rel="stylesheet" href="<?= $uri ?>/css/infinite_scroll.css">
     <?php wp_head(); ?>
 </head>
     <body>
@@ -79,7 +78,7 @@
                     
                     <ul id="acMenu" class="icon">
                         <li>
-                            <a href="<?=$site_url;?>/">
+                            <a href="<?=$site_url;?>/favorite">
                                 <img src="<?=$uri?>/img/header/nice.svg" alt="お気に入り">
                                 <span>お気に入り</span>
                             </a>

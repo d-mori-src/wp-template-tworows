@@ -33,7 +33,6 @@ document.getElementById('hamburger').addEventListener('click' , function () {
     hamburger();
 });
 
-
 // 検証用
 // リファラーURL取得
 const refUrl = document.referrer;

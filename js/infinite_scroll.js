@@ -1,68 +1,89 @@
-$(function(){
-    // このページから離れる時のイベント
-	$(window).on('beforeunload', function (e) {
-		history.pushState(null, null, '/');
-	});
+//history.replaceState(null, null, null);
+//window.addEventListener('popstate', function (e) {
+//console.log('ブラウザバックを検知しました。');
+// 	history.pushState(null, null, "/");
+// 	let backCount = $("#history_count").val();
+// 	this.history.go(backCount);
+//});
+
+$(function () {
 	// ブラウザバックのイベント
 	history.replaceState(null, null, null);
-	$(window).on('popstate', function (e) {
+	// このページから離れる時のイベント
+	$(window).on('beforeunload', function (e) {
+		history.pushState(null, null, "/");
+	});
+	// 「戻る」ボタンを押した時のイベント
+	$(window).on("popstate", function (e) {
 		// 遷移した回数分+1 戻す
-		let backCount = $('#history_count').val();
-		backCount = backCount++;
+		let backCount = $("#history_count").val();
+		backCount = parseInt(backCount, 10) + 1;
+		console.log(backCount);
 		let userAgent = window.navigator.userAgent;
 		if (userAgent.indexOf('Firefox') != -1) {
-			backCount = backCount++;
+			backCount = parseInt(backCount, 10) + 1;
 		}
+		backCount = backCount * -1;
+		console.log(backCount);
 		history.go(backCount);
 	});
-    // ウィンドゥの高さを出してスクロール部分に適用
-    let windowHeight = $(window).height();
-    $('.wrap').height(windowHeight);
-    $('.detail_card').height(windowHeight);
-    // スクロールを合わせた初期表示の高さを取得する
-	let scrollHeight = $('.wrap').get(0).scrollHeight;
-    let page_num = 1;
-	init(page_num);
-    // スクロール部分の動作
-    $('.wrap').on('scroll', function () {
-        // スクロールした量（取得する）
-        let scroll_mv = $(this).scrollTop();
-        // ウィンドゥの高さ + スクロールした量を出す
-        let scroll = windowHeight + scroll_mv;
-        // 動いた量が初期表示のスクロールを含めた高さを上回ったら要素を追加する
-        if (scroll > scrollHeight) {
-            page_num = page_num + 1;
-            history.pushState(null, null, '/articles/?p=' + page_num);
-            init(page_num);
-            // 要素を追加したらその分のスクロールを初期化し直す
-            scrollHeight = $('.wrap').get(0).scrollHeight;
-            // 履歴を変更した回数を加算
-            incrementHistory();
-        }
-    });
-    // 続きを見るクリック
-    // $('.wrap').on('click', '.article_box span.tobecontinue', function () {
-    $('.article_box').on('click', 'span.tobecontinue', function () {
-        let id = $(this).data('id');
-        // 履歴を変更
-        history.pushState(null, null, '/articles/' + id);
-        // 履歴を変更した回数を加算
-        incrementHistory();
-        // 詳細を取得して展開
-        getDetail(id);
 
-        // PV カウント
-        // pageview(send_title, sendURL);
-    });
+	// ウィンドゥの高さを出してスクロール部分に適用
+	let windowHeight = $(window).height();
+	$(".wrap").height(windowHeight);
+	$(".detail_card").height(windowHeight);
+	// スクロールを合わせた初期表示の高さを取得する
+	let scrollHeight = $(".wrap").get(0).scrollHeight;
+	let page_num = 1;
+	init(page_num);
+	// スクロール部分の動作
+	$(".wrap").on("scroll", function () {
+		// スクロールした量（取得する）
+		let scroll_mv = $(this).scrollTop();
+		// ウィンドゥの高さ + スクロールした量を出す
+		let scroll = windowHeight + scroll_mv;
+		// 動いた量が初期表示のスクロールを含めた高さを上回ったら要素を追加する
+		if (scroll > scrollHeight) {
+			page_num = page_num + 1;
+			history.pushState(null, null, "/articles/?p=" + page_num);
+			init(page_num);
+			// 要素を追加したらその分のスクロールを初期化し直す
+			scrollHeight = $(".wrap").get(0).scrollHeight;
+			// 履歴を変更した回数を加算
+			incrementHistory();
+		}
+	});
+	// 続きを見るクリック
+	// $('.wrap').on('click', '.article_box span.tobecontinue', function () {
+	//	$('.article_box').on('click', 'span.tobecontinue', function () {
+	$(document).on('click', 'span.tobecontinue', function () {
+		let id = $(this).data("id");
+		// 履歴を変更
+		history.pushState(null, null, "/articles/" + id);
+		// 履歴を変更した回数を加算
+		incrementHistory();
+		// 詳細を取得して展開
+		getDetail(id);
+
+		// PV カウント
+		// pageview(send_title, sendURL);
+	});
 });
+/* 概要 --------------------------------------------------------------------
+ * 「JSON文字列」 は JSON.parse 関数でオブジェクト(objData)に変換する
+ * for (let i in objData) {} で回して取り出すことができる(iは1から始まる ※データによって異なるかも知れないので確認してから使う)
+ * 例) objData[i].title
+ * i は回さなくても、数値で指定して取り出すことができる
+ * パーズした後、オブジェクトの要素の数は　Object.keys(objData).length で取得することができる
+ */
 
 function init(page_num = 1) {
 	let list_count = 20; // 1度に取得する件数
 	let today_str = getDateStr(); // 日付
 	// リクエストするベース URL
-	let baseURL = 'https://api.kisspress.jp/beta/articles/';
+	let baseURL = "https://api.kisspress.jp/beta/articles/";
 	// リクエストパラメータ
-	let url = baseURL + '?search=1&opnening_date=' + today_str + '&l=' + list_count + '&p=' + page_num;
+	let url = baseURL + "?search=1&opnening_date=" + today_str + "&l=" + list_count + "&p=" + page_num;
 	// データを取得して処理を開始する
 	$.ajax({
 		type: 'POST',
@@ -84,7 +105,7 @@ function scroll_data(objData, list_count) {
 	// 初期化 -----------------------------------------------------------------
 	let count = 1; // ページ数
 	let pagePer = 20; // 1ページあたりのデータ数
-	let boxHeight = $('.wrap').height(); // ページングする要素の高さ
+	let boxHeight = $(".wrap").height(); // ページングする要素の高さ
 	let heightPer = 0; // スクロールした割合
 	//let boxHeight = 200;                  // データを表示すエリアの高さ (指定する場合)
 	let evHeight = 160; // データを表示するエリアのイベントが発生する高さ
@@ -100,10 +121,10 @@ function scroll_data(objData, list_count) {
 
 
 	// スクロールの量によって、ページングを実行する
-	$('.wrap').scroll(function () {
+	$(".wrap").scroll(function () {
 
 		// 取得した記事数を超過したらデータを読み直す
-		let article_sum = $('.article_box').length; // 出力した記事件数
+		let article_sum = $(".article_box").length; // 出力した記事件数
 		let article_page = $('.article_page').val(); // 現在のページ数
 		let article_output_sum = list_count * article_page; // 該当ページ数の上限記事数
 		if (article_sum == article_output_sum) {
@@ -129,6 +150,7 @@ function scroll_data(objData, list_count) {
  * JSON からデータを出力する
  *
  */
+
 function writeData(DataArr) {
 	let area_name = "";
 	for (let i in DataArr) {
@@ -145,40 +167,43 @@ function writeData(DataArr) {
 		$('.wrap').append(
             // PC時article_boxでFlexかける
 			"<div class='article_box' data-id='" + DataArr[i].id + "'>" +
-                // PC時の画像
-                // "<div className='pc_thumbnail'>" +
-                //     "<img src='https://kisspress.jp/img_thumb/get_image/480/0/?file=" + DataArr[i].image.file_path.xl + "' loading='lazy'>" +
-                // "</div>" +
-                "<div class='textWrapper'>" +
-                    "<h1>" + DataArr[i].title_s + "</h1>" +
-                    "<h2>" + DataArr[i].title_copy + "</h2>" +
-                    "<p class='term'>" + DataArr[i].event_term + "</p>" +
-                    "<div class='article_sentence'>" +
-                        modifyNameString(DataArr[i].sentence1, 60, DataArr[i].id) +
-                    "</div>" +
-                    "<article></article>" +
-                    // スマホ時の画像
-                    "<div className='sp_thumbnail'>" +
-                        "<img src='https://kisspress.jp/img_thumb/get_image/480/0/?file=" + DataArr[i].image.file_path.xl + "' loading='lazy'>" +
-                    "</div>" +
-                    "<div class='article_bottom'>" +
-                        "<ul'>" +
-                            "<li class='article_tag_name'>" +
-                                DataArr[i].tag_type_name +
-                                "</li>" +
-                                "<li class='article_area_name'>" +
-                                "<i class='fas fa-map-marker-alt'></i>" +
-                                area_name +
-                            "</li>" +
-                            "<li class='article_time'>30分前" +
-                            "</li>" +
-                            "<li class='article_favorite'>" +
-                                "<i class='far fa-heart'></i>" +
-                            "</li>" +
-                        "</ul>" +
-                        "<div class='clear'>" +
-                    "</div>" +
-                "</div>" +
+				"<div class='inner_article_box'>" +
+					// PC時の画像
+					"<div class='pc_thumbnail'>" +
+						"<img src='https://kisspress.jp/img_thumb/get_image/480/0/?file=" + DataArr[i].image.file_path.xl + "' loading='lazy'>" +
+						"<p class='pc_term'>" + DataArr[i].event_term + "</p>" +
+					"</div>" +
+					"<div class='textWrapper'>" +
+						"<h1>" + DataArr[i].title_s + "</h1>" +
+						"<h2>" + DataArr[i].title_copy + "</h2>" +
+						"<p class='sp_term'>" + DataArr[i].event_term + "</p>" +
+						"<div class='article_sentence'>" +
+							modifyNameString(DataArr[i].sentence1, 60, DataArr[i].id) +
+						"</div>" +
+						"<article></article>" +
+						// スマホ時の画像
+						"<div class='sp_thumbnail'" +
+							"<img src='https://kisspress.jp/img_thumb/get_image/480/0/?file=" + DataArr[i].image.file_path.xl + "' loading='lazy'>" +
+						"</div>" +
+						"<div class='article_bottom'>" +
+							"<ul>" +
+								"<li class='article_tag_name'>" +
+									DataArr[i].tag_type_name +
+								"</li>" +
+								"<li class='article_area_name'>" +
+									"<i class='fas fa-map-marker-alt'></i>" +
+									area_name +
+								"</li>" +
+								"<li class='article_time'>30分前" +
+								"</li>" +
+								"<li class='article_favorite'>" +
+									"<i class='far fa-heart'></i>" +
+								"</li>" +
+							"</ul>" +
+							"<div class='clear'>" +
+						"</div>" +
+					"</div>" +
+				"</div>" +
 			"</div>"
 		);
 	}
@@ -188,7 +213,7 @@ function writeData(DataArr) {
  * @param count int ページ数
  * @param per int 1ページあたりのデータ量
  */
-function pagingData(page, per, objData) {
+ function pagingData(page, per, objData) {
 	let start = 0;
 	let end = 0;
 	let DataArr = []; // 描画用の配列
@@ -215,7 +240,7 @@ function pagingData(page, per, objData) {
 /**
  * 本日の日付を出す
  */
-function getDateStr(separate = '-') {
+function getDateStr(separate = "-") {
 	// Date オブジェクト作成
 	let dateObject = new Date();
 	let year = dateObject.getFullYear();
@@ -257,12 +282,12 @@ function pageview(title, page) {
 
 /**
  * 記事詳細を取得
- *
+ * WPテーマ　レイアウト上階層が変わったため「> .textWrapper」追加
  */
 function getDetail(id) {
 	// let host_name  = location.href;
 	// リクエストするベース URL
-	let baseURL = 'https://api.kisspress.jp/beta/articles/';
+	let baseURL = "https://api.kisspress.jp/beta/articles/";
 	// リクエストパラメータ
 	let url = baseURL + id + "/";
 	// データを取得して処理を開始する
@@ -273,15 +298,22 @@ function getDetail(id) {
 		dataType: 'json',
 		timeout: 3000,
 	}).done(function (data, textStatus, jqXHR) {
-		$('.article_box[data-id=' + id + '] > .article_sentence').remove();
-		$('.article_box[data-id=' + id + '] > div[classname=thumbnail]').remove();
+		$(".article_box[data-id=" + id + "] > .inner_article_box > .textWrapper > .article_sentence").remove();
 		let objData = data['basic'];
-		let h1 = objData['title_s'];
-		let h2 = objData['title_copy"'];
-		let time = objData['event_term'];
-		let articleSentence1 = objData['sentence1'];
-		let articleSentence2 = objData['sentence2'];
-		$(".article_box[data-id=" + id + "] > .article_bottom").before("<section id='articleContents'><h2>" + h2 + "</h2><h1>" + h1 + "</h1></section><time>" + time + "</time><p id='articleSentence1'>" + articleSentence1 + "</p><p id='articleSentence2'>" + articleSentence2 + "</p>");
+		let h1 = objData["title_s"];
+		let h2 = objData["title_copy"];
+		let time = objData["event_term"];
+		let articleSentence1 = objData["sentence1"];
+		let articleSentence2 = objData["sentence2"];
+		$(".article_box[data-id=" + id + "] > .inner_article_box").after(
+			// "<section id='articleContents'>" +
+				// "<h2>" + h2 + "</h2>" +
+				// "<h1>" + h1 + "</h1>" +
+			// "</section>" +
+			"<time>" + time + "</time>" +
+			"<p id='articleSentence1'>" + articleSentence1 + "</p>" +
+			"<p id='articleSentence2'>" + articleSentence2 + "</p>"
+		);
 	}).fail(function (jqXHR, textStatus, errorThrown) {
 		return false;
 	}).always(function (jqXHR, textStatus) {
@@ -290,7 +322,8 @@ function getDetail(id) {
 }
 
 function incrementHistory() {
-	let count = $('#history_count').val();
+	let count = $("#history_count").val();
 	count++;
-	$('#history_count').val(count);
+	$("#history_count").val(count);
+	console.log(count);
 }
