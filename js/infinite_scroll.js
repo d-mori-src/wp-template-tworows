@@ -18,13 +18,13 @@ $(function () {
 		// 遷移した回数分+1 戻す
 		let backCount = $("#history_count").val();
 		backCount = parseInt(backCount, 10) + 1;
-		console.log(backCount);
+
 		let userAgent = window.navigator.userAgent;
 		if (userAgent.indexOf('Firefox') != -1) {
 			backCount = parseInt(backCount, 10) + 1;
 		}
 		backCount = backCount * -1;
-		console.log(backCount);
+
 		history.go(backCount);
 	});
 
@@ -60,8 +60,13 @@ $(function () {
 		let id = $(this).data("id");
 		// 履歴を変更
 		history.pushState(null, null, "/articles/" + id);
+
 		// 履歴を変更した回数を加算
-		incrementHistory();
+		// incrementHistory();
+
+		// 変更 履歴のカウントを0に 
+		$("#history_count").val(0);
+
 		// 詳細を取得して展開
 		getDetail(id);
 
@@ -74,7 +79,7 @@ $(function () {
  * for (let i in objData) {} で回して取り出すことができる(iは1から始まる ※データによって異なるかも知れないので確認してから使う)
  * 例) objData[i].title
  * i は回さなくても、数値で指定して取り出すことができる
- * パーズした後、オブジェクトの要素の数は　Object.keys(objData).length で取得することができる
+ * パーズした後、オブジェクトの要素の数は Object.keys(objData).length で取得することができる
  */
 
 function init(page_num = 1) {
@@ -115,7 +120,7 @@ function scroll_data(objData, list_count) {
 	//console.log(objData[27].title_s);           // オブジェクトの値を、要素番号を指定して取得
 
 	// データを5件取得する ------------------------------------------------------
-	// データを展開する　----------------------------------------------------------
+	// データを展開する ----------------------------------------------------------
 	let DataArr = pagingData(count, pagePer, objData);
 	writeData(DataArr);
 
@@ -174,17 +179,15 @@ function writeData(DataArr) {
 						"<p class='pc_term'>" + DataArr[i].event_term + "</p>" +
 					"</div>" +
 					"<div class='textWrapper'>" +
-						"<h1>" + DataArr[i].title_s + "</h1>" +
 						"<h2>" + DataArr[i].title_copy + "</h2>" +
+						"<h1>" + DataArr[i].title_s + "</h1>" +
 						"<p class='sp_term'>" + DataArr[i].event_term + "</p>" +
 						"<div class='article_sentence'>" +
 							modifyNameString(DataArr[i].sentence1, 60, DataArr[i].id) +
 						"</div>" +
 						"<article></article>" +
 						// スマホ時の画像
-						"<div class='sp_thumbnail'" +
-							"<img src='https://kisspress.jp/img_thumb/get_image/480/0/?file=" + DataArr[i].image.file_path.xl + "' loading='lazy'>" +
-						"</div>" +
+						"<img class='sp_thumbnail' src='https://kisspress.jp/img_thumb/get_image/480/0/?file=" + DataArr[i].image.file_path.xl + "' loading='lazy'>" +
 						"<div class='article_bottom'>" +
 							"<ul>" +
 								"<li class='article_tag_name'>" +
@@ -282,7 +285,7 @@ function pageview(title, page) {
 
 /**
  * 記事詳細を取得
- * WPテーマ　レイアウト上階層が変わったため「> .textWrapper」追加
+ * WPテーマ レイアウト上階層が変わったため「> .textWrapper」追加
  */
 function getDetail(id) {
 	// let host_name  = location.href;
@@ -298,7 +301,14 @@ function getDetail(id) {
 		dataType: 'json',
 		timeout: 3000,
 	}).done(function (data, textStatus, jqXHR) {
+		$(".article_box[data-id=" + id + "] > .inner_article_box > .pc_thumbnail").remove();
+		$(".article_box[data-id=" + id + "] > .inner_article_box > .textWrapper > h1").remove();
+		$(".article_box[data-id=" + id + "] > .inner_article_box > .textWrapper > h2").remove();
 		$(".article_box[data-id=" + id + "] > .inner_article_box > .textWrapper > .article_sentence").remove();
+		$(".article_box[data-id=" + id + "] > .inner_article_box > .textWrapper > .article_bottom").remove();
+		$(".article_box[data-id=" + id + "] > .inner_article_box > .textWrapper > .sp_thumbnail").remove();
+		$(".article_box[data-id=" + id + "] > .inner_article_box > .textWrapper > .sp_term").remove();
+				
 		let objData = data['basic'];
 		let h1 = objData["title_s"];
 		let h2 = objData["title_copy"];
@@ -306,13 +316,13 @@ function getDetail(id) {
 		let articleSentence1 = objData["sentence1"];
 		let articleSentence2 = objData["sentence2"];
 		$(".article_box[data-id=" + id + "] > .inner_article_box").after(
-			// "<section id='articleContents'>" +
-				// "<h2>" + h2 + "</h2>" +
-				// "<h1>" + h1 + "</h1>" +
-			// "</section>" +
-			"<time>" + time + "</time>" +
-			"<p id='articleSentence1'>" + articleSentence1 + "</p>" +
-			"<p id='articleSentence2'>" + articleSentence2 + "</p>"
+			"<section id='articleContents' class='articleContents'>" +
+				"<h2>" + h2 + "</h2>" +
+				"<h1>" + h1 + "</h1>" +
+				"<time>" + time + "</time>" +
+				"<p id='articleSentence1' class='articleSentence1'>" + articleSentence1 + "</p>" +
+				"<p id='articleSentence2' class='articleSentence2'>" + articleSentence2 + "</p>" +
+			"</section>"
 		);
 	}).fail(function (jqXHR, textStatus, errorThrown) {
 		return false;
@@ -325,5 +335,4 @@ function incrementHistory() {
 	let count = $("#history_count").val();
 	count++;
 	$("#history_count").val(count);
-	console.log(count);
 }

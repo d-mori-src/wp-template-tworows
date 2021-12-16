@@ -13,19 +13,19 @@
   display: none;
 }
 
-.wrap .article_box .textWrapper h1 {
+.wrap .article_box .textWrapper h2 {
   text-align: justify;
   font-size: 18px;
-  line-height: 1.5;
   font-weight: 500;
+  line-height: 1.5;
   color: #333;
 }
 
-.wrap .article_box .textWrapper h2 {
+.wrap .article_box .textWrapper h1 {
   text-align: justify;
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 14px;
   line-height: 1.5;
+  font-weight: 500;
   margin: 0 0 14px 0;
 }
 
@@ -51,15 +51,12 @@
 }
 
 .wrap .article_box .textWrapper .sp_thumbnail {
-  margin: 0 0 14px 0;
-}
-
-.wrap .article_box .textWrapper .sp_thumbnail img {
   display: block;
   width: 100%;
   height: 192px;
   -o-object-fit: cover;
      object-fit: cover;
+  margin: 0 0 14px 0;
   border-radius: 8px;
 }
 
@@ -89,6 +86,39 @@
   height: 10px;
   margin: 0 4px 0 0;
   background: #ccc;
+}
+
+.wrap .article_box .articleContents h2 {
+  text-align: justify;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #333;
+}
+
+.wrap .article_box .articleContents h1 {
+  text-align: justify;
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 500;
+  margin: 0 0 14px 0;
+}
+
+.wrap .article_box .articleContents time {
+  display: block;
+  text-align: justify;
+  font-size: 12px;
+  line-height: 1.8;
+  margin: 0 0 14px 0;
+}
+
+.wrap .article_box .articleContents .articleSentence1,
+.wrap .article_box .articleContents .articleSentence2 {
+  text-align: justify;
+  font-size: 14px;
+  line-height: 1.8;
+  margin: 0 0 14px 0;
+  position: relative;
 }
 
 @media screen and (min-width: 768px) {
@@ -143,7 +173,7 @@
     width: 50%;
   }
   .wrap .article_box .textWrapper h2 {
-    margin: 0 0 24px 0;
+    margin: 0 0 8px 0;
   }
 }
 /*# sourceMappingURL=infinite_scroll.css.map */

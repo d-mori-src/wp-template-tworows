@@ -9,18 +9,18 @@
             display: none;
         }
         .textWrapper {
-            h1 {
-                text-align: justify;
-                font-size: 18px;
-                line-height: 1.5;
-                font-weight: 500;
-                color: #333;
-            }
             h2 {
                 text-align: justify;
-                font-size: 16px;
+                font-size: 18px;
                 font-weight: 500;
                 line-height: 1.5;
+                color: #333;
+            }
+            h1 {
+                text-align: justify;
+                font-size: 14px;
+                line-height: 1.5;
+                font-weight: 500;
                 margin: 0 0 14px 0;
             }
             .sp_term {
@@ -42,14 +42,12 @@
                 }
             }
             .sp_thumbnail {
+                display: block;
+                width: 100%;
+                height: 192px;
+                object-fit: cover;
                 margin: 0 0 14px 0;
-                img {
-                    display: block;
-                    width: 100%;
-                    height: 192px;
-                    object-fit: cover;
-                    border-radius: 8px;
-                }
+                border-radius: 8px;
             }
             .article_bottom {
                 ul {
@@ -76,6 +74,39 @@
                         }
                     }
                 }
+            }
+        }
+
+        // 詳細記事
+        .articleContents {
+            h2 {
+                text-align: justify;
+                font-size: 18px;
+                font-weight: 500;
+                line-height: 1.5;
+                color: #333;
+            }
+            h1 {
+                text-align: justify;
+                font-size: 14px;
+                line-height: 1.5;
+                font-weight: 500;
+                margin: 0 0 14px 0;
+            }
+            time {
+                display: block;
+                text-align: justify;
+                font-size: 12px;
+                line-height: 1.8;
+                margin: 0 0 14px 0;
+            }
+            .articleSentence1,
+            .articleSentence2 {
+                text-align: justify;
+                font-size: 14px;
+                line-height: 1.8;
+                margin: 0 0 14px 0;
+                position: relative;
             }
         }
     }
@@ -123,7 +154,7 @@
             .textWrapper {
                 width: 50%;
                 h2 {
-                    margin: 0 0 24px 0;
+                    margin: 0 0 8px 0;
                 }
             }
         }
