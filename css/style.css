@@ -335,10 +335,10 @@ body main aside.sidebar {
 
 @media screen and (min-width: 1120px) {
   body main {
-    width: 960px;
+    width: 1024px;
   }
   body main article {
-    width: 640px;
+    width: 680px;
   }
   body main aside.sidebar {
     width: 240px;

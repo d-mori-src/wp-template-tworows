@@ -11,40 +11,54 @@
         .textWrapper {
             h2 {
                 text-align: justify;
-                font-size: 18px;
+                font-size: 16px;
                 font-weight: 500;
-                line-height: 1.5;
+                line-height: 1.4;
                 color: #333;
+                margin: 0 0 12px 0;
             }
             h1 {
                 text-align: justify;
-                font-size: 14px;
-                line-height: 1.5;
+                font-size: 12px;
+                line-height: 1.4;
                 font-weight: 500;
-                margin: 0 0 14px 0;
+                color: #333;
+                margin: 0 0 12px 0;
             }
             .sp_term {
                 text-align: justify;
-                font-size: 12px;
+                font-size: 10px;
                 line-height: 1.8;
+                color: #776655;
+                margin: 0 0 20px 0;
             }
             .article_sentence {
                 text-align: justify;
-                font-size: 14px;
-                line-height: 1.8;
+                font-size: 13px;
+                line-height: 1.5;
+                color: #333;
                 margin: 0 0 14px 0;
                 position: relative;
-                span {
+                .tobecontinue {
+                    display: block;
+                    text-align: center;
                     font-size: 12px;
-                    position: absolute;
-                    right: 0;
-                    bottom: 0;
+                    color: #fff;
+                    width: 100%;
+                    margin: 8px 0 0 0;
+                    padding: 4px 0 6px;
+                    border-radius: 4px;
+                    background: #333;
+                    i {
+                        margin: 0 0 0 8px;
+                        color: #fff;
+                    }
                 }
             }
             .sp_thumbnail {
                 display: block;
                 width: 100%;
-                height: 192px;
+                height: 170px;
                 object-fit: cover;
                 margin: 0 0 14px 0;
                 border-radius: 8px;
@@ -54,8 +68,9 @@
                     display: flex;
                     justify-content: space-between;
                     li {
-                        font-size: 14px;
+                        font-size: 12px;
                         list-style: none;
+                        color: #666;
                     }
                     li.article_area_name {
                         i {
@@ -79,12 +94,13 @@
 
         // 詳細記事
         .articleContents {
+            margin: 20px 0 0 0;
             h2 {
                 text-align: justify;
-                font-size: 18px;
-                font-weight: 500;
-                line-height: 1.5;
-                color: #333;
+                font-size: 18px !important;
+                font-weight: 500 !important;
+                line-height: 1.5 !important;
+                color: #333 !important;
             }
             h1 {
                 text-align: justify;
@@ -103,10 +119,13 @@
             .articleSentence1,
             .articleSentence2 {
                 text-align: justify;
-                font-size: 14px;
-                line-height: 1.8;
+                font-size: 13px;
+                line-height: 1.5;
                 margin: 0 0 14px 0;
                 position: relative;
+            }
+            ins.adsbygoogle {
+                margin: 24px auto;
             }
         }
     }
@@ -123,15 +142,10 @@
                 width: 44%;
                 img {
                     width: 100%;
-                    height: 200px;
+                    height: 210px;
                     object-fit: cover;
                     margin: 0 0 12px 0;
                     border-radius: 8px;
-                }
-                .pc_term {
-                    text-align: justify;
-                    font-size: 12px;
-                    line-height: 1.5;
                 }
             }
             .textWrapper {
@@ -151,10 +165,28 @@
         .article_box {
             margin: 0 0 36px 0;
             padding: 0 0 36px 0;
+            .pc_thumbnail {
+                width: 48%;
+                img {
+                    height: 240px;
+                }
+            }
             .textWrapper {
-                width: 50%;
+                width: 48%;
                 h2 {
-                    margin: 0 0 8px 0;
+                    font-size: 18px;
+                    margin: 0 0 14px 0;
+                }
+                h1 {
+                    font-size: 14px;
+                    margin: 0 0 14px 0;
+                }
+                .article_sentence {
+                    margin: 0 0 16px 0;
+                    position: relative;
+                    .tobecontinue {
+                        margin: 12px 0 0 0;
+                    }
                 }
             }
         }

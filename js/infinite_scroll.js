@@ -73,7 +73,73 @@ $(function () {
 		// PV カウント
 		// pageview(send_title, sendURL);
 	});
+
+	// お気に入り記事ID追加
+	$(document).on("click", ".add", function () {
+		const dataId = $(this).attr('data-id');
+		const key = 'favorite_article';
+		const getjson = localStorage.getItem(key);
+		const idlist = JSON.parse(getjson);
+
+		if(idlist == null){
+			// 初めて「favorite_article」というキーがローカルストレージに登録される時の処理
+			idary = new Array(dataId);
+			const setjson = JSON.stringify(idary);
+			localStorage.setItem(key, setjson);
+
+			togleitem(dataId,'add');
+		} else {
+			// 既に「favorite_article」というキーが存在する時
+			if(idlist.indexOf(dataId) == -1){
+				// 且つ、まだfavorite_articleに登録されていない時
+				idlist.push(dataId);
+				const setjson = JSON.stringify(idlist);
+				localStorage.setItem(key, setjson);
+
+				togleitem(dataId,'add');
+			}
+		}
+	});
+	// お気に入り記事ID削除
+	$(document).on("click", ".remove", function () {
+		const dataId = $(this).attr('data-id');
+		const key = 'favorite_article';
+
+		// ローカルストレージから値を取得
+		const getjson = localStorage.getItem(key);
+		const idlist = JSON.parse(getjson);
+	
+		if(idlist != null){
+			// 「favorite_article」というキーが存在した時
+			const checkitem = idlist.indexOf(dataId); // 配列の何番目に該当のIDがあるかを見る
+			if(checkitem != -1){
+				// 「favorite_article」の中に該当のIDが見つかった時
+				idlist.splice( checkitem, 1 );
+				const setjson = JSON.stringify(idlist);
+				localStorage.setItem(key, setjson);
+
+				togleitem(dataId,'remove');
+			}
+		}
+	});
 });
+
+/**
+ * お気に入り 表示ソースの切り替え
+ *
+ */
+ function togleitem(dataId,event){
+    if(event == 'add'){
+        // 未チェック(class="add")を非表示にして、チェック済(class="remove")を表示する
+        $('li.add[data-id=' + dataId + ']').hide();
+        $('li.remove[data-id=' + dataId + ']').show();
+    } else if(event == 'remove'){
+        // チェック済(class="remove")を非表示にして、未チェック(class="add")を表示する
+        $('li.add[data-id=' + dataId + ']').show();
+        $('li.remove[data-id=' + dataId + ']').hide();
+    }
+}
+
 /* 概要 --------------------------------------------------------------------
  * 「JSON文字列」 は JSON.parse 関数でオブジェクト(objData)に変換する
  * for (let i in objData) {} で回して取り出すことができる(iは1から始まる ※データによって異なるかも知れないので確認してから使う)
@@ -158,8 +224,14 @@ function scroll_data(objData, list_count) {
 
 function writeData(DataArr) {
 	let area_name = "";
-	for (let i in DataArr) {
 
+	$(function() {
+		$(".remove").each(function() {
+			$(".remove").hide();
+		});
+	});
+
+	for (let i in DataArr) {
 		// エリア名の抽出
 		if (typeof DataArr[i].district !== 'undefined') {
 			if (typeof DataArr[i].district[0] !== 'undefined') {
@@ -176,9 +248,10 @@ function writeData(DataArr) {
 					// PC時の画像
 					"<div class='pc_thumbnail'>" +
 						"<img src='https://kisspress.jp/img_thumb/get_image/480/0/?file=" + DataArr[i].image.file_path.xl + "' loading='lazy'>" +
-						"<p class='pc_term'>" + DataArr[i].event_term + "</p>" +
 					"</div>" +
 					"<div class='textWrapper'>" +
+						// スマホ時の画像
+						"<img class='sp_thumbnail' src='https://kisspress.jp/img_thumb/get_image/480/0/?file=" + DataArr[i].image.file_path.xl + "' loading='lazy'>" +
 						"<h2>" + DataArr[i].title_copy + "</h2>" +
 						"<h1>" + DataArr[i].title_s + "</h1>" +
 						"<p class='sp_term'>" + DataArr[i].event_term + "</p>" +
@@ -186,8 +259,6 @@ function writeData(DataArr) {
 							modifyNameString(DataArr[i].sentence1, 60, DataArr[i].id) +
 						"</div>" +
 						"<article></article>" +
-						// スマホ時の画像
-						"<img class='sp_thumbnail' src='https://kisspress.jp/img_thumb/get_image/480/0/?file=" + DataArr[i].image.file_path.xl + "' loading='lazy'>" +
 						"<div class='article_bottom'>" +
 							"<ul>" +
 								"<li class='article_tag_name'>" +
@@ -197,12 +268,19 @@ function writeData(DataArr) {
 									"<i class='fas fa-map-marker-alt'></i>" +
 									area_name +
 								"</li>" +
-								"<li class='article_time'>30分前" +
-								"</li>" +
-								"<li class='article_favorite'>" +
+
+								// お気に入り未アイコン
+								"<li data-id='" + DataArr[i].id + "' class='add'>" +
 									"<i class='far fa-heart'></i>" +
 								"</li>" +
-							"</ul>" +
+								// お気に入り済アイコン
+								"<li data-id='" + DataArr[i].id + "' class='remove' style='color:#FC7C87'>" +
+									"<i class='fas fa-heart'></i>" +
+								"</li>" +
+
+								"<li class='article_time'>30分前" +
+								"</li>" +
+ 							"</ul>" +
 							"<div class='clear'>" +
 						"</div>" +
 					"</div>" +
@@ -266,7 +344,7 @@ function getDateStr(separate = "-") {
 function modifyNameString(str, num, id) {
 	let String = str;
 	if (String.length >= num) {
-		String = String.substr(0, num) + "<span class='tobecontinue' data-id='" + id + "'>…続きを読む</span>";
+		String = String.substr(0, num) + "<span class='tobecontinue' data-id='" + id + "'>続きを読む<i class='fas fa-chevron-down'></i></span>";
 	}
 	return String;
 }
@@ -301,14 +379,14 @@ function getDetail(id) {
 		dataType: 'json',
 		timeout: 3000,
 	}).done(function (data, textStatus, jqXHR) {
-		$(".article_box[data-id=" + id + "] > .inner_article_box > .pc_thumbnail").remove();
-		$(".article_box[data-id=" + id + "] > .inner_article_box > .textWrapper > h1").remove();
-		$(".article_box[data-id=" + id + "] > .inner_article_box > .textWrapper > h2").remove();
-		$(".article_box[data-id=" + id + "] > .inner_article_box > .textWrapper > .article_sentence").remove();
-		$(".article_box[data-id=" + id + "] > .inner_article_box > .textWrapper > .article_bottom").remove();
-		$(".article_box[data-id=" + id + "] > .inner_article_box > .textWrapper > .sp_thumbnail").remove();
-		$(".article_box[data-id=" + id + "] > .inner_article_box > .textWrapper > .sp_term").remove();
-				
+		// 消す際はコメントアウト外す
+		// $(".article_box[data-id=" + id + "] > .inner_article_box > .pc_thumbnail").remove();
+		// $(".article_box[data-id=" + id + "] > .inner_article_box > .textWrapper > h1").remove();
+		// $(".article_box[data-id=" + id + "] > .inner_article_box > .textWrapper > h2").remove();
+		// $(".article_box[data-id=" + id + "] > .inner_article_box > .textWrapper > .article_sentence").remove();
+		// $(".article_box[data-id=" + id + "] > .inner_article_box > .textWrapper > .article_bottom").remove();
+		// $(".article_box[data-id=" + id + "] > .inner_article_box > .textWrapper > .sp_thumbnail").remove();
+		// $(".article_box[data-id=" + id + "] > .inner_article_box > .textWrapper > .sp_term").remove();		
 		let objData = data['basic'];
 		let h1 = objData["title_s"];
 		let h2 = objData["title_copy"];

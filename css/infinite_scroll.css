@@ -15,45 +15,60 @@
 
 .wrap .article_box .textWrapper h2 {
   text-align: justify;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
-  line-height: 1.5;
+  line-height: 1.4;
   color: #333;
+  margin: 0 0 12px 0;
 }
 
 .wrap .article_box .textWrapper h1 {
   text-align: justify;
-  font-size: 14px;
-  line-height: 1.5;
+  font-size: 12px;
+  line-height: 1.4;
   font-weight: 500;
-  margin: 0 0 14px 0;
+  color: #333;
+  margin: 0 0 12px 0;
 }
 
 .wrap .article_box .textWrapper .sp_term {
   text-align: justify;
-  font-size: 12px;
+  font-size: 10px;
   line-height: 1.8;
+  color: #776655;
+  margin: 0 0 20px 0;
 }
 
 .wrap .article_box .textWrapper .article_sentence {
   text-align: justify;
-  font-size: 14px;
-  line-height: 1.8;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #333;
   margin: 0 0 14px 0;
   position: relative;
 }
 
-.wrap .article_box .textWrapper .article_sentence span {
+.wrap .article_box .textWrapper .article_sentence .tobecontinue {
+  display: block;
+  text-align: center;
   font-size: 12px;
-  position: absolute;
-  right: 0;
-  bottom: 0;
+  color: #fff;
+  width: 100%;
+  margin: 8px 0 0 0;
+  padding: 4px 0 6px;
+  border-radius: 4px;
+  background: #333;
+}
+
+.wrap .article_box .textWrapper .article_sentence .tobecontinue i {
+  margin: 0 0 0 8px;
+  color: #fff;
 }
 
 .wrap .article_box .textWrapper .sp_thumbnail {
   display: block;
   width: 100%;
-  height: 192px;
+  height: 170px;
   -o-object-fit: cover;
      object-fit: cover;
   margin: 0 0 14px 0;
@@ -70,8 +85,9 @@
 }
 
 .wrap .article_box .textWrapper .article_bottom ul li {
-  font-size: 14px;
+  font-size: 12px;
   list-style: none;
+  color: #666;
 }
 
 .wrap .article_box .textWrapper .article_bottom ul li.article_area_name i {
@@ -88,12 +104,16 @@
   background: #ccc;
 }
 
+.wrap .article_box .articleContents {
+  margin: 20px 0 0 0;
+}
+
 .wrap .article_box .articleContents h2 {
   text-align: justify;
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 1.5;
-  color: #333;
+  font-size: 18px !important;
+  font-weight: 500 !important;
+  line-height: 1.5 !important;
+  color: #333 !important;
 }
 
 .wrap .article_box .articleContents h1 {
@@ -115,10 +135,14 @@
 .wrap .article_box .articleContents .articleSentence1,
 .wrap .article_box .articleContents .articleSentence2 {
   text-align: justify;
-  font-size: 14px;
-  line-height: 1.8;
+  font-size: 13px;
+  line-height: 1.5;
   margin: 0 0 14px 0;
   position: relative;
+}
+
+.wrap .article_box .articleContents ins.adsbygoogle {
+  margin: 24px auto;
 }
 
 @media screen and (min-width: 768px) {
@@ -140,16 +164,11 @@
   }
   .wrap .article_box .pc_thumbnail img {
     width: 100%;
-    height: 200px;
+    height: 210px;
     -o-object-fit: cover;
        object-fit: cover;
     margin: 0 0 12px 0;
     border-radius: 8px;
-  }
-  .wrap .article_box .pc_thumbnail .pc_term {
-    text-align: justify;
-    font-size: 12px;
-    line-height: 1.5;
   }
   .wrap .article_box .textWrapper {
     width: 50%;
@@ -169,11 +188,29 @@
     margin: 0 0 36px 0;
     padding: 0 0 36px 0;
   }
+  .wrap .article_box .pc_thumbnail {
+    width: 48%;
+  }
+  .wrap .article_box .pc_thumbnail img {
+    height: 240px;
+  }
   .wrap .article_box .textWrapper {
-    width: 50%;
+    width: 48%;
   }
   .wrap .article_box .textWrapper h2 {
-    margin: 0 0 8px 0;
+    font-size: 18px;
+    margin: 0 0 14px 0;
+  }
+  .wrap .article_box .textWrapper h1 {
+    font-size: 14px;
+    margin: 0 0 14px 0;
+  }
+  .wrap .article_box .textWrapper .article_sentence {
+    margin: 0 0 16px 0;
+    position: relative;
+  }
+  .wrap .article_box .textWrapper .article_sentence .tobecontinue {
+    margin: 12px 0 0 0;
   }
 }
 /*# sourceMappingURL=infinite_scroll.css.map */
