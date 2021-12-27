@@ -1,5 +1,15 @@
+@charset "UTF-8";
 .wrap {
   overflow-y: scroll;
+  -ms-overflow-style: none;
+  /* IE, Edge 対応 */
+  scrollbar-width: none;
+  /* Firefox 対応 */
+}
+
+.wrap::-webkit-scrollbar {
+  /* Chrome, Safari 対応 */
+  display: none;
 }
 
 .wrap .article_box {
@@ -102,6 +112,10 @@
   height: 10px;
   margin: 0 4px 0 0;
   background: #ccc;
+}
+
+.wrap .article_box .textWrapper .article_bottom ul .remove {
+  color: #FC7C87 !important;
 }
 
 .wrap .article_box .articleContents {

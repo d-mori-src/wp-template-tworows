@@ -43,7 +43,6 @@ const dataStr = JSON.stringify(data);
 sessionStorage.setItem('ref', dataStr);
 const refItem = sessionStorage.getItem('ref');
 const refObj = JSON.parse(refItem);
-console.log(refObj);
 
 $(function(){
     // Kiss PRESS広告プラン モーダルウィンドウ
