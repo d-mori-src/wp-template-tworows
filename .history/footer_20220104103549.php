@@ -31,11 +31,12 @@
     <script src="<?= $uri ?>/js/main.js"></script>
     <?php if ($server_uri === '/'): ?>
         <script src="<?= $uri ?>/js/infinite_scroll.js"></script>
+        <script src="<?= $uri ?>/js/infinite_scroll_app.js"></script>
     <?php endif; ?>
     <?php if ($server_uri === '/favorite/'): ?>
         <script src="<?= $uri ?>/js/favorite.js"></script>
+        <script src="<?= $uri ?>/js/infinite_scroll_app.js"></script>
     <?php endif; ?>
-    <script src="<?= $uri ?>/js/infinite_scroll_app.js"></script>
     <script src="https://yubinbango.github.io/yubinbango/yubinbango.js" charset="UTF-8"></script><!-- 住所自動入力プラグイン -->
     </body>
 </html>
