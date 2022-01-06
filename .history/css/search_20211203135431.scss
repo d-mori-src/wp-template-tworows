@@ -8,11 +8,11 @@
     display: block;
     button {
         margin: 0;
-        padding: 8px 0 8px 16px;
-        border-top: 1px solid #8a8a8a;
+        padding: 4px 0 4px 16px;
+        border-top: 1px solid #EBEBEB;
         border-right: none;
-        border-bottom: 1px solid #8a8a8a;
-        border-left: 1px solid #8a8a8a;
+        border-bottom: 1px solid #EBEBEB;
+        border-left: 1px solid #EBEBEB;
         border-radius: 30px 0 0 30px;
         background: #fff;
         outline: none;
@@ -22,11 +22,11 @@
     }
     .searchInput {
         margin: 0;
-        padding: 8px 8px;
-        width:300px;
-        border-top: 1px solid #8a8a8a;
-        border-right: 1px solid #8a8a8a;
-        border-bottom: 1px solid #8a8a8a;
+        padding: 4px 8px;
+        width: 64%;
+        border-top: 1px solid #EBEBEB;
+        border-right: 1px solid #EBEBEB;
+        border-bottom: 1px solid #EBEBEB;
         border-left: none;
         border-radius: 0 30px 30px 0;
         background: #fff;
@@ -35,8 +35,8 @@
         right: 5px;
     }
     ::placeholder {
-        color: #8a8a8a;
-        font-size: 14px;
+        color: #ccc;
+        font-size: 12px;
         position: relative;
         bottom: 2px;
     }

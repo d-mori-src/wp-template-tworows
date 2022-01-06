@@ -28,7 +28,7 @@ $(function () {
 	$(".detail_card").height(windowHeight);
 	// スクロールを合わせた初期表示の高さを取得する
 	let scrollHeight = $(".wrap").get(0).scrollHeight;
-	let page_num = 0;
+	let page_num = 1;
 	init(page_num);
 	// スクロール部分の動作
 	$(".wrap").on("scroll", function () {
