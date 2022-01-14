@@ -28,7 +28,7 @@ $(function () {
 	$(".detail_card").height(windowHeight);
 	// スクロールを合わせた初期表示の高さを取得する
 	let scrollHeight = $(".wrap").get(0).scrollHeight;
-	let page_num = 0;
+	let page_num = 1;
 	init(page_num);
 	// スクロール部分の動作
 	$(".wrap").on("scroll", function () {
@@ -81,7 +81,7 @@ $(function () {
 			const setjson = JSON.stringify(idary);
 			localStorage.setItem(key, setjson);
 
-			togleitem(dataId,'add');
+			favBtn(dataId,'add');
 		} else {
 			// 既に「favorite_article」というキーが存在する時
 			if(idlist.indexOf(dataId) == -1){
@@ -90,7 +90,7 @@ $(function () {
 				const setjson = JSON.stringify(idlist);
 				localStorage.setItem(key, setjson);
 
-				togleitem(dataId,'add');
+				favBtn(dataId,'add');
 			}
 		}
 	});
@@ -112,7 +112,7 @@ $(function () {
 				const setjson = JSON.stringify(idlist);
 				localStorage.setItem(key, setjson);
 
-				togleitem(dataId,'remove');
+				favBtn(dataId,'remove');
 			}
 		}
 	});
@@ -122,7 +122,7 @@ $(function () {
  * お気に入り 表示ソースの切り替え
  *
  */
- function togleitem(dataId,event){
+ function favBtn(dataId,event){
     if(event == 'add'){
         // 未チェック(class="add")を非表示にして、チェック済(class="remove")を表示する
         $('li.add[data-id=' + dataId + ']').hide();
@@ -132,6 +132,24 @@ $(function () {
         $('li.add[data-id=' + dataId + ']').show();
         $('li.remove[data-id=' + dataId + ']').hide();
     }
+}
+/**
+ * お気に入りボタンオンオフ
+ */
+function toglleItem() {
+	$(".remove").each(function() {
+		// 初めは消す
+		$(".remove").hide();
+		// お気に入りリストに存在するか確認
+		const key = 'favorite_article';
+		const getjson = localStorage.getItem(key);
+		const oidlist = JSON.parse(getjson);
+		if(oidlist != null){
+			oidlist.forEach( function( dataId ) {
+				favBtn(dataId,'add');
+			});
+		}
+	});
 }
 
 /* 概要 --------------------------------------------------------------------
@@ -252,27 +270,6 @@ function writeData(DataArr) {
 			"</div>"
 		);
 	}
-}
-
-/**
- * お気に入りボタンオンオフ
- */
-function toglleItem() {
-	$(function() {
-		$(".remove").each(function() {
-			// 初めは消す
-			$(".remove").hide();
-			// お気に入りリストに存在するか確認
-			const key = 'favorite_article';
-			const getjson = localStorage.getItem(key);
-			const oidlist = JSON.parse(getjson);
-			if(oidlist != null){
-				oidlist.forEach( function( dataId ) {
-					togleitem(dataId,'add');
-				});
-			}
-		});
-	});
 }
 
 /** ページングのデータを取得する
