@@ -243,25 +243,29 @@ function writeData(DataArr) {
 						"<article></article>" +
 						"<div class='article_bottom'>" +
 							"<ul>" +
-								"<li class='article_tag_name'>" +
-									DataArr[i].tag_type_name +
-								"</li>" +
-								"<li class='article_area_name'>" +
-									"<i class='fas fa-map-marker-alt'></i>" +
-									area_name +
-								"</li>" +
+								"<div class='left'>" +
+									"<li class='article_tag_name'>" +
+										DataArr[i].tag_type_name +
+									"</li>" +
+									"<li class='article_area_name'>" +
+										"<i class='fas fa-map-marker-alt'></i>" +
+										area_name +
+									"</li>" +
+								"</div>" +
 
-								// お気に入り未アイコン
-								"<li data-id='" + DataArr[i].id + "' class='add'>" +
-									"<i class='far fa-heart'></i>" +
-								"</li>" +
-								// お気に入り済アイコン
-								"<li data-id='" + DataArr[i].id + "' class='remove'>" +
-									"<i class='fas fa-heart'></i>" +
-								"</li>" +
-
-								"<li class='article_time'>30分前" +
-								"</li>" +
+								"<div class='right'>" +
+									"<li class='article_time'>30分前" +
+									"</li>" +
+									// お気に入り未アイコン
+									"<li data-id='" + DataArr[i].id + "' class='add'>" +
+										"<i class='far fa-heart'></i>" +
+									"</li>" +
+									// お気に入り済アイコン
+									"<li data-id='" + DataArr[i].id + "' class='remove'>" +
+										"<i class='fas fa-heart'></i>" +
+									"</li>" +
+								"</div>" +
+								
  							"</ul>" +
 							"<div class='clear'>" +
 						"</div>" +

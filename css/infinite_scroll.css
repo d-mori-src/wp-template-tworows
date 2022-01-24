@@ -114,8 +114,29 @@
   background: #ccc;
 }
 
+.wrap .article_box .textWrapper .article_bottom ul li.article_area_name .fa-map-marker-alt {
+  color: #EA4335;
+}
+
 .wrap .article_box .textWrapper .article_bottom ul .remove {
   color: #FC7C87 !important;
+}
+
+.wrap .article_box .textWrapper .article_bottom ul .left, .wrap .article_box .textWrapper .article_bottom ul .right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.wrap .article_box .textWrapper .article_bottom ul .left .article_tag_name {
+  margin: 0 20px 0 0;
+}
+
+.wrap .article_box .textWrapper .article_bottom ul .right .article_time {
+  margin: 0 8px 0 0;
 }
 
 .wrap .article_box .articleContents {

@@ -1,5 +1,5 @@
 header {
-  background: #fff;
+  background: #FFFCFC;
   padding: 20px;
   position: fixed;
   top: 0;
@@ -125,6 +125,28 @@ header .innerHeader ul.icon li .searchContents {
 @media screen and (min-width: 1120px) {
   header .innerHeader {
     width: 1024px;
+  }
+}
+
+.spNavi {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 80px auto 24px;
+  padding: 18px 20px 20px;
+  background: #F5F3F3;
+}
+
+.spNavi li {
+  font-size: 11px;
+}
+
+@media screen and (min-width: 768px) {
+  .spNavi {
+    display: none;
   }
 }
 /*# sourceMappingURL=header.css.map */

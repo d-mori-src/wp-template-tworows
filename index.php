@@ -14,9 +14,9 @@
 
 <?php get_header(); ?>
 
-<section class="hero">
+<!-- <section class="hero"> -->
     <!-- ファーストビュー -->
-</section>
+<!-- </section> -->
 
 <!-- <section class="sp-tab-contents">
     <?php // include('inc/new_shop.php'); ?>
@@ -28,8 +28,7 @@
 
 <main class="top">
     <article>
-        <h3 class="headTitle"><img src="<?=$uri?>/img/common/check.svg" alt="">新着情報</h3>
-
+        <!-- <h3 class="headTitle"><img src="<?=$uri?>/img/common/check.svg" alt="">新着情報</h3> -->
         <div class="wrap"></div>
 
         <!-- WPの定番の表示 -->

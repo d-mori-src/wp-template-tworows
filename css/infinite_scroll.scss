@@ -93,8 +93,27 @@
                             background: #ccc;
                         }
                     }
+                    li.article_area_name {
+                        .fa-map-marker-alt {
+                            color: #EA4335;
+                        }
+                    }
                     .remove {
                         color:#FC7C87 !important;
+                    }
+                    .left, .right {
+                        display: flex;
+                        justify-content: space-between;
+                    }
+                    .left {
+                        .article_tag_name {
+                            margin: 0 20px 0 0;
+                        }
+                    }
+                    .right {
+                        .article_time {
+                            margin: 0 8px 0 0;
+                        }
                     }
                 }
             }

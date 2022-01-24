@@ -46,6 +46,7 @@
     <link href="<?= $uri ?>/js/slick.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="<?= $uri ?>/css/slide_orijinal.css">
     <link rel="stylesheet" href="<?= $uri ?>/css/hero.css">
+    <link rel="stylesheet" href="<?= $uri ?>/css/top.css">
     <link rel="stylesheet" href="<?= $uri ?>/css/search.css">
     <link rel="stylesheet" href="<?= $uri ?>/css/news_detail.css">
     <link rel="stylesheet" href="<?= $uri ?>/css/news.css">
@@ -163,5 +164,12 @@
                         <li><a href="<?=$site_url;?>/advertisement">広告掲載のご案内</a></li>
                     </ul>
                 </section>
-                
             </nav>
+
+            <ul class="spNavi">
+                <li><a href="">新着</a></li>
+                <li><a href="<?=$site_url;?>/search/グルメ">グルメ</a></li>
+                <li><a href="<?=$site_url;?>/search/イベント">イベント</a></li>
+                <li><a href="<?=$site_url;?>/search/スイーツ">スイーツ</a></li>
+                <li><a href="<?=$site_url;?>/search/今週末">今週末</a></li>
+            </ul>
