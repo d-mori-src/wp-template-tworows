@@ -9,7 +9,7 @@
             <input type="hidden" class="article_page">
             <input type="hidden" id="history_count" value="1">
             
-            <footer>
+            <!-- <footer>
                 <div class="innerFooter">
                     <ul class="pc-footerNavi">
                         <li><a href="<?=$site_url;?>/facilities">施設検索</a></li>
@@ -21,7 +21,7 @@
                     </ul>
                     <p class="copyright">Copyright<span>©</span><?=date("Y"); ?> KissPress</p>
                 </div>
-            </footer>
+            </footer> -->
         </div>
     <?php wp_footer(); ?>
     

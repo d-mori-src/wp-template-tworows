@@ -50,7 +50,7 @@ $(function () {
 	// 続きを見るクリック
 	// $('.wrap').on('click', '.article_box span.tobecontinue', function () {
 	//	$('.article_box').on('click', 'span.tobecontinue', function () {
-	$(document).on('click', 'span.tobecontinue', function () {
+	$(document).on('click', 'a.tobecontinue', function () {
 		let id = $(this).data("id");
 		// 履歴を変更
 		history.pushState(null, null, "/articles/" + id);
@@ -176,8 +176,8 @@ function scroll_data(objData, list_count) {
 	// データを5件取得する ------------------------------------------------------
 	// データを展開する ----------------------------------------------------------
 	let DataArr = pagingData(count, pagePer, objData);
+	console.log(DataArr);
 	writeData(DataArr);
-
 
 	// スクロールの量によって、ページングを実行する
 	$(".wrap").scroll(function () {
@@ -224,13 +224,13 @@ function writeData(DataArr) {
 		}
 
 		$('.wrap').append(
-            // PC時article_boxでFlexかける
 			"<div class='article_box' data-id='" + DataArr[i].id + "'>" +
 				"<div class='inner_article_box'>" +
 					// PC時の画像
 					"<div class='pc_thumbnail'>" +
 						"<img src='https://kisspress.jp/img_thumb/get_image/480/0/?file=" + DataArr[i].image.file_path.xl + "' loading='lazy'>" +
 					"</div>" +
+
 					"<div class='textWrapper'>" +
 						// スマホ時の画像
 						"<img class='sp_thumbnail' src='https://kisspress.jp/img_thumb/get_image/480/0/?file=" + DataArr[i].image.file_path.xl + "' loading='lazy'>" +
@@ -240,11 +240,26 @@ function writeData(DataArr) {
 						"<div class='article_sentence'>" +
 							modifyNameString(DataArr[i].sentence1, 60, DataArr[i].id) +
 						"</div>" +
-						"<article></article>" +
+						"<a href='javascript:void(0)' class='tobecontinue sp_tobecontinue' data-id='" + DataArr[i].id + "'>続きを読む<i class='fas fa-chevron-down'></i></a>" +
+						"<div class='article_middle'>" +
+							"<div class='sns'>" +
+								"<a href=''><i class='fab fa-facebook'></i></a>" +
+								"<a href=''><i class='fab fa-twitter'></i></a>" +
+								"<a href=''><i class='fab fa-line'></i></a>" +
+							"</div>" +
+							"<ul>" +
+								"<li data-id='" + DataArr[i].id + "' class='add'>" +
+									"<i class='far fa-heart'></i>" + "<span>お気に入り</span>" +
+								"</li>" +
+								"<li data-id='" + DataArr[i].id + "' class='remove'>" +
+									"<i class='fas fa-heart'></i>" + "<span>お気に入り</span>" +
+								"</li>" +
+							"</ul>" +
+						"</div>" +
 						"<div class='article_bottom'>" +
 							"<ul>" +
 								"<div class='left'>" +
-									"<li class='article_tag_name'>" +
+									"<li class='article_tag_name" + " " + DataArr[i].tag_type + "'>" +
 										DataArr[i].tag_type_name +
 									"</li>" +
 									"<li class='article_area_name'>" +
@@ -254,21 +269,12 @@ function writeData(DataArr) {
 								"</div>" +
 
 								"<div class='right'>" +
-									"<li class='article_time'>30分前" +
-									"</li>" +
-									// お気に入り未アイコン
-									"<li data-id='" + DataArr[i].id + "' class='add'>" +
-										"<i class='far fa-heart'></i>" +
-									"</li>" +
-									// お気に入り済アイコン
-									"<li data-id='" + DataArr[i].id + "' class='remove'>" +
-										"<i class='fas fa-heart'></i>" +
+									"<li class='article_time'>00分前" +
 									"</li>" +
 								"</div>" +
-								
  							"</ul>" +
-							"<div class='clear'>" +
 						"</div>" +
+						"<a href='javascript:void(0)' class='tobecontinue pc_tobecontinue' data-id='" + DataArr[i].id + "'>続きを読む<i class='fas fa-chevron-down'></i></a>" +
 					"</div>" +
 				"</div>" +
 			"</div>"
@@ -327,13 +333,14 @@ function getDateStr(separate = "-") {
  * @param {type} num 制限したい文字数（超えると...が付き、省略される）「
  * @returns {modifyNameString.name|String}
  */
-function modifyNameString(str, num, id) {
+function modifyNameString(str, num) {
 	let String = str;
 	if (String.length >= num) {
-		String = String.substr(0, num) + "<span class='tobecontinue' data-id='" + id + "'>続きを読む<i class='fas fa-chevron-down'></i></span>";
+		String = String.substr(0, num) + "<span>...</span>";
 	}
 	return String;
 }
+
 
 /**
  * アナリティクス(PVカウント)を手動で行う
@@ -365,28 +372,84 @@ function getDetail(id) {
 		dataType: 'json',
 		timeout: 3000,
 	}).done(function (data, textStatus, jqXHR) {
-		// 消す際はコメントアウト外す
-		// $(".article_box[data-id=" + id + "] > .inner_article_box > .pc_thumbnail").remove();
-		// $(".article_box[data-id=" + id + "] > .inner_article_box > .textWrapper > h1").remove();
-		// $(".article_box[data-id=" + id + "] > .inner_article_box > .textWrapper > h2").remove();
-		// $(".article_box[data-id=" + id + "] > .inner_article_box > .textWrapper > .article_sentence").remove();
-		// $(".article_box[data-id=" + id + "] > .inner_article_box > .textWrapper > .article_bottom").remove();
-		// $(".article_box[data-id=" + id + "] > .inner_article_box > .textWrapper > .sp_thumbnail").remove();
-		// $(".article_box[data-id=" + id + "] > .inner_article_box > .textWrapper > .sp_term").remove();		
+		// 一覧表示削除
+		$(".article_box[data-id=" + id + "] > .inner_article_box > .pc_thumbnail").hide();
+		$(".article_box[data-id=" + id + "] > .inner_article_box > .textWrapper").hide();
+		$(".article_box[data-id=" + id + "] > .inner_article_box > .textWrapper > h1").hide();
+		$(".article_box[data-id=" + id + "] > .inner_article_box > .textWrapper > h2").hide();
+		$(".article_box[data-id=" + id + "] > .inner_article_box > .textWrapper > .article_sentence").hide();
+		$(".article_box[data-id=" + id + "] > .inner_article_box > .textWrapper > .tobecontinue").hide();
+		$(".article_box[data-id=" + id + "] > .inner_article_box > .textWrapper > .article_middle").hide();
+		$(".article_box[data-id=" + id + "] > .inner_article_box > .textWrapper > .article_bottom").hide();
+		$(".article_box[data-id=" + id + "] > .inner_article_box > .textWrapper > .sp_thumbnail").hide();
+		$(".article_box[data-id=" + id + "] > .inner_article_box > .textWrapper > .sp_term").hide();
+		// ここまで一覧表示削除
 		let objData = data['basic'];
 		let h1 = objData["title_s"];
 		let h2 = objData["title_copy"];
-		let time = objData["event_term"];
-		let articleSentence1 = objData["sentence1"];
-		let articleSentence2 = objData["sentence2"];
-		$(".article_box[data-id=" + id + "] > .inner_article_box").after(
-			"<section id='articleContents' class='articleContents'>" +
-				"<h2>" + h2 + "</h2>" +
-				"<h1>" + h1 + "</h1>" +
-				"<time>" + time + "</time>" +
-				"<p id='articleSentence1' class='articleSentence1'>" + articleSentence1 + "</p>" +
-				"<p id='articleSentence2' class='articleSentence2'>" + articleSentence2 + "</p>" +
-			"</section>"
+		let event_term = objData["event_term"];
+		let sentence1 = objData["sentence1"];
+		let sentence1_view = objData["sentence1_view"];
+		let articleImage = objData["top_image"]["file_path"]["xl"];
+		let articleArea = objData["district"][0]["name_jp"];
+		console.log(objData);
+
+		$(".article_box[data-id=" + id + "]").append(
+			"<div class='inner_article_box'>" +
+				// PC時の画像
+				"<div class='pc_thumbnail'>" +
+					"<img src='https://kisspress.jp/img_thumb/get_image/480/0/?file=" + articleImage + "' loading='lazy'>" +
+				"</div>" +
+				"<div class='textWrapper'>" +
+					// スマホ時の画像
+					"<img class='sp_thumbnail' src='https://kisspress.jp/img_thumb/get_image/480/0/?file=" + articleImage + "' loading='lazy'>" +
+					"<h2>" + h2 + "</h2>" +
+					"<h1>" + h1 + "</h1>" +
+					"<p class='sp_term'>" + event_term + "</p>" +
+					"<div class='article_sentence'>" +
+						modifyNameString(sentence1, 60) +
+					"</div>" +
+					"<p class='sentenceView sp_sentenceView'>" + sentence1_view + "</p>" +
+					"<a href='/' class='tobecontinue sp_tobecontinue'>記事を閉じる<i class='fas fa-chevron-up'></i></a>" +
+					"<div class='article_middle'>" +
+						"<div class='sns'>" +
+							"<a href=''><i class='fab fa-facebook'></i></a>" +
+							"<a href=''><i class='fab fa-twitter'></i></a>" +
+							"<a href=''><i class='fab fa-line'></i></a>" +
+						"</div>" +
+						"<ul>" +
+							"<li data-id='" + id + "' class='add'>" +
+								"<i class='far fa-heart'></i>" + "<span>お気に入り</span>" +
+							"</li>" +
+							"<li data-id='" + id + "' class='remove'>" +
+								"<i class='fas fa-heart'></i>" + "<span>お気に入り</span>" +
+							"</li>" +
+						"</ul>" +
+					"</div>" +
+					"<div class='article_bottom'>" +
+						"<ul>" +
+							"<div class='left'>" +
+								// "<li class='article_tag_name" + " " + DataArr[i].tag_type + "'>" +
+									// DataArr[i].tag_type_name +
+								"<li class='article_tag_name'>" + // API調整後変更
+									"カテゴリー" + // API調整後変更
+								"</li>" +
+								"<li class='article_area_name'>" +
+									"<i class='fas fa-map-marker-alt'></i>" +
+									articleArea +
+								"</li>" +
+							"</div>" +
+
+							"<div class='right'>" +
+								"<li class='article_time'>00分前" +
+								"</li>" +
+							"</div>" +
+						"</ul>" +
+					"</div>" +
+					"<a href='/' class='tobecontinue pc_tobecontinue'>記事を閉じる<i class='fas fa-chevron-up'></i></a>" +
+				"</div>"+
+			"</div>" +
+			"<p class='sentenceView pc_sentenceView'>" + sentence1_view + "</p>"
 		);
 	}).fail(function (jqXHR, textStatus, errorThrown) {
 		return false;
