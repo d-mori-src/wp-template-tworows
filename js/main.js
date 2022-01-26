@@ -33,16 +33,28 @@ document.getElementById('hamburger').addEventListener('click' , function () {
     hamburger();
 });
 
-// 検証用
-// リファラーURL取得
-const refUrl = document.referrer;
+// 記事の日付比較
+function datetostr(dt) {
+	const datetime = dt;
+	const from = new Date(datetime);
 
-// セッションストレージ保存
-const data = refUrl;
-const dataStr = JSON.stringify(data);
-sessionStorage.setItem('ref', dataStr);
-const refItem = sessionStorage.getItem('ref');
-const refObj = JSON.parse(refItem);
+	const diff = new Date().getTime() - from.getTime();
+	const elapsed = new Date(diff);
+
+	if (elapsed.getUTCFullYear() - 1970) {
+		return elapsed.getUTCFullYear() - 1970 + '年前';
+	} else if (elapsed.getUTCMonth()) {
+		return elapsed.getUTCMonth() + 'ヶ月前';
+	} else if (elapsed.getUTCDate() - 1) {
+		return elapsed.getUTCDate() - 1 + '日前';
+	} else if (elapsed.getUTCHours()) {
+		return elapsed.getUTCHours() + '時間前';
+	} else if (elapsed.getUTCMinutes()) {
+		return elapsed.getUTCMinutes() + '分前'
+	} else {
+		return elapsed.getUTCSeconds() + 'たった今';
+	}
+}
 
 $(function(){
     // Kiss PRESS広告プラン モーダルウィンドウ
@@ -63,43 +75,4 @@ $(function(){
     $('#acMenu .searchBtn a').on('click', function() {
         $(this).next().slideToggle();
     });
-
-    // 履歴
-    // window.onpopstate = function(event) {
-    //     console.log('location: ' + document.location + ', state: ' + JSON.stringify(event.state));
-    // };
-    // history.pushState(null, null, '?p=1');
-    // history.pushState(null, null, '?p=2');
-    // history.back();
-    // history.back();
-
-    // 無限スクロール(SEO対策なしの実装)
-    // let documentHeight = $(document).height();
-	// let windowsHeight = $(window).height();
-	// let url = 'http://kisspresslocal.local/wp-content/themes/kisspress_tworows/ajax-item.php';
-	// let postNumNow = 5;
-	// let postNumAdd = 5;
-	// let flag = false;
-	// $(window).on('scroll', function() {
-	// 	let scrollPosition = windowsHeight + $(window).scrollTop();
-	// 	if (scrollPosition >= documentHeight) {
-	// 		if (!flag) {
-	// 			flag = true;
-	// 			$.ajax({
-	// 				type: 'POST',
-	// 				url: url,
-	// 				data: {
-	// 					post_num_now: postNumNow,
-	// 					post_num_add: postNumAdd
-	// 				},
-	// 				success: function(response) {
-	// 					$('.topNewsItems').append(response);
-	// 					documentHeight = $(document).height();
-	// 					postNumNow += postNumAdd;
-	// 					flag = false;
-	// 				}
-	// 			});
-	// 		}
-	// 	}
-	// });
 });

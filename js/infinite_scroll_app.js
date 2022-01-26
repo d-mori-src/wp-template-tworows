@@ -269,7 +269,7 @@ function writeData(DataArr) {
 								"</div>" +
 
 								"<div class='right'>" +
-									"<li class='article_time'>00分前" +
+									"<li class='article_time'>"+ datetostr(DataArr[i].image.created) + // API要追加
 									"</li>" +
 								"</div>" +
  							"</ul>" +

@@ -167,7 +167,7 @@
             </nav>
 
             <ul class="spNavi">
-                <li><a href="">新着</a></li>
+                <li><a href="<?=$site_url;?>">新着</a></li>
                 <li><a href="<?=$site_url;?>/search/グルメ">グルメ</a></li>
                 <li><a href="<?=$site_url;?>/search/イベント">イベント</a></li>
                 <li><a href="<?=$site_url;?>/search/スイーツ">スイーツ</a></li>
