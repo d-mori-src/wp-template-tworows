@@ -176,7 +176,7 @@ function scroll_data(objData, list_count) {
 	// データを5件取得する ------------------------------------------------------
 	// データを展開する ----------------------------------------------------------
 	let DataArr = pagingData(count, pagePer, objData);
-	console.log(DataArr);
+	// console.log(DataArr);
 	writeData(DataArr);
 
 	// スクロールの量によって、ページングを実行する
@@ -269,7 +269,7 @@ function writeData(DataArr) {
 								"</div>" +
 
 								"<div class='right'>" +
-									"<li class='article_time'>"+ datetostr(DataArr[i].image.created) + // API要追加
+									"<li class='article_time'>" + datetostr(DataArr[i].release_datetime) +
 									"</li>" +
 								"</div>" +
  							"</ul>" +
@@ -392,7 +392,8 @@ function getDetail(id) {
 		let sentence1_view = objData["sentence1_view"];
 		let articleImage = objData["top_image"]["file_path"]["xl"];
 		let articleArea = objData["district"][0]["name_jp"];
-		console.log(objData);
+		let release_datetime = objData["release_datetime"];
+		// console.log(objData);
 
 		$(".article_box[data-id=" + id + "]").append(
 			"<div class='inner_article_box'>" +
@@ -441,7 +442,7 @@ function getDetail(id) {
 							"</div>" +
 
 							"<div class='right'>" +
-								"<li class='article_time'>00分前" +
+								"<li class='article_time'>" + datetostr(release_datetime) +
 								"</li>" +
 							"</div>" +
 						"</ul>" +

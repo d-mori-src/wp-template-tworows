@@ -66,8 +66,6 @@
                     margin: 0 0 14px 0;
                     .sentence_image {
                         display: block;
-                        width: 100%;
-                        height: auto;
                         margin: 28px 0;
                         padding: 10px;
                         border: 1px solid #EBE2E5;
@@ -80,6 +78,7 @@
                 .tobecontinue {
                     display: block;
                     text-align: center;
+                    text-decoration: none;
                     font-size: 12px;
                     color: #fff;
                     width: 100%;
@@ -251,8 +250,6 @@
                 padding: 36px;
                 .sentence_image {
                     display: block;
-                    width: 100%;
-                    height: auto;
                     margin: 24px 0;
                     padding: 10px;
                     border: 1px solid #EBE2E5;

@@ -81,8 +81,6 @@
 
 .wrap .article_box .inner_article_box .textWrapper .sentenceView .sentence_image {
   display: block;
-  width: 100%;
-  height: auto;
   margin: 28px 0;
   padding: 10px;
   border: 1px solid #EBE2E5;
@@ -96,6 +94,7 @@
 .wrap .article_box .inner_article_box .textWrapper .tobecontinue {
   display: block;
   text-align: center;
+  text-decoration: none;
   font-size: 12px;
   color: #fff;
   width: 100%;
@@ -296,8 +295,6 @@
   }
   .wrap .article_box .pc_sentenceView .sentence_image {
     display: block;
-    width: 100%;
-    height: auto;
     margin: 24px 0;
     padding: 10px;
     border: 1px solid #EBE2E5;
