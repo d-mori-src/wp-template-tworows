@@ -212,6 +212,7 @@ function scroll_data(objData, list_count) {
 
 function writeData(DataArr) {
 	let area_name = "";
+	let new_icon = "";
 
 	for (let i in DataArr) {
 		// エリア名の抽出
@@ -223,29 +224,41 @@ function writeData(DataArr) {
 			}
 		}
 
+		// Newアイコン
+		if (get_before() < DataArr[i].release_datetime) {
+			// ローカル
+			new_icon = "<img src='http://kisspresslocal.local/wp-content/themes/kisspress_tworows/img/common/new.svg' class='newIcon' loading='lazy' />";
+			// サーバー
+			// new_icon = "<img src='http://dev2.kisspress.jp/assets/img/new.svg' class='newIcon' loading='lazy' />";
+		}
+
 		$('.wrap').append(
 			"<div class='article_box' data-id='" + DataArr[i].id + "'>" +
 				"<div class='inner_article_box'>" +
 					// PC時の画像
 					"<div class='pc_thumbnail'>" +
+						new_icon +
 						"<img src='https://kisspress.jp/img_thumb/get_image/480/0/?file=" + DataArr[i].image.file_path.xl + "' loading='lazy'>" +
 					"</div>" +
 
 					"<div class='textWrapper'>" +
 						// スマホ時の画像
-						"<img class='sp_thumbnail' src='https://kisspress.jp/img_thumb/get_image/480/0/?file=" + DataArr[i].image.file_path.xl + "' loading='lazy'>" +
+						"<div class='sp_thumbnail'>" +
+							new_icon +
+							"<img src='https://kisspress.jp/img_thumb/get_image/480/0/?file=" + DataArr[i].image.file_path.xl + "' loading='lazy'>" +
+						"</div>" +
 						"<h2>" + DataArr[i].title_copy + "</h2>" +
 						"<h1>" + DataArr[i].title_s + "</h1>" +
 						"<p class='sp_term'>" + DataArr[i].event_term + "</p>" +
 						"<div class='article_sentence'>" +
-							modifyNameString(DataArr[i].sentence1, 60, DataArr[i].id) +
+							modifyNameString(DataArr[i].sentence1, 80, DataArr[i].id) +
 						"</div>" +
 						"<a href='javascript:void(0)' class='tobecontinue sp_tobecontinue' data-id='" + DataArr[i].id + "'>続きを読む<i class='fas fa-chevron-down'></i></a>" +
 						"<div class='article_middle'>" +
 							"<div class='sns'>" +
-								"<a href=''><i class='fab fa-facebook'></i></a>" +
-								"<a href=''><i class='fab fa-twitter'></i></a>" +
-								"<a href=''><i class='fab fa-line'></i></a>" +
+								"<a href='http://www.facebook.com/share.php?u=https://kisspress.jp/articles/" + DataArr[i].id + "/&t=" + DataArr[i].title_s + "' target='_blank' rel='noopener noreferrer'><i class='fab fa-facebook'></i></a>" +
+								"<a href='https://twitter.com/share?url=https://kisspress.jp/articles/" + DataArr[i].id + "&text=" + DataArr[i].title_s + "' target='_blank' rel='noopener noreferrer'><i class='fab fa-twitter'></i></a>" +
+								"<a href='http://line.me/R/msg/text/?https://kisspress.jp/articles/" + DataArr[i].id + "' target='_blank' rel='noopener noreferrer'><i class='fab fa-line'></i></a>" +
 							"</div>" +
 							"<ul>" +
 								"<li data-id='" + DataArr[i].id + "' class='add'>" +
@@ -358,6 +371,18 @@ function pageview(title, page) {
  * 記事詳細を取得
  * WPテーマ レイアウト上階層が変わったため「> .textWrapper」追加
  */
+// 改良点
+// 一覧表示のカードはそのままイキ（続きを読むボタンは隠し、スマホのみ一覧本文隠す）
+// 構成
+// 一覧部分（共通 シェアや日時まで含む）
+// スマホ → 本文テキスト・閉じるボタン　PC → 閉じるボタン・本文テキスト
+
+// メリット
+// ①始めに書いた詳細で再構築すると比べコード量が圧倒的に減りメンテナンス性向上
+// ②お気に入り機能を一覧のもので兼ねられるので、詳細ページのお気に入り機能のバグは考えなくて良くなった
+// デメリット
+// 一覧ページ部分は共通なのでスマホレイアウトのSNSシェアや日時部分の順番は変更できない
+
 function getDetail(id) {
 	// let host_name  = location.href;
 	// リクエストするベース URL
@@ -365,6 +390,7 @@ function getDetail(id) {
 	// リクエストパラメータ
 	let url = baseURL + id + "/";
 	// データを取得して処理を開始する
+	
 	$.ajax({
 		type: 'POST',
 		url: url,
@@ -372,83 +398,24 @@ function getDetail(id) {
 		dataType: 'json',
 		timeout: 3000,
 	}).done(function (data, textStatus, jqXHR) {
-		// 一覧表示削除
-		$(".article_box[data-id=" + id + "] > .inner_article_box > .pc_thumbnail").hide();
-		$(".article_box[data-id=" + id + "] > .inner_article_box > .textWrapper").hide();
-		$(".article_box[data-id=" + id + "] > .inner_article_box > .textWrapper > h1").hide();
-		$(".article_box[data-id=" + id + "] > .inner_article_box > .textWrapper > h2").hide();
-		$(".article_box[data-id=" + id + "] > .inner_article_box > .textWrapper > .article_sentence").hide();
+		// 一覧表示削除部分
+		if ($(window).width() <= 767) {
+			$(".article_box[data-id=" + id + "] > .inner_article_box > .textWrapper > .article_sentence").hide();
+		}
 		$(".article_box[data-id=" + id + "] > .inner_article_box > .textWrapper > .tobecontinue").hide();
-		$(".article_box[data-id=" + id + "] > .inner_article_box > .textWrapper > .article_middle").hide();
-		$(".article_box[data-id=" + id + "] > .inner_article_box > .textWrapper > .article_bottom").hide();
-		$(".article_box[data-id=" + id + "] > .inner_article_box > .textWrapper > .sp_thumbnail").hide();
-		$(".article_box[data-id=" + id + "] > .inner_article_box > .textWrapper > .sp_term").hide();
-		// ここまで一覧表示削除
+
 		let objData = data['basic'];
-		let h1 = objData["title_s"];
-		let h2 = objData["title_copy"];
-		let event_term = objData["event_term"];
-		let sentence1 = objData["sentence1"];
 		let sentence1_view = objData["sentence1_view"];
-		let articleImage = objData["top_image"]["file_path"]["xl"];
-		let articleArea = objData["district"][0]["name_jp"];
-		let release_datetime = objData["release_datetime"];
-		// console.log(objData);
 
 		$(".article_box[data-id=" + id + "]").append(
 			"<div class='inner_article_box'>" +
-				// PC時の画像
-				"<div class='pc_thumbnail'>" +
-					"<img src='https://kisspress.jp/img_thumb/get_image/480/0/?file=" + articleImage + "' loading='lazy'>" +
-				"</div>" +
 				"<div class='textWrapper'>" +
-					// スマホ時の画像
-					"<img class='sp_thumbnail' src='https://kisspress.jp/img_thumb/get_image/480/0/?file=" + articleImage + "' loading='lazy'>" +
-					"<h2>" + h2 + "</h2>" +
-					"<h1>" + h1 + "</h1>" +
-					"<p class='sp_term'>" + event_term + "</p>" +
-					"<div class='article_sentence'>" +
-						modifyNameString(sentence1, 60) +
-					"</div>" +
 					"<p class='sentenceView sp_sentenceView'>" + sentence1_view + "</p>" +
-					"<a href='/' class='tobecontinue sp_tobecontinue'>記事を閉じる<i class='fas fa-chevron-up'></i></a>" +
-					"<div class='article_middle'>" +
-						"<div class='sns'>" +
-							"<a href=''><i class='fab fa-facebook'></i></a>" +
-							"<a href=''><i class='fab fa-twitter'></i></a>" +
-							"<a href=''><i class='fab fa-line'></i></a>" +
-						"</div>" +
-						"<ul>" +
-							"<li data-id='" + id + "' class='add'>" +
-								"<i class='far fa-heart'></i>" + "<span>お気に入り</span>" +
-							"</li>" +
-							"<li data-id='" + id + "' class='remove'>" +
-								"<i class='fas fa-heart'></i>" + "<span>お気に入り</span>" +
-							"</li>" +
-						"</ul>" +
-					"</div>" +
-					"<div class='article_bottom'>" +
-						"<ul>" +
-							"<div class='left'>" +
-								// "<li class='article_tag_name" + " " + DataArr[i].tag_type + "'>" +
-									// DataArr[i].tag_type_name +
-								"<li class='article_tag_name'>" + // API調整後変更
-									"カテゴリー" + // API調整後変更
-								"</li>" +
-								"<li class='article_area_name'>" +
-									"<i class='fas fa-map-marker-alt'></i>" +
-									articleArea +
-								"</li>" +
-							"</div>" +
-
-							"<div class='right'>" +
-								"<li class='article_time'>" + datetostr(release_datetime) +
-								"</li>" +
-							"</div>" +
-						"</ul>" +
-					"</div>" +
-					"<a href='/' class='tobecontinue pc_tobecontinue'>記事を閉じる<i class='fas fa-chevron-up'></i></a>" +
 				"</div>"+
+			"</div>" +
+			"<div class='closeBtnWrap'>" +
+				"<div class='closeBtnLeft'></div>" +
+				"<a href='/' class='closeBtn'>記事を閉じる<i class='fas fa-chevron-up'></i></a>" +
 			"</div>" +
 			"<p class='sentenceView pc_sentenceView'>" + sentence1_view + "</p>"
 		);
@@ -458,6 +425,127 @@ function getDetail(id) {
 		return false;
 	});
 }
+
+// 一覧を一度、全部隠して、詳細を再構築したパターン
+// デメリット
+// ①コードが冗長なり過ぎメンテナンス性に欠ける
+// ②お気に入りボタンが詳細表示に配置するとバグが起きる（ここを改善しないとそもそもこのコードはNG）
+// ③仮に②を改善したとしても上のコードに必要部分だけを付け足せばいいのでどちらにせよこのコードはなし
+// メリット
+// 詳細で再構築してるので要素の順番を自由に変えられる（DOMが一覧と詳細でがらっと変わるようならこれを採用もあり）
+
+// function getDetail(id) {
+// 	// let host_name  = location.href;
+// 	// リクエストするベース URL
+// 	let baseURL = "https://api.kisspress.jp/beta/articles/";
+// 	// リクエストパラメータ
+// 	let url = baseURL + id + "/";
+// 	// データを取得して処理を開始する
+
+// 	let new_icon = "";
+	
+// 	$.ajax({
+// 		type: 'POST',
+// 		url: url,
+// 		cache: false,
+// 		dataType: 'json',
+// 		timeout: 3000,
+// 	}).done(function (data, textStatus, jqXHR) {
+// 		// 一覧表示削除
+// 		$(".article_box[data-id=" + id + "] > .inner_article_box > .pc_thumbnail").hide();
+// 		$(".article_box[data-id=" + id + "] > .inner_article_box > .textWrapper").hide();
+// 		$(".article_box[data-id=" + id + "] > .inner_article_box > .textWrapper > h1").hide();
+// 		$(".article_box[data-id=" + id + "] > .inner_article_box > .textWrapper > h2").hide();
+// 		$(".article_box[data-id=" + id + "] > .inner_article_box > .textWrapper > .article_sentence").hide();
+// 		$(".article_box[data-id=" + id + "] > .inner_article_box > .textWrapper > .tobecontinue").hide();
+// 		$(".article_box[data-id=" + id + "] > .inner_article_box > .textWrapper > .article_middle").hide();
+// 		$(".article_box[data-id=" + id + "] > .inner_article_box > .textWrapper > .article_bottom").hide();
+// 		$(".article_box[data-id=" + id + "] > .inner_article_box > .textWrapper > .sp_thumbnail").hide();
+// 		$(".article_box[data-id=" + id + "] > .inner_article_box > .textWrapper > .sp_term").hide();
+
+// 		let objData = data['basic'];
+// 		let h1 = objData["title_s"];
+// 		let h2 = objData["title_copy"];
+// 		let event_term = objData["event_term"];
+// 		let sentence1 = objData["sentence1"];
+// 		let sentence1_view = objData["sentence1_view"];
+// 		let articleImage = objData["top_image"]["file_path"]["xl"];
+// 		let articleArea = objData["district"][0]["name_jp"];
+// 		let release_datetime = objData["release_datetime"];
+// 		// Newアイコン
+// 		if (get_before() < release_datetime) {
+// 			// ローカル
+// 			new_icon = "<img src='http://kisspresslocal.local/wp-content/themes/kisspress_tworows/img/common/new.svg' class='newIcon' loading='lazy' />";
+// 			// サーバー
+// 			// new_icon = "<img src='http://dev2.kisspress.jp/assets/img/new.svg' class='newIcon' loading='lazy' />";
+// 		}
+// 		console.log(objData);
+
+// 		$(".article_box[data-id=" + id + "]").append(
+// 			"<div class='inner_article_box'>" +
+// 				// PC時の画像
+// 				"<div class='pc_thumbnail'>" +
+// 					new_icon +
+// 					"<img src='https://kisspress.jp/img_thumb/get_image/480/0/?file=" + articleImage + "' loading='lazy'>" +
+// 				"</div>" +
+// 				"<div class='textWrapper'>" +
+// 					// スマホ時の画像
+// 					"<div class='sp_thumbnail'>" +
+// 						new_icon +
+// 						"<img src='https://kisspress.jp/img_thumb/get_image/480/0/?file=" + articleImage + "' loading='lazy'>" +
+// 					"</div>" +
+// 					"<h2>" + h2 + "</h2>" +
+// 					"<h1>" + h1 + "</h1>" +
+// 					"<p class='sp_term'>" + event_term + "</p>" +
+// 					"<div class='article_sentence'>" +
+// 						modifyNameString(sentence1, 60) +
+// 					"</div>" +
+// 					"<p class='sentenceView sp_sentenceView'>" + sentence1_view + "</p>" +
+// 					"<div class='article_middle'>" +
+// 						"<div class='sns'>" +
+// 							"<a href='http://www.facebook.com/share.php?u=https://kisspress.jp/articles/" + id + "/&t=" + h1 + "' target='_blank' rel='noopener noreferrer'><i class='fab fa-facebook'></i></a>" +
+// 							"<a href='https://twitter.com/share?url=https://kisspress.jp/articles/" + id + "&text=" + h1 + "' target='_blank' rel='noopener noreferrer'><i class='fab fa-twitter'></i></a>" +
+// 							"<a href='http://line.me/R/msg/text/?https://kisspress.jp/articles/" + id + "' target='_blank' rel='noopener noreferrer'><i class='fab fa-line'></i></a>" +
+// 						"</div>" +
+// 						"<ul>" + 
+// 							"<li data-id='" + id + "' class='add'>" +
+// 								"<i class='far fa-heart'></i>" + "<span>お気に入り</span>" +
+// 							"</li>" +
+// 							"<li data-id='" + id + "' class='remove'>" +
+// 								"<i class='fas fa-heart'></i>" + "<span>お気に入り</span>" +
+// 							"</li>" +
+// 						"</ul>" +
+// 					"</div>" +
+// 					"<div class='article_bottom'>" +
+// 						"<ul>" +
+// 							"<div class='left'>" +
+// 								// "<li class='article_tag_name" + " " + DataArr[i].tag_type + "'>" +
+// 									// DataArr[i].tag_type_name +
+// 								"<li class='article_tag_name'>" + // API調整後変更
+// 									"カテゴリー" + // API調整後変更
+// 								"</li>" +
+// 								"<li class='article_area_name'>" +
+// 									"<i class='fas fa-map-marker-alt'></i>" +
+// 									articleArea +
+// 								"</li>" +
+// 							"</div>" +
+
+// 							"<div class='right'>" +
+// 								"<li class='article_time'>" + datetostr(release_datetime) +
+// 								"</li>" +
+// 							"</div>" +
+// 						"</ul>" +
+// 					"</div>" +
+// 				"</div>"+
+// 			"</div>" +
+// 			"<p class='sentenceView pc_sentenceView'>" + sentence1_view + "</p>"
+// 		);
+// 	}).fail(function (jqXHR, textStatus, errorThrown) {
+// 		return false;
+// 	}).always(function (jqXHR, textStatus) {
+// 		return false;
+// 	});
+// }
 
 function incrementHistory() {
 	let count = $("#history_count").val();

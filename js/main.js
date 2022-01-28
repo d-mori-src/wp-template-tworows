@@ -56,6 +56,22 @@ function datetostr(dt) {
 	}
 }
 
+function get_before() {
+	let now = new Date();
+	let year = now.getFullYear();
+	let mon  = now.getMonth() + 1;
+	let date = now.getDate() - 1;
+	let hour = now.getHours();
+	let min  = now.getMinutes();
+	let sec  = now.getSeconds();
+	if (mon < 10) {mon= '0' + mon;}
+	if (date < 10){date = '0' + date;}
+	if (hour < 10){hour = '0' + hour;}
+	if (min < 10) {min = '0' + min;}
+	if (sec < 10) {sec = '0' + sec;}
+	return year + '-' + mon + '-' + date + ' ' + hour + ':' + min + ':' +sec;
+}
+
 $(function(){
     // Kiss PRESS広告プラン モーダルウィンドウ
     $('.js-modal-open').each(function(){

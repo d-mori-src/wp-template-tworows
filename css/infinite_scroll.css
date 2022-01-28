@@ -25,13 +25,25 @@
 }
 
 .wrap .article_box .inner_article_box .textWrapper .sp_thumbnail {
-  display: block;
+  margin: 0 0 14px 0;
+  position: relative;
+}
+
+.wrap .article_box .inner_article_box .textWrapper .sp_thumbnail img {
   width: 100%;
   height: 160px;
   -o-object-fit: cover;
      object-fit: cover;
-  margin: 0 0 14px 0;
   border-radius: 8px;
+}
+
+.wrap .article_box .inner_article_box .textWrapper .sp_thumbnail .newIcon {
+  width: 44px;
+  height: 44px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 0;
 }
 
 .wrap .article_box .inner_article_box .textWrapper h2 {
@@ -89,6 +101,10 @@
 .wrap .article_box .inner_article_box .textWrapper .sentenceView .sentence_image img {
   width: 100%;
   height: 100%;
+}
+
+.wrap .article_box .inner_article_box .textWrapper .sp_sentenceView {
+  margin: 16px auto 14px;
 }
 
 .wrap .article_box .inner_article_box .textWrapper .tobecontinue {
@@ -212,6 +228,24 @@
   margin: 0 20px 0 0;
 }
 
+.wrap .article_box .closeBtnWrap .closeBtn {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  font-size: 12px;
+  color: #fff;
+  width: 100%;
+  margin: 0 0 18px 0;
+  padding: 4px 0 6px;
+  border-radius: 4px;
+  background: #000;
+}
+
+.wrap .article_box .closeBtnWrap .closeBtn i {
+  margin: 0 0 0 8px;
+  color: #fff;
+}
+
 .wrap .article_box .pc_sentenceView {
   display: none;
 }
@@ -235,6 +269,7 @@
     display: block;
     width: 44%;
     height: 200px;
+    position: relative;
   }
   .wrap .article_box .inner_article_box .pc_thumbnail img {
     width: 100%;
@@ -242,6 +277,14 @@
     -o-object-fit: cover;
        object-fit: cover;
     border-radius: 8px;
+  }
+  .wrap .article_box .inner_article_box .pc_thumbnail .newIcon {
+    width: 44px;
+    height: 44px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 0;
   }
   .wrap .article_box .inner_article_box .textWrapper {
     width: 52%;
@@ -284,6 +327,21 @@
   .wrap .article_box .inner_article_box .textWrapper .article_bottom ul li {
     font-size: 10px;
   }
+  .wrap .article_box .closeBtnWrap {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .wrap .article_box .closeBtnWrap .closeBtnLeft {
+    width: 44%;
+  }
+  .wrap .article_box .closeBtnWrap .closeBtn {
+    font-size: 10px;
+    width: 52%;
+  }
   .wrap .article_box .pc_sentenceView {
     display: block;
     text-align: justify;
@@ -325,6 +383,13 @@
   .wrap .article_box .inner_article_box .textWrapper .article_sentence {
     font-size: 10px;
     line-height: 1.6;
+  }
+  .wrap .article_box .closeBtnWrap .closeBtnLeft {
+    width: 330px;
+  }
+  .wrap .article_box .closeBtnWrap .closeBtn {
+    font-size: 10px;
+    width: 320px;
   }
 }
 /*# sourceMappingURL=infinite_scroll.css.map */

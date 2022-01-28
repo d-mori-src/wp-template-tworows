@@ -18,12 +18,22 @@
             }
             .textWrapper {
                 .sp_thumbnail {
-                    display: block;
-                    width: 100%;
-                    height: 160px;
-                    object-fit: cover;
                     margin: 0 0 14px 0;
-                    border-radius: 8px;
+                    position: relative;
+                    img {
+                        width: 100%;
+                        height: 160px;
+                        object-fit: cover;
+                        border-radius: 8px;
+                    }
+                    .newIcon {
+                        width: 44px;
+                        height: 44px;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        border-radius: 0;
+                    }
                 }
                 h2 {
                     text-align: justify;
@@ -74,6 +84,9 @@
                             height: 100%;
                         }
                     }
+                }
+                .sp_sentenceView {
+                    margin: 16px auto 14px;
                 }
                 .tobecontinue {
                     display: block;
@@ -172,6 +185,24 @@
                 }
             }
         }
+        .closeBtnWrap {
+            .closeBtn {
+                display: block;
+                text-align: center;
+                text-decoration: none;
+                font-size: 12px;
+                color: #fff;
+                width: 100%;
+                margin: 0 0 18px 0;
+                padding: 4px 0 6px;
+                border-radius: 4px;
+                background: #000;
+                i {
+                    margin: 0 0 0 8px;
+                    color: #fff;
+                }
+            }
+        }
         .pc_sentenceView {
             display: none;
         }
@@ -189,11 +220,20 @@
                     display: block;
                     width: 44%;
                     height: 200px;
+                    position: relative;
                     img {
                         width: 100%;
                         height: 100%;
                         object-fit: cover;
                         border-radius: 8px;
+                    }
+                    .newIcon {
+                        width: 44px;
+                        height: 44px;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        border-radius: 0;
                     }
                 }
                 .textWrapper {
@@ -240,6 +280,17 @@
                     }
                 }
             }
+            .closeBtnWrap {
+                display: flex;
+                justify-content: space-between;
+                .closeBtnLeft {
+                    width: 44%;
+                }
+                .closeBtn {
+                    font-size: 10px;
+                    width: 52%;
+                }
+            }
             .pc_sentenceView {
                 display: block;
                 text-align: justify;
@@ -281,6 +332,15 @@
                         font-size: 10px;
                         line-height: 1.6;
                     }
+                }
+            }
+            .closeBtnWrap {
+                .closeBtnLeft {
+                    width: 330px;
+                }
+                .closeBtn {
+                    font-size: 10px;
+                    width: 320px;
                 }
             }
         }
