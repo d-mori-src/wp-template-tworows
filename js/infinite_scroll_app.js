@@ -55,15 +55,28 @@ $(function () {
 		// 履歴を変更
 		history.pushState(null, null, "/articles/" + id);
 
-		// 履歴を変更した回数を加算
-		// incrementHistory();
-
 		// 変更 履歴のカウントを0に 
 		$("#history_count").val(0);
 
 		// 詳細を取得して展開
 		getDetail(id);
 
+		// 続きを読むがクリックされたらその記事の隠していた要素を表示
+		if (window.matchMedia('(max-width: 767px)').matches) {
+			const styles = {
+				display: "block",
+			}
+			$(".hidden[data-id=" + id + "]").css(styles);
+		} else {
+			const styles = {
+				display: "flex",
+				justifyContent: "space-between",
+				alignItems: "center",
+				flexDirection: "row-reverse",
+			}
+			$(".hidden[data-id=" + id + "]").css(styles);
+		}
+		
 		// PV カウント
 		// pageview(send_title, sendURL);
 	});
@@ -235,25 +248,17 @@ function writeData(DataArr) {
 		$('.wrap').append(
 			"<div class='article_box' data-id='" + DataArr[i].id + "'>" +
 				"<div class='inner_article_box'>" +
-					// PC時の画像
-					"<div class='pc_thumbnail'>" +
+					"<div class='thumbnail'>" +
 						new_icon +
 						"<img src='https://kisspress.jp/img_thumb/get_image/480/0/?file=" + DataArr[i].image.file_path.xl + "' loading='lazy'>" +
 					"</div>" +
-
 					"<div class='textWrapper'>" +
-						// スマホ時の画像
-						"<div class='sp_thumbnail'>" +
-							new_icon +
-							"<img src='https://kisspress.jp/img_thumb/get_image/480/0/?file=" + DataArr[i].image.file_path.xl + "' loading='lazy'>" +
-						"</div>" +
 						"<h2>" + DataArr[i].title_copy + "</h2>" +
 						"<h1>" + DataArr[i].title_s + "</h1>" +
 						"<p class='sp_term'>" + DataArr[i].event_term + "</p>" +
 						"<div class='article_sentence'>" +
-							modifyNameString(DataArr[i].sentence1, 80, DataArr[i].id) +
+							modifyNameString(DataArr[i].sentence1, 50, DataArr[i].id) +
 						"</div>" +
-						"<a href='javascript:void(0)' class='tobecontinue sp_tobecontinue' data-id='" + DataArr[i].id + "'>続きを読む<i class='fas fa-chevron-down'></i></a>" +
 						"<div class='article_middle'>" +
 							"<div class='sns'>" +
 								"<a href='http://www.facebook.com/share.php?u=https://kisspress.jp/articles/" + DataArr[i].id + "/&t=" + DataArr[i].title_s + "' target='_blank' rel='noopener noreferrer'><i class='fab fa-facebook'></i></a>" +
@@ -280,16 +285,54 @@ function writeData(DataArr) {
 										area_name +
 									"</li>" +
 								"</div>" +
-
 								"<div class='right'>" +
 									"<li class='article_time'>" + datetostr(DataArr[i].release_datetime) +
 									"</li>" +
 								"</div>" +
  							"</ul>" +
 						"</div>" +
-						"<a href='javascript:void(0)' class='tobecontinue pc_tobecontinue' data-id='" + DataArr[i].id + "'>続きを読む<i class='fas fa-chevron-down'></i></a>" +
+						"<a href='javascript:void(0)' class='tobecontinue' data-id='" + DataArr[i].id + "'>続きを読む<i class='fas fa-chevron-down'></i></a>" +
 					"</div>" +
 				"</div>" +
+
+				// 詳細ページで表示する部分
+				"<div class='article_detail' data-id='" + DataArr[i].id + "'></div>" +
+				"<div class='hidden' data-id='" + DataArr[i].id + "'>" +
+					"<div class='article_middle article_middle2'>" +
+						"<div class='sns'>" +
+							"<a href='http://www.facebook.com/share.php?u=https://kisspress.jp/articles/" + DataArr[i].id + "/&t=" + DataArr[i].title_s + "' target='_blank' rel='noopener noreferrer'><i class='fab fa-facebook'></i></a>" +
+							"<a href='https://twitter.com/share?url=https://kisspress.jp/articles/" + DataArr[i].id + "&text=" + DataArr[i].title_s + "' target='_blank' rel='noopener noreferrer'><i class='fab fa-twitter'></i></a>" +
+							"<a href='http://line.me/R/msg/text/?https://kisspress.jp/articles/" + DataArr[i].id + "' target='_blank' rel='noopener noreferrer'><i class='fab fa-line'></i></a>" +
+						"</div>" +
+						"<ul>" +
+							"<li data-id='" + DataArr[i].id + "' class='add'>" +
+								"<i class='far fa-heart'></i>" + "<span>お気に入り</span>" +
+							"</li>" +
+							"<li data-id='" + DataArr[i].id + "' class='remove'>" +
+								"<i class='fas fa-heart'></i>" + "<span>お気に入り</span>" +
+							"</li>" +
+						"</ul>" +
+					"</div>" +	
+					"<div class='article_bottom article_bottom2'>" +
+						"<ul>" +
+							"<div class='left'>" +
+								"<li class='article_tag_name" + " " + DataArr[i].tag_type + "'>" +
+									DataArr[i].tag_type_name +
+								"</li>" +
+								"<li class='article_area_name'>" +
+									"<i class='fas fa-map-marker-alt'></i>" +
+									area_name +
+								"</li>" +
+							"</div>" +
+							"<div class='right'>" +
+								"<li class='article_time'>" + datetostr(DataArr[i].release_datetime) +
+								"</li>" +
+							"</div>" +
+						"</ul>" +
+					"</div>" +
+				"</div>" +
+				// ここまで詳細ページ
+
 			"</div>"
 		);
 	}
@@ -371,25 +414,10 @@ function pageview(title, page) {
  * 記事詳細を取得
  * WPテーマ レイアウト上階層が変わったため「> .textWrapper」追加
  */
-// 改良点
-// 一覧表示のカードはそのままイキ（続きを読むボタンは隠し、スマホのみ一覧本文隠す）
-// 構成
-// 一覧部分（共通 シェアや日時まで含む）
-// スマホ → 本文テキスト・閉じるボタン　PC → 閉じるボタン・本文テキスト
-
-// メリット
-// ①始めに書いた詳細で再構築すると比べコード量が圧倒的に減りメンテナンス性向上
-// ②お気に入り機能を一覧のもので兼ねられるので、詳細ページのお気に入り機能のバグは考えなくて良くなった
-// デメリット
-// 一覧ページ部分は共通なのでスマホレイアウトのSNSシェアや日時部分の順番は変更できない
-
-function getDetail(id) {
-	// let host_name  = location.href;
-	// リクエストするベース URL
+ function getDetail(id) {
 	let baseURL = "https://api.kisspress.jp/beta/articles/";
-	// リクエストパラメータ
 	let url = baseURL + id + "/";
-	// データを取得して処理を開始する
+
 	
 	$.ajax({
 		type: 'POST',
@@ -398,7 +426,6 @@ function getDetail(id) {
 		dataType: 'json',
 		timeout: 3000,
 	}).done(function (data, textStatus, jqXHR) {
-		// 一覧表示削除部分
 		if ($(window).width() <= 767) {
 			$(".article_box[data-id=" + id + "] > .inner_article_box > .textWrapper > .article_sentence").hide();
 		}
@@ -407,17 +434,8 @@ function getDetail(id) {
 		let objData = data['basic'];
 		let sentence1_view = objData["sentence1_view"];
 
-		$(".article_box[data-id=" + id + "]").append(
-			"<div class='inner_article_box'>" +
-				"<div class='textWrapper'>" +
-					"<p class='sentenceView sp_sentenceView'>" + sentence1_view + "</p>" +
-				"</div>"+
-			"</div>" +
-			"<div class='closeBtnWrap'>" +
-				"<div class='closeBtnLeft'></div>" +
-				"<a href='/' class='closeBtn'>記事を閉じる<i class='fas fa-chevron-up'></i></a>" +
-			"</div>" +
-			"<p class='sentenceView pc_sentenceView'>" + sentence1_view + "</p>"
+		$(".article_detail[data-id=" + id + "]").html(
+			"<p class='sentenceView'>" + sentence1_view + "</p>"
 		);
 	}).fail(function (jqXHR, textStatus, errorThrown) {
 		return false;
@@ -425,6 +443,49 @@ function getDetail(id) {
 		return false;
 	});
 }
+
+// function getDetail(id) {
+// 	// let host_name  = location.href;
+// 	// リクエストするベース URL
+// 	let baseURL = "https://api.kisspress.jp/beta/articles/";
+// 	// リクエストパラメータ
+// 	let url = baseURL + id + "/";
+// 	// データを取得して処理を開始する
+	
+// 	$.ajax({
+// 		type: 'POST',
+// 		url: url,
+// 		cache: false,
+// 		dataType: 'json',
+// 		timeout: 3000,
+// 	}).done(function (data, textStatus, jqXHR) {
+// 		// 一覧表示削除部分
+// 		if ($(window).width() <= 767) {
+// 			$(".article_box[data-id=" + id + "] > .inner_article_box > .textWrapper > .article_sentence").hide();
+// 		}
+// 		$(".article_box[data-id=" + id + "] > .inner_article_box > .textWrapper > .tobecontinue").hide();
+
+// 		let objData = data['basic'];
+// 		let sentence1_view = objData["sentence1_view"];
+
+// 		$(".article_box[data-id=" + id + "]").append(
+// 			// "<div class='inner_article_box'>" +
+// 			// 	"<div class='textWrapper'>" +
+// 			// 		"<p class='sentenceView sp_sentenceView'>" + sentence1_view + "</p>" +
+// 			// 	"</div>"+
+// 			// "</div>" +
+// 			// "<div class='closeBtnWrap'>" +
+// 			// 	"<div class='closeBtnLeft'></div>" +
+// 			// 	"<a href='/' class='closeBtn'>記事を閉じる<i class='fas fa-chevron-up'></i></a>" +
+// 			// "</div>" +
+// 			"<p class='sentenceView'>" + sentence1_view + "</p>"
+// 		);
+// 	}).fail(function (jqXHR, textStatus, errorThrown) {
+// 		return false;
+// 	}).always(function (jqXHR, textStatus) {
+// 		return false;
+// 	});
+// }
 
 // 一覧を一度、全部隠して、詳細を再構築したパターン
 // デメリット
