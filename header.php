@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <title>[WP]Kiss PRESS(キッスプレス) | 兵庫五国を楽しもう</title>
+    <title>Kiss PRESS(キッスプレス) | 兵庫五国を楽しもう</title>
     <meta name="description" content="KissPRESSは兵庫五国の地域情報サイトです。兵庫五国のおでかけ情報やイベント・スポット情報が盛りだくさん">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
