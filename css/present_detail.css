@@ -1,189 +1,154 @@
 .present_detail {
-  margin: 100px auto 0;
+    margin: 100px auto 0;
 }
-
 .present_detail .presentContents .headTitle .presentIcon {
-  height: 16px;
-  position: relative;
+    height: 16px;
+    position: relative;
 }
-
 .present_detail .presentContents h1 {
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 500;
-  margin: 0 0 12px 0;
-}
-
-.present_detail .presentContents .presentFlexWrappwer {
-  margin: 0 0 32px 0;
-}
-
-.present_detail .presentContents .presentFlexWrappwer .leftWrappwer .winning {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  font-size: 11px;
-  color: #BB7777;
-  margin: 0 0 10px 0;
-}
-
-.present_detail .presentContents .presentFlexWrappwer .leftWrappwer .winning p {
-  margin: 0 4px 0 0;
-  padding: 6px 8px;
-  border: 1px solid #BB7777;
-  border-radius: 4px;
-}
-
-.present_detail .presentContents .presentFlexWrappwer .leftWrappwer .lead {
-  text-align: justify;
-  font-size: 12px;
-  line-height: 1.7;
-  margin: 0 0 16px 0;
-}
-
-.present_detail .presentContents .presentFlexWrappwer .RightWrappwer {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-.present_detail .presentContents .presentFlexWrappwer .RightWrappwer .presentImage {
-  width: 100%;
-  height: auto;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
-.present_detail .presentContents .presentFlexWrappwer .RightWrappwer .harf {
-  width: 50%;
-}
-
-.present_detail .presentContents .howto {
-  margin: 0 0 32px 0;
-}
-
-.present_detail .presentContents .howto ul {
-  padding: 16px 0;
-  border-top: 1px solid #EBEBEB;
-  border-bottom: 1px solid #EBEBEB;
-}
-
-.present_detail .presentContents .howto ul li {
-  font-size: 12px;
-  line-height: 1.7;
-}
-
-.present_detail .presentContents .howto ul li a {
-  text-decoration: underline;
-}
-
-.present_detail .presentContents .deadline {
-  margin: 0 0 32px 0;
-  padding: 32px;
-  background: #FDF2F2;
-}
-
-.present_detail .presentContents .deadline h4 {
-  text-align: justify;
-  font-size: 14px;
-  line-height: 1.5;
-  font-weight: 500;
-  color: #BA5042;
-  margin: 0 0 12px 0;
-}
-
-.present_detail .presentContents .deadline p {
-  text-align: justify;
-  font-size: 12px;
-  line-height: 1.7;
-}
-
-@media screen and (min-width: 768px) {
-  .present_detail .presentContents .presentFlexWrappwer {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-  }
-  .present_detail .presentContents .presentFlexWrappwer .leftWrappwer {
-    width: 60%;
-  }
-  .present_detail .presentContents .presentFlexWrappwer .leftWrappwer .lead {
-    margin: 0;
-  }
-  .present_detail .presentContents .presentFlexWrappwer .RightWrappwer {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
-    width: 34%;
-  }
-  .present_detail .presentContents .presentFlexWrappwer .RightWrappwer .harf {
-    width: 100%;
-  }
-  .present_detail .presentContents .howto {
-    margin: 0 0 32px 0;
-  }
-  .present_detail .presentContents .howto ul {
-    text-align: center;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .present_detail {
-    margin: 120px auto;
-  }
-  .present_detail .presentContents h1 {
-    margin: 0 0 20px 0;
-  }
-  .present_detail .presentContents .presentFlexWrappwer {
-    margin: 0 0 40px 0;
-  }
-  .present_detail .presentContents .presentFlexWrappwer .leftWrappwer {
-    width: 370px;
-  }
-  .present_detail .presentContents .presentFlexWrappwer .leftWrappwer .winning {
-    font-size: 12px;
-    margin: 0 0 20px 0;
-  }
-  .present_detail .presentContents .presentFlexWrappwer .leftWrappwer .winning p {
-    margin: 0 8px 0 0;
-    padding: 8px 12px;
-  }
-  .present_detail .presentContents .presentFlexWrappwer .leftWrappwer .lead {
-    margin: 0;
-  }
-  .present_detail .presentContents .presentFlexWrappwer .RightWrappwer {
-    width: 200px;
-  }
-  .present_detail .presentContents .howto {
-    margin: 0 0 40px 0;
-  }
-  .present_detail .presentContents .deadline {
-    margin: 0 0 40px 0;
-    padding: 40px;
-  }
-  .present_detail .presentContents .deadline h4 {
     font-size: 16px;
     line-height: 1.5;
-    margin: 0 0 24px 0;
-  }
+    font-weight: 500;
+    margin: 0 0 12px 0;
 }
-
+.present_detail .presentContents .presentFlexWrappwer {
+    margin: 0 0 32px 0;
+}
+.present_detail .presentContents .presentFlexWrappwer .leftWrappwer .winning {
+    display: flex;
+    font-size: 11px;
+    color: #BB7777;
+    margin: 0 0 10px 0;
+}
+.present_detail .presentContents .presentFlexWrappwer .leftWrappwer .winning p {
+    margin: 0 4px 0 0;
+    padding: 6px 8px;
+    border: 1px solid #BB7777;
+    border-radius: 4px;
+}
+.present_detail .presentContents .presentFlexWrappwer .leftWrappwer .lead {
+    text-align: justify;
+    font-size: 12px;
+    line-height: 1.7;
+    margin: 0 0 16px 0;
+}
+.present_detail .presentContents .presentFlexWrappwer .RightWrappwer {
+    display: flex;
+    justify-content: space-between;
+}
+.present_detail .presentContents .presentFlexWrappwer .RightWrappwer .presentImage {
+    width: 100%;
+    height: auto;
+    -o-object-fit: cover;
+       object-fit: cover;
+}
+.present_detail .presentContents .presentFlexWrappwer .RightWrappwer .harf {
+    width: 50%;
+}
+.present_detail .presentContents .howto {
+    margin: 0 0 32px 0;
+}
+.present_detail .presentContents .howto ul {
+    padding: 16px 0;
+    border-top: 1px solid #EBEBEB;
+    border-bottom: 1px solid #EBEBEB;
+}
+.present_detail .presentContents .howto ul li {
+    font-size: 12px;
+    line-height: 1.7;
+}
+.present_detail .presentContents .howto ul li a {
+    text-decoration: underline;
+}
+.present_detail .presentContents .deadline {
+    margin: 0 0 32px 0;
+    padding: 32px;
+    background: #FDF2F2;
+}
+.present_detail .presentContents .deadline h4 {
+    text-align: justify;
+    font-size: 14px;
+    line-height: 1.5;
+    font-weight: 500;
+    color: #BA5042;
+    margin: 0 0 12px 0;
+}
+.present_detail .presentContents .deadline p {
+    text-align: justify;
+    font-size: 12px;
+    line-height: 1.7;
+}
+@media screen and (min-width: 768px) {
+    .present_detail .presentContents .presentFlexWrappwer {
+        display: flex;
+        justify-content: space-between;
+    }
+    .present_detail .presentContents .presentFlexWrappwer .leftWrappwer {
+        width: 60%;
+    }
+    .present_detail .presentContents .presentFlexWrappwer .leftWrappwer .lead {
+        margin: 0;
+    }
+    .present_detail .presentContents .presentFlexWrappwer .RightWrappwer {
+        flex-direction: column;
+        justify-content: flex-start;
+        width: 34%;
+    }
+    .present_detail .presentContents .presentFlexWrappwer .RightWrappwer .harf {
+        width: 100%;
+    }
+    .present_detail .presentContents .howto {
+        margin: 0 0 32px 0;
+    }
+    .present_detail .presentContents .howto ul {
+        text-align: center;
+    }
+}
+@media screen and (min-width: 1024px) {
+    .present_detail {
+        margin: 120px auto;
+    }
+    .present_detail .presentContents h1 {
+        margin: 0 0 20px 0;
+    }
+    .present_detail .presentContents .presentFlexWrappwer {
+        margin: 0 0 40px 0;
+    }
+    .present_detail .presentContents .presentFlexWrappwer .leftWrappwer {
+        width: 370px;
+    }
+    .present_detail .presentContents .presentFlexWrappwer .leftWrappwer .winning {
+        font-size: 12px;
+        margin: 0 0 20px 0;
+    }
+    .present_detail .presentContents .presentFlexWrappwer .leftWrappwer .winning p {
+        margin: 0 8px 0 0;
+        padding: 8px 12px;
+    }
+    .present_detail .presentContents .presentFlexWrappwer .leftWrappwer .lead {
+        margin: 0;
+    }
+    .present_detail .presentContents .presentFlexWrappwer .RightWrappwer {
+        width: 200px;
+    }
+    .present_detail .presentContents .howto {
+        margin: 0 0 40px 0;
+    }
+    .present_detail .presentContents .deadline {
+        margin: 0 0 40px 0;
+        padding: 40px;
+    }
+    .present_detail .presentContents .deadline h4 {
+        font-size: 16px;
+        line-height: 1.5;
+        margin: 0 0 24px 0;
+    }
+}
 @media screen and (min-width: 1120px) {
-  .present_detail .presentContents .presentFlexWrappwer .leftWrappwer {
-    width: 400px;
-  }
-  .present_detail .presentContents .presentFlexWrappwer .RightWrappwer {
-    width: 200px;
-  }
+    .present_detail .presentContents .presentFlexWrappwer .leftWrappwer {
+        width: 400px;
+    }
+    .present_detail .presentContents .presentFlexWrappwer .RightWrappwer {
+        width: 200px;
+    }
 }
-/*# sourceMappingURL=present_detail.css.map */

@@ -1,56 +1,47 @@
 .institution {
-  margin: 100px auto 0;
+    margin: 100px auto 0;
 }
-
 .institution .intro .headTitle .institutionIcon {
-  height: 16px;
-  position: relative;
-  top: 0;
+    height: 16px;
+    position: relative;
+    top: 0;
 }
-
 .institution .intro .institutionSearch {
-  margin: 0 0 40px 0;
+    margin: 0 0 40px 0;
 }
-
 .institution .intro .institutionSearch p {
-  font-size: 14px;
-  margin: 0 0 16px 0;
+    font-size: 14px;
+    margin: 0 0 16px 0;
 }
-
 .institution .contents ul li {
-  padding: 16px 0;
-  border-bottom: 1px solid #EBEBEB;
+    padding: 16px 0;
+    border-bottom: 1px solid #EBEBEB;
 }
-
 .institution .contents ul li a {
-  font-size: 14px;
-  line-height: 1.8;
-  letter-spacing: 0;
+    font-size: 14px;
+    line-height: 1.8;
+    letter-spacing: 0;
 }
-
 .institution .contents ul li a span {
-  display: block;
-  font-size: 12px;
-  font-weight: 400;
-  color: #676767;
+    display: block;
+    font-size: 12px;
+    font-weight: 400;
+    color: #676767;
 }
-
 .institution .contents ul li:first-child {
-  border-top: 1px solid #EBEBEB;
+    border-top: 1px solid #EBEBEB;
 }
-
 @media screen and (min-width: 1024px) {
-  .institution {
-    margin: 120px auto;
-  }
-  .institution .intro .headTitle .institutionIcon {
-    font-size: 18px;
-  }
-  .institution .contents ul li {
-    padding: 24px 0;
-  }
-  .institution .contents ul li a {
-    font-size: 16px;
-  }
+    .institution {
+        margin: 120px auto;
+    }
+    .institution .intro .headTitle .institutionIcon {
+        font-size: 18px;
+    }
+    .institution .contents ul li {
+        padding: 24px 0;
+    }
+    .institution .contents ul li a {
+        font-size: 16px;
+    }
 }
-/*# sourceMappingURL=institution.css.map */

@@ -1,99 +1,78 @@
 .special .specialItems {
-  padding: 0 20px;
+    padding: 0 20px;
 }
-
 .special .specialItems .specialItem {
-  margin: 0 0 6px 0;
+    margin: 0 0 6px 0;
 }
-
 .special .specialItems .specialItem .specialItemEyecatch {
-  width: 100%;
-  height: 80px;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
-@media screen and (min-width: 768px) {
-  .special {
-    width: 640px;
-    margin: 0 auto 24px;
-  }
-  .special .specialItems {
-    padding: 0;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .special {
     width: 100%;
-  }
+    height: 80px;
+    -o-object-fit: cover;
+       object-fit: cover;
+}
+@media screen and (min-width: 768px) {
+    .special {
+        width: 640px;
+        margin: 0 auto 24px;
+    }
+    .special .specialItems {
+        padding: 0;
+    }
+}
+@media screen and (min-width: 1024px) {
+    .special {
+        width: 100%;
+    }
 }
 
 .features {
-  margin: 100px auto 0;
+    margin: 100px auto 0;
 }
-
 .features .featuresInterview .featuresItems {
-  margin: 0 0 24px 0;
+    margin: 0 0 24px 0;
 }
-
 .features .featuresInterview .featuresItems .featuresItem {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  margin: 0 0 16px 0;
-  padding: 0 0 16px 0;
-  border-bottom: 1px solid #EBEBEB;
-}
-
-.features .featuresInterview .featuresItems .featuresItem a {
-  display: block;
-  width: 44%;
-}
-
-.features .featuresInterview .featuresItems .featuresItem a .featuresItemImage {
-  width: 100%;
-  height: 80px;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
-.features .featuresInterview .featuresItems .featuresItem .title {
-  text-align: justify;
-  font-size: 14px;
-  width: 50%;
-}
-
-.features .featuresInterview .featuresItems .featuresItem:last-child {
-  margin: 0;
-  padding: 0;
-  border-bottom: none;
-}
-
-@media screen and (min-width: 768px) {
-  .features .featuresInterview {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-  }
-  .features .featuresInterview .featuresItems {
-    width: 48%;
+    justify-content: space-between;
+    margin: 0 0 16px 0;
+    padding: 0 0 16px 0;
+    border-bottom: 1px solid #EBEBEB;
+}
+.features .featuresInterview .featuresItems .featuresItem a {
+    display: block;
+    width: 44%;
+}
+.features .featuresInterview .featuresItems .featuresItem a .featuresItemImage {
+    width: 100%;
+    height: 80px;
+    -o-object-fit: cover;
+       object-fit: cover;
+}
+.features .featuresInterview .featuresItems .featuresItem .title {
+    text-align: justify;
+    font-size: 14px;
+    width: 50%;
+}
+.features .featuresInterview .featuresItems .featuresItem:last-child {
     margin: 0;
-  }
-  .features .featuresInterview .interviewItems {
-    width: 48%;
-  }
+    padding: 0;
+    border-bottom: none;
 }
-
+@media screen and (min-width: 768px) {
+    .features .featuresInterview {
+        display: flex;
+        justify-content: space-between;
+    }
+    .features .featuresInterview .featuresItems {
+        width: 48%;
+        margin: 0;
+    }
+    .features .featuresInterview .interviewItems {
+        width: 48%;
+    }
+}
 @media screen and (min-width: 1024px) {
-  .features {
-    margin: 120px auto 0;
-  }
+    .features {
+        margin: 120px auto 0;
+    }
 }
-/*# sourceMappingURL=special.css.map */

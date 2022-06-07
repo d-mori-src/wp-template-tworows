@@ -1,133 +1,102 @@
 .present {
-  margin: 100px auto 0;
+    margin: 100px auto 0;
 }
-
 .present .presentContents .headTitle .presentIcon {
-  height: 16px;
-  position: relative;
+    height: 16px;
+    position: relative;
 }
-
 .present .presentContents .presentItems .presentItem {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: reverse;
-      -ms-flex-direction: column-reverse;
-          flex-direction: column-reverse;
-  margin: 0 0 20px 0;
-  padding: 0 0 20px 0;
-  border-bottom: 1px solid #EBEBEB;
+    display: flex;
+    flex-direction: column-reverse;
+    margin: 0 0 20px 0;
+    padding: 0 0 20px 0;
+    border-bottom: 1px solid #EBEBEB;
 }
-
 .present .presentContents .presentItems .presentItem:last-child {
-  margin: 0;
-  border-bottom: none;
-}
-
-.present .presentContents .presentItems .presentItem .leftPresent {
-  display: block;
-}
-
-.present .presentContents .presentItems .presentItem .leftPresent .presentImage {
-  width: 100%;
-  height: auto;
-  border-radius: 4px;
-}
-
-.present .presentContents .presentItems .presentItem .rightPresent {
-  margin: 0 0 16px 0;
-}
-
-.present .presentContents .presentItems .presentItem .rightPresent .title h3 {
-  text-align: justify;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 1.5;
-  margin: 0 0 12px 0;
-}
-
-.present .presentContents .presentItems .presentItem .rightPresent .title p {
-  text-align: justify;
-  font-size: 12px;
-  line-height: 1.7;
-  margin: 0 0 8px 0;
-}
-
-.present .presentContents .presentItems .presentItem .rightPresent .text {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
-  font-size: 12px;
-  line-height: 1.7;
-}
-
-.present .presentContents .presentItems .presentItem .rightPresent .text span {
-  display: block;
-  color: #BB7777;
-}
-
-.present .presentContents .presentItems .presentItem .rightPresent .text .presentBtn {
-  display: block;
-  letter-spacing: 0;
-  color: #fff;
-  padding: 8px 24px;
-  border-radius: 4px;
-  background: #BB7777;
-}
-
-@media screen and (min-width: 768px) {
-  .present .presentContents .presentItems .presentItem {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-  }
-  .present .presentContents .presentItems .presentItem .leftPresent {
-    width: 34%;
-  }
-  .present .presentContents .presentItems .presentItem .rightPresent {
-    width: 60%;
     margin: 0;
-  }
+    border-bottom: none;
 }
-
-@media screen and (min-width: 1024px) {
-  .present {
-    margin: 120px auto;
-  }
-  .present .presentContents .presentItems .presentItem .rightPresent .title h3 {
-    margin: 0 0 14px 0;
-  }
-  .present .presentContents .presentItems .presentItem .rightPresent .title p {
+.present .presentContents .presentItems .presentItem .leftPresent {
+    display: block;
+}
+.present .presentContents .presentItems .presentItem .leftPresent .presentImage {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+.present .presentContents .presentItems .presentItem .rightPresent {
     margin: 0 0 16px 0;
-  }
-  .present .presentContents .presentItems .presentItem .rightPresent .text .presentBtn {
-    padding: 12px 32px;
-  }
 }
-
+.present .presentContents .presentItems .presentItem .rightPresent .title h3 {
+    text-align: justify;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+    margin: 0 0 12px 0;
+}
+.present .presentContents .presentItems .presentItem .rightPresent .title p {
+    text-align: justify;
+    font-size: 12px;
+    line-height: 1.7;
+    margin: 0 0 8px 0;
+}
+.present .presentContents .presentItems .presentItem .rightPresent .text {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-size: 12px;
+    line-height: 1.7;
+}
+.present .presentContents .presentItems .presentItem .rightPresent .text span {
+    display: block;
+    color: #BB7777;
+}
+.present .presentContents .presentItems .presentItem .rightPresent .text .presentBtn {
+    display: block;
+    letter-spacing: 0;
+    color: #fff;
+    padding: 8px 24px;
+    border-radius: 4px;
+    background: #BB7777;
+}
+@media screen and (min-width: 768px) {
+    .present .presentContents .presentItems .presentItem {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .present .presentContents .presentItems .presentItem .leftPresent {
+        width: 34%;
+    }
+    .present .presentContents .presentItems .presentItem .rightPresent {
+        width: 60%;
+        margin: 0;
+    }
+}
+@media screen and (min-width: 1024px) {
+    .present {
+        margin: 120px auto;
+    }
+    .present .presentContents .presentItems .presentItem .rightPresent .title h3 {
+        margin: 0 0 14px 0;
+    }
+    .present .presentContents .presentItems .presentItem .rightPresent .title p {
+        margin: 0 0 16px 0;
+    }
+    .present .presentContents .presentItems .presentItem .rightPresent .text .presentBtn {
+        padding: 12px 32px;
+    }
+}
 @media screen and (min-width: 1120px) {
-  .present .presentContents .presentItems .presentItem .leftPresent {
-    width: 248px;
-    height: 180px;
-  }
-  .present .presentContents .presentItems .presentItem .leftPresent .presentImage {
-    height: 100%;
-    -o-object-fit: cover;
-       object-fit: cover;
-  }
-  .present .presentContents .presentItems .presentItem .rightPresent {
-    width: 390px;
-  }
+    .present .presentContents .presentItems .presentItem .leftPresent {
+        width: 248px;
+        height: 180px;
+    }
+    .present .presentContents .presentItems .presentItem .leftPresent .presentImage {
+        height: 100%;
+        -o-object-fit: cover;
+           object-fit: cover;
+    }
+    .present .presentContents .presentItems .presentItem .rightPresent {
+        width: 390px;
+    }
 }
-/*# sourceMappingURL=present.css.map */

@@ -1,96 +1,82 @@
 .specialDetail {
-  margin: 84px auto;
-  padding: 0;
-}
-
-.specialDetail .specialMainImage {
-  width: 100%;
-  height: 100%;
-  margin: 0 0 24px 0;
-}
-
-.specialDetail .innerSpacialDetail {
-  padding: 0 20px;
-}
-
-.specialDetail .innerSpacialDetail h1 {
-  color: #333;
-}
-
-.specialDetail .innerSpacialDetail .timestamp {
-  text-align: right;
-  color: #8a8a8a;
-}
-
-.specialDetail .innerSpacialDetail .spacialDetailImage {
-  width: 100%;
-  height: 100%;
-  margin: 0 0 16px 0;
-}
-
-.specialDetail .innerSpacialDetail p {
-  font-size: 12px;
-  line-height: 1.7;
-  margin: 0 0 24px 0;
-}
-
-.specialDetail .innerSpacialDetail h2 {
-  font-size: 16px;
-  font-weight: 500;
-  color: #333;
-  line-height: 1.4;
-  margin: 0 0 24px 0;
-  padding: 0 0 0 16px;
-  border-left: 2px solid #333;
-}
-
-.specialDetail .innerSpacialDetail h4 {
-  font-size: 11px;
-  font-weight: 300;
-  color: #8a8a8a;
-  margin: 0 0 24px 0;
-}
-
-.specialDetail .innerSpacialDetail table {
-  border-collapse: collapse;
-  width: 100%;
-  margin: 0 0 16px 0;
-}
-
-.specialDetail .innerSpacialDetail table tr {
-  border-top: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
-}
-
-.specialDetail .innerSpacialDetail table tr td {
-  font-size: 12px;
-  line-height: 1.6;
-  padding: 10px 0;
-  vertical-align: top;
-}
-
-@media screen and (min-width: 768px) {
-  .specialDetail .specialMainImage {
-    width: 100%;
-    height: auto;
-    -o-object-fit: cover;
-       object-fit: cover;
-    margin: 0 0 24px 0;
-  }
-  .specialDetail .innerSpacialDetail {
+    margin: 84px auto;
     padding: 0;
-  }
-  .specialDetail .spacialDetailImage {
+}
+.specialDetail .specialMainImage {
     width: 100%;
-  }
-  .specialDetail table {
+    height: 100%;
     margin: 0 0 24px 0;
-  }
 }
-
+.specialDetail .innerSpacialDetail {
+    padding: 0 20px;
+}
+.specialDetail .innerSpacialDetail h1 {
+    color: #333;
+}
+.specialDetail .innerSpacialDetail .timestamp {
+    text-align: right;
+    color: #8a8a8a;
+}
+.specialDetail .innerSpacialDetail .spacialDetailImage {
+    width: 100%;
+    height: 100%;
+    margin: 0 0 16px 0;
+}
+.specialDetail .innerSpacialDetail p {
+    font-size: 12px;
+    line-height: 1.7;
+    margin: 0 0 24px 0;
+}
+.specialDetail .innerSpacialDetail h2 {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    line-height: 1.4;
+    margin: 0 0 24px 0;
+    padding: 0 0 0 16px;
+    border-left: 2px solid #333;
+}
+.specialDetail .innerSpacialDetail h4 {
+    font-size: 11px;
+    font-weight: 300;
+    color: #8a8a8a;
+    margin: 0 0 24px 0;
+}
+.specialDetail .innerSpacialDetail table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 0 0 16px 0;
+}
+.specialDetail .innerSpacialDetail table tr {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+.specialDetail .innerSpacialDetail table tr td {
+    font-size: 12px;
+    line-height: 1.6;
+    padding: 10px 0;
+    vertical-align: top;
+}
+@media screen and (min-width: 768px) {
+    .specialDetail .specialMainImage {
+        width: 100%;
+        height: auto;
+        -o-object-fit: cover;
+           object-fit: cover;
+        margin: 0 0 24px 0;
+    }
+    .specialDetail .innerSpacialDetail {
+        padding: 0;
+    }
+    .specialDetail .spacialDetailImage {
+        width: 100%;
+    }
+    .specialDetail table {
+        margin: 0 0 24px 0;
+    }
+}
 @media screen and (min-width: 1024px) {
-  .specialDetail {
-    margin: 120px auto;
-  }
+    .specialDetail {
+        margin: 120px auto;
+    }
 }
-/*# sourceMappingURL=special_detail.css.map */

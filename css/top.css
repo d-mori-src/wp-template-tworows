@@ -1,12 +1,10 @@
 @media screen and (min-width: 768px) {
-  .top {
-    margin: 80px auto 0;
-  }
+    .top {
+        margin: 80px auto 0;
+    }
 }
-
 @media screen and (min-width: 1024px) {
-  .top {
-    margin: 100px auto 0;
-  }
+    .top {
+        margin: 100px auto 0;
+    }
 }
-/*# sourceMappingURL=top.css.map */

@@ -1,150 +1,121 @@
 header {
-  background: #FFFCFC;
-  padding: 20px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-}
-
-header .innerHeader {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-header .innerHeader .logo {
-  width: auto;
-  height: 38px;
-}
-
-header .innerHeader ul.pc-navi {
-  display: none;
-}
-
-header .innerHeader ul.icon {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-header .innerHeader ul.icon li {
-  text-align: center;
-  margin: 0 0 0 8px;
-}
-
-header .innerHeader ul.icon li a img {
-  height: 24px;
-}
-
-header .innerHeader ul.icon li a span {
-  display: block;
-  font-size: 10px;
-  letter-spacing: 0;
-  margin: 2px 0 0 0;
-}
-
-header .innerHeader ul.icon li .searchContents {
-  display: none;
-  position: fixed;
-  top: 76px;
-  left: 0;
-  right: 0;
-  margin: auto;
-  padding: 20px 40px 40px 40px;
-  background: #FFFCFC;
-}
-
-@media screen and (max-width: 374px) {
-  header .innerHeader .logo {
-    height: 24px;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  header .innerHeader {
-    width: 640px;
-    margin: 0 auto;
-  }
-  header .innerHeader ul.icon {
+    background: #FFFCFC;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
     right: 0;
-  }
+    z-index: 1000;
 }
-
-@media screen and (min-width: 1024px) {
-  header .innerHeader {
-    width: 880px;
-  }
-  header .innerHeader ul.pc-navi {
-    text-align: center;
-    display: -webkit-box;
-    display: -ms-flexbox;
+header .innerHeader {
     display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
-  header .innerHeader ul.pc-navi li {
-    margin: 0 16px;
-  }
-  header .innerHeader ul.pc-navi li a {
-    font-size: 16px;
-    font-weight: 500;
-    letter-spacing: 0;
-  }
-  header .innerHeader ul.pc-navi li a span {
-    display: block;
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 12px;
-    font-weight: 400;
-    margin: 0 0 4px 0;
-  }
-  header .innerHeader ul.pc-navi li a .eventLink {
-    color: #99BB05;
-  }
-  header .innerHeader ul.pc-navi li a .groumetLink {
-    color: #EE9E30;
-  }
-  header .innerHeader ul.pc-navi li a .newsLink {
-    color: #25AEBE;
-  }
-  header .innerHeader ul.pc-navi li a .featureLink {
-    color: #BB7777;
-  }
-  header .innerHeader ul.icon li {
-    margin: 0 0 0 16px;
-  }
+    justify-content: space-between;
 }
-
+header .innerHeader .logo {
+    width: auto;
+    height: 38px;
+}
+header .innerHeader ul.pc-navi {
+    display: none;
+}
+header .innerHeader ul.icon {
+    display: flex;
+}
+header .innerHeader ul.icon li {
+    text-align: center;
+    margin: 0 0 0 8px;
+}
+header .innerHeader ul.icon li a img {
+    height: 24px;
+}
+header .innerHeader ul.icon li a span {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 0;
+    margin: 2px 0 0 0;
+}
+header .innerHeader ul.icon li .searchContents {
+    display: none;
+    position: fixed;
+    top: 76px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding: 20px 40px 40px 40px;
+    background: #FFFCFC;
+}
+@media screen and (max-width: 374px) {
+    header .innerHeader .logo {
+        height: 24px;
+    }
+}
+@media screen and (min-width: 768px) {
+    header .innerHeader {
+        width: 640px;
+        margin: 0 auto;
+    }
+    header .innerHeader ul.icon {
+        right: 0;
+    }
+}
+@media screen and (min-width: 1024px) {
+    header .innerHeader {
+        width: 880px;
+    }
+    header .innerHeader ul.pc-navi {
+        text-align: center;
+        display: flex;
+        align-items: center;
+    }
+    header .innerHeader ul.pc-navi li {
+        margin: 0 16px;
+    }
+    header .innerHeader ul.pc-navi li a {
+        font-size: 16px;
+        font-weight: 500;
+        letter-spacing: 0;
+    }
+    header .innerHeader ul.pc-navi li a span {
+        display: block;
+        font-family: "Josefin Sans", sans-serif;
+        font-size: 12px;
+        font-weight: 400;
+        margin: 0 0 4px 0;
+    }
+    header .innerHeader ul.pc-navi li a .eventLink {
+        color: #99BB05;
+    }
+    header .innerHeader ul.pc-navi li a .groumetLink {
+        color: #EE9E30;
+    }
+    header .innerHeader ul.pc-navi li a .newsLink {
+        color: #25AEBE;
+    }
+    header .innerHeader ul.pc-navi li a .featureLink {
+        color: #BB7777;
+    }
+    header .innerHeader ul.icon li {
+        margin: 0 0 0 16px;
+    }
+}
 @media screen and (min-width: 1120px) {
-  header .innerHeader {
-    width: 1024px;
-  }
+    header .innerHeader {
+        width: 1024px;
+    }
 }
 
 .spNavi {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  margin: 80px auto 24px;
-  padding: 18px 20px 20px;
-  background: #F5F3F3;
+    display: flex;
+    justify-content: space-between;
+    margin: 80px auto 24px;
+    padding: 18px 20px 20px;
+    background: #F5F3F3;
 }
-
 .spNavi li {
-  font-size: 11px;
+    font-size: 11px;
 }
-
 @media screen and (min-width: 768px) {
-  .spNavi {
-    display: none;
-  }
+    .spNavi {
+        display: none;
+    }
 }
-/*# sourceMappingURL=header.css.map */
